@@ -3,50 +3,281 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="PrivacyBrew reads what Android already exposes about your installed apps and explains it in plain language — entirely on your device. No accounts, no analytics, no ads, no INTERNET permission.">
 <link rel="icon" type="image/png" href="assets/img/favicon-32.png">
 <link rel="apple-touch-icon" href="assets/img/favicon-180.png">
+<link rel="stylesheet" href="assets/css/style.css">
 <title>PrivacyBrew — See what's brewing in your data</title>
-<style>
-  :root { --bg:#1a140f; --panel:#241a13; --accent:#d99a5b; --accent-2:#6b8f71; --text:#f3e9dd; --text-dim:#b9a894; }
-  * { box-sizing: border-box; }
-  body {
-    margin:0; font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,sans-serif;
-    background: radial-gradient(circle at 30% 20%, #2a1f16, var(--bg)); color: var(--text);
-    min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px;
-  }
-  .card {
-    max-width:560px; text-align:center; background: var(--panel); border:1px solid #3a2c1f;
-    border-radius:20px; padding:48px 36px;
-  }
-  .logo { width:72px; height:72px; margin-bottom:8px; border-radius:16px; }
-  h1 { font-size:1.8rem; margin:0 0 6px; letter-spacing:-0.01em; }
-  .tagline { color: var(--accent); font-size:1rem; margin-bottom:24px; font-weight:600; }
-  p { color: var(--text-dim); line-height:1.6; font-size:0.95rem; }
-  .badge {
-    display:inline-block; margin-top:20px; padding:6px 16px; border-radius:999px;
-    background: rgba(217,154,91,0.12); color: var(--accent); font-size:0.78rem; font-weight:700;
-    text-transform:uppercase; letter-spacing:0.05em;
-  }
-  a { color: var(--accent-2); text-decoration:none; }
-  a:hover { text-decoration:underline; }
-  .footer { margin-top:28px; font-size:0.78rem; color:#6b5c4a; }
-</style>
 </head>
 <body>
-  <div class="card">
-    <img class="logo" src="assets/img/logo.png" alt="PrivacyBrew">
-    <h1>PrivacyBrew</h1>
-    <div class="tagline">See what's brewing in your data.</div>
-    <p>
-      Every app on your phone knows more than you'd expect. PrivacyBrew
-      shows you what's really being accessed, who's been forgotten about,
-      and where your data actually goes — so you can decide what happens
-      next.
-    </p>
-    <div class="badge">Coming soon to Google Play</div>
-    <div class="footer">
-      A BrewLabs project · <a href="/privacy.html">Privacy Policy</a>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="/">
+        <img src="assets/img/logo.png" alt="">
+        PrivacyBrew
+      </a>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="/privacy.html">Privacy Policy</a>
+      </div>
+      <a class="nav-cta" href="#cta">Coming soon</a>
     </div>
-  </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">For Android · On-device only</div>
+        <h1>See what's actually<br><em>brewing</em> in your data.</h1>
+        <p class="hero-sub">
+          Every app on your phone can see and do more than you'd expect.
+          PrivacyBrew reads what Android already exposes about the apps
+          you've installed and explains it in plain language — right on
+          your device, nothing sent anywhere.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#cta">Coming soon to Google Play</a>
+          <a class="btn btn-ghost" href="#how-it-works">See how it works</a>
+        </div>
+        <div class="hero-trust">
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/></svg>
+            No accounts or sign-in
+          </span>
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l22 22M8.5 8.5A5 5 0 0012 17a4.9 4.9 0 002.9-.9M16.7 16.7A9.4 9.4 0 0112 18c-6 0-10-6-10-6a17.6 17.6 0 015-5.5M9.5 4.3A9 9 0 0112 4c6 0 10 6 10 6a17.7 17.7 0 01-3.1 3.6"/></svg>
+            No analytics or ad SDKs
+          </span>
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M3 9h18M8 3v18"/></svg>
+            No INTERNET permission
+          </span>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img class="phone-back" src="assets/img/screenshots/learn.png" alt="">
+        <div class="phone"><img src="assets/img/screenshots/home.png" alt="PrivacyBrew home screen showing a privacy snapshot with unusual access and tracker counts"></div>
+      </div>
+    </div>
+  </header>
+
+  <section class="statement">
+    <div class="wrap reveal">
+      <blockquote>
+        Permission screens tell you what an app <strong>could</strong> do the
+        day you installed it. They don't tell you what it's <strong>still
+        doing</strong> six months later, or which of your other apps quietly
+        picked up the same access. That gap is where PrivacyBrew lives.
+      </blockquote>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">What PrivacyBrew does</div>
+        <h2>One scan, the whole picture.</h2>
+        <p>Everything below runs the moment you open the app — no setup, no
+        waiting, no account to create.</p>
+      </div>
+
+      <div class="bento">
+        <div class="card with-shot span-3 reveal">
+          <div class="card-body">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/></svg>
+            </div>
+            <h3>Your privacy snapshot</h3>
+            <p>Every app scanned at a glance — unusual access, tracker
+            counts, and apps you may have forgotten about, surfaced first
+            so you know exactly where to look.</p>
+          </div>
+          <div class="shot-wrap"><img src="assets/img/screenshots/home.png" alt="Home tab privacy snapshot"></div>
+        </div>
+
+        <div class="card with-shot span-3 reveal">
+          <div class="card-body">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+            </div>
+            <h3>App-by-app detail</h3>
+            <p>Tap any app to see exactly what it can access, which parts
+            are unusual for what it does, and how it compares to what its
+            developer discloses on the Play Store.</p>
+          </div>
+          <div class="shot-wrap"><img src="assets/img/screenshots/detail.png" alt="App detail screen showing access and unusual flags"></div>
+        </div>
+
+        <div class="card with-shot span-3 reveal">
+          <div class="card-body">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10M9 21V6M15 21v-8M21 21V3"/></svg>
+            </div>
+            <h3>Data-broker opt-out</h3>
+            <p>Direct links to the "people search" sites that sell your
+            info regardless of which apps you use — optional steps, laid
+            out plainly.</p>
+          </div>
+          <div class="shot-wrap"><img src="assets/img/screenshots/optout.png" alt="Opt-Out tab listing data broker sites"></div>
+        </div>
+
+        <div class="card with-shot span-3 reveal">
+          <div class="card-body">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+            </div>
+            <h3>Plain-language Learn</h3>
+            <p>No jargon, no scare tactics — short answers to the questions
+            people actually have about permissions and where data goes.</p>
+          </div>
+          <div class="shot-wrap"><img src="assets/img/screenshots/learn.png" alt="Learn tab with plain-language privacy topics"></div>
+        </div>
+
+        <div class="card span-3 reveal">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86l-8.16 14A2 2 0 004 21h16a2 2 0 001.87-3.14l-8.16-14a2 2 0 00-3.44 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+          </div>
+          <h3>Unusual access, flagged</h3>
+          <p>A messaging app wanting your camera makes sense. A flashlight
+          app wanting your contacts doesn't. We flag the mismatch, not
+          every permission.</p>
+        </div>
+
+        <div class="card trust span-3 reveal">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          </div>
+          <h3>Nothing leaves your phone</h3>
+          <p>PrivacyBrew has no INTERNET permission — it is technically
+          incapable of sending anything anywhere. Every screen is
+          recomputed live from your device, every time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how-it-works">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">How it works</div>
+        <h2>Three steps, no setup.</h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <span class="num">01 — SCAN</span>
+          <h3>Read what Android already knows</h3>
+          <p>PrivacyBrew asks Android's PackageManager for the apps
+          installed on your device and their already-granted permissions —
+          plain system metadata, not access to what's inside those apps.</p>
+        </div>
+        <div class="step reveal">
+          <span class="num">02 — UNDERSTAND</span>
+          <h3>Translated, not just listed</h3>
+          <p>Raw permission strings become plain sentences: what an app can
+          access, whether that's typical for what it does, and how many
+          trackers were detected inside it.</p>
+        </div>
+        <div class="step reveal">
+          <span class="num">03 — ACT</span>
+          <h3>Decide what happens next</h3>
+          <p>Jump straight to the right Android Settings page to revoke
+          access, check an app's Play Store data-safety label, or opt out
+          of a data broker — all optional, all up to you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Why PrivacyBrew</div>
+        <h2>Audits are common. Plain answers aren't.</h2>
+        <p>Most permission-audit tools stop at a list of technical strings.
+        PrivacyBrew is built around the question people actually ask next.</p>
+      </div>
+
+      <div class="reveal">
+        <div class="diff-row">
+          <div class="label">Explaining what it finds</div>
+          <div class="diff-col us">Plain-language "why it matters," in context</div>
+          <div class="diff-col them">Raw permission names and SDK identifiers</div>
+        </div>
+        <div class="diff-row">
+          <div class="label">Signal vs. noise</div>
+          <div class="diff-col us">Flags only access that's unusual for what an app does</div>
+          <div class="diff-col them">Lists every permission with equal weight</div>
+        </div>
+        <div class="diff-row">
+          <div class="label">Where your data goes</div>
+          <div class="diff-col us">On-device only — no INTERNET permission, period</div>
+          <div class="diff-col them">Often requires a network call to fetch results</div>
+        </div>
+        <div class="diff-row">
+          <div class="label">What you can do about it</div>
+          <div class="diff-col us">Deep-links to Settings, Play Store labels, and broker opt-outs</div>
+          <div class="diff-col them">Audit only — no path to action</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="roadmap" class="roadmap">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Sneak peek</div>
+        <h2>What's brewing next.</h2>
+        <p>Still in development — sharing it early rather than staying
+        quiet until it ships.</p>
+      </div>
+      <div class="roadmap-grid">
+        <div class="roadmap-card reveal">
+          <span class="roadmap-tag">In development</span>
+          <h3>An iOS companion app</h3>
+          <p>iOS doesn't expose the same permission APIs Android does, so
+          the iOS app focuses on education and guided links straight to the
+          right page in Settings.</p>
+        </div>
+        <div class="roadmap-card reveal">
+          <span class="roadmap-tag">In development</span>
+          <h3>Tablet &amp; foldable layouts</h3>
+          <p>A master-detail view for larger screens, so the app list and
+          an app's detail can sit side by side instead of swapping full
+          screens.</p>
+        </div>
+        <div class="roadmap-card reveal">
+          <span class="roadmap-tag">In development</span>
+          <h3>Match-my-wallpaper theming</h3>
+          <p>An opt-in Material You mode that pulls its color palette from
+          your wallpaper instead of PrivacyBrew's own brand colors.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cta" class="cta">
+    <div class="wrap reveal">
+      <div class="eyebrow">Android · Coming soon</div>
+      <h2>Currently in closed testing.</h2>
+      <p>PrivacyBrew is being tested ahead of its Google Play launch. The
+      Privacy Policy below is live today and describes exactly what the
+      shipped app will and won't do.</p>
+      <a class="btn btn-primary" href="/privacy.html">Read the Privacy Policy</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div>A BrewLabs project</div>
+      <div class="footer-links">
+        <a href="/privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
 </body>
 </html>

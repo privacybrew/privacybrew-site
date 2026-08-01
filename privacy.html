@@ -3,132 +3,113 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="PrivacyBrew's Privacy Policy: no accounts, no analytics, no ads, no INTERNET permission. Everything is read and shown entirely on your device.">
 <link rel="icon" type="image/png" href="assets/img/favicon-32.png">
 <link rel="apple-touch-icon" href="assets/img/favicon-180.png">
+<link rel="stylesheet" href="assets/css/style.css">
 <title>Privacy Policy — PrivacyBrew</title>
-<style>
-  :root { --bg:#1a140f; --panel:#241a13; --accent:#d99a5b; --accent-2:#6b8f71; --text:#f3e9dd; --text-dim:#b9a894; --border:#3a2c1f; }
-  * { box-sizing: border-box; }
-  body {
-    margin:0; font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,sans-serif;
-    background: var(--bg); color: var(--text); padding:48px 20px 80px;
-  }
-  .wrap { max-width:700px; margin:0 auto; }
-  h1 { color: var(--accent); font-size:1.7rem; margin-bottom:4px; }
-  h2 { color: var(--text); font-size:1.1rem; margin-top:36px; border-bottom:1px solid var(--border); padding-bottom:8px; }
-  .meta { color: var(--text-dim); font-size:0.85rem; margin-bottom:28px; }
-  .meta div { margin-bottom:2px; }
-  p, li { color: var(--text-dim); line-height:1.7; font-size:0.95rem; }
-  ul { padding-left: 22px; }
-  li { margin-bottom: 6px; }
-  .tldr {
-    background: var(--panel); border:1px solid var(--border); border-radius:12px;
-    padding:18px 22px; margin-bottom:8px; font-size:0.95rem;
-  }
-  .tldr strong { color: var(--accent); }
-  a { color: var(--accent-2); }
-  a:hover { text-decoration: none; }
-  .back { display:inline-block; margin-bottom:24px; font-size:0.85rem; }
-  code { background: var(--panel); padding:2px 6px; border-radius:5px; font-size:0.88em; }
-  .footer { margin-top:40px; font-size:0.78rem; color:#6b5c4a; }
-</style>
 </head>
 <body>
-  <div class="wrap">
-    <a class="back" href="/">← PrivacyBrew</a>
-    <h1>Privacy Policy — PrivacyBrew</h1>
-    <div class="meta">
-      <div><strong>Effective date:</strong> July 26, 2026</div>
-      <div><strong>App:</strong> PrivacyBrew (package <code>com.brewlabs.privacybrew</code>)</div>
-      <div><strong>Developer:</strong> BrewLabs</div>
-      <div><strong>Contact:</strong> <a href="mailto:privacybrew@protonmail.com">privacybrew@protonmail.com</a></div>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="/">
+        <img src="assets/img/logo.png" alt="">
+        PrivacyBrew
+      </a>
+      <div class="nav-links">
+        <a href="/#features">Features</a>
+        <a href="/#how-it-works">How it works</a>
+        <a href="/#roadmap">Roadmap</a>
+        <a href="/privacy.html">Privacy Policy</a>
+      </div>
+      <a class="nav-cta" href="/#cta">Coming soon</a>
     </div>
+  </nav>
 
-    <div class="tldr">
-      <strong>The short version:</strong> PrivacyBrew doesn't collect your data.
-      It doesn't have accounts, ads, analytics, or crash-reporting SDKs, and it
-      can't connect to the internet on its own — the app has no INTERNET
-      permission at all. Everything it shows you is read and displayed
-      entirely on your device, and nothing about you or your installed apps
-      is ever sent anywhere by PrivacyBrew.
+  <main class="legal">
+    <div class="wrap">
+      <a class="legal-back" href="/">← PrivacyBrew</a>
+      <h1>Privacy Policy</h1>
+      <div class="legal-meta">
+        <div><strong>Effective date:</strong> July 26, 2026</div>
+        <div><strong>App:</strong> PrivacyBrew (package <code>com.brewlabs.privacybrew</code>)</div>
+        <div><strong>Developer:</strong> BrewLabs</div>
+        <div><strong>Contact:</strong> <a href="mailto:privacybrew@protonmail.com">privacybrew@protonmail.com</a></div>
+      </div>
+
+      <div class="tldr">
+        <strong>Short version:</strong> PrivacyBrew doesn't collect your
+        data. No accounts, no ads, no analytics — and no INTERNET
+        permission, so it's technically incapable of sending anything off
+        your device. The rest of this page explains that permission by
+        permission, so you don't have to take our word for it.
+      </div>
+
+      <h2>What PrivacyBrew reads, and why</h2>
+      <p>PrivacyBrew reads information Android already exposes about your
+      installed apps — their names, permissions, and optionally when they
+      were last used — and displays it in plain language, entirely on your
+      device. It requests exactly two permissions:</p>
+      <p><strong>QUERY_ALL_PACKAGES</strong> — lets PrivacyBrew list your
+      installed apps and read their already-granted permissions via
+      Android's PackageManager. A plain metadata read: it can't open,
+      modify, or see data <em>inside</em> those apps, only their name and
+      permissions — the same information Android's own Settings app can
+      show you.</p>
+      <p><strong>PACKAGE_USAGE_STATS</strong> (optional, off by default) —
+      powers one opt-in feature: showing when you last opened an app.
+      Android requires granting this explicitly in system Settings, and
+      you can revoke it at any time; every other part of the app works the
+      same without it. Read on-device only, never transmitted.</p>
+      <p>PrivacyBrew does not request INTERNET, location, camera,
+      microphone, contacts, storage, or anything else — there was no
+      legitimate use for any of them, so we didn't ask.</p>
+
+      <h2>What PrivacyBrew doesn't do</h2>
+      <ul>
+        <li><strong>No account or sign-in</strong> — nothing to register for, nothing tied to your identity.</li>
+        <li><strong>No analytics, telemetry, or crash reporting.</strong> No third-party SDK reports back to us or anyone else.</li>
+        <li><strong>No advertising</strong> — no ad SDKs, no ad IDs used, no targeting.</li>
+        <li><strong>No data storage.</strong> Every screen is recomputed live from Android's current state each time you open it. The only exceptions are a handful of on-device UI preferences — like your chosen theme and text size — which are never scan data and never leave your device.</li>
+      </ul>
+
+      <h2>External links</h2>
+      <p>A few places in the app open an external link when you tap it —
+      for example, a data broker's opt-out page, or an app's Play Store
+      "Data safety" listing. Nothing is fetched automatically; it opens in
+      your browser or the Play Store app, under that site's own privacy
+      policy, and PrivacyBrew never reads or stores anything from it.</p>
+
+      <h2>Data retention</h2>
+      <p>There is nothing to retain. PrivacyBrew keeps no logs, databases,
+      or files of what it finds — on your device, on our servers (we don't
+      have any), or anywhere else. Uninstalling the app removes 100% of
+      anything it ever touched.</p>
+
+      <h2>Children's privacy</h2>
+      <p>PrivacyBrew isn't directed at children and doesn't knowingly
+      collect information from anyone, children included — it doesn't
+      collect information from anyone at all.</p>
+
+      <h2>Changes to this policy</h2>
+      <p>If a future update changes what data is read or how, we'll update
+      this page and the in-app version with a new effective date before
+      that change ships.</p>
+
+      <h2>Contact</h2>
+      <p>Questions about this policy: <a href="mailto:privacybrew@protonmail.com">privacybrew@protonmail.com</a></p>
     </div>
-    <p>The rest of this page explains exactly what that means, permission by
-    permission, so you don't have to take our word for it.</p>
+  </main>
 
-    <h2>What PrivacyBrew does</h2>
-    <p>PrivacyBrew reads information Android already exposes about the apps
-    installed on your device — their names, permissions, and (optionally)
-    when they were last used — and displays it back to you in plain
-    language, entirely on your device. It also links out to a few external,
-    informational resources (described below) that you can choose to open
-    or ignore.</p>
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div>A BrewLabs project</div>
+      <div class="footer-links">
+        <a href="/">Back to home</a>
+      </div>
+    </div>
+  </footer>
 
-    <h2>Permissions PrivacyBrew uses, and why</h2>
-    <p>PrivacyBrew requests exactly two permissions. Both exist solely to
-    power the app's core feature — showing you what's installed and what it
-    can access — and neither is used to identify you or send information
-    off your device.</p>
-    <p><strong>QUERY_ALL_PACKAGES</strong> — Lets PrivacyBrew see the list of
-    apps installed on your device and read their already-granted permissions
-    via Android's PackageManager. This is a plain system-metadata read: it
-    doesn't require you to approve anything at runtime, and it doesn't let
-    PrivacyBrew open, modify, or access data <em>inside</em> those other
-    apps — only their name and permission/metadata, the same information
-    Android's own Settings app can show you.</p>
-    <p><strong>PACKAGE_USAGE_STATS</strong> (optional, off by default) —
-    Powers a single opt-in feature: showing when you last opened an app, so
-    you can spot ones you've forgotten about that still hold sensitive
-    permissions. This is a special Android permission that can't be granted
-    through a normal in-app prompt — you have to explicitly turn it on for
-    PrivacyBrew in system Settings, and you can turn it off again at any
-    time. If you never grant it, every other part of the app works exactly
-    the same; you just won't see "last used" information. This data is
-    read on-device only and is never transmitted anywhere.</p>
-    <p>PrivacyBrew does <strong>not</strong> request INTERNET, location,
-    camera, microphone, contacts, storage, or any other permission — there
-    was no legitimate use for any of them, so we didn't ask.</p>
-
-    <h2>What PrivacyBrew does <em>not</em> do</h2>
-    <ul>
-      <li><strong>No account or sign-in.</strong> There's nothing to register for and nothing tied to your identity.</li>
-      <li><strong>No analytics, telemetry, or crash reporting.</strong> PrivacyBrew doesn't bundle any third-party SDK that reports back to us or anyone else.</li>
-      <li><strong>No advertising.</strong> No ad SDKs, no ad IDs used, no targeting.</li>
-      <li><strong>No data storage.</strong> PrivacyBrew doesn't save a database, file, or preference of what it scans — every screen is recomputed live from Android's current system state each time you open it. The only exceptions are four small on-device settings: whether you've dismissed the welcome intro screen, whether you've dismissed the guided tab tour, your chosen light/dark appearance, and your chosen text size. All are UI state, not personal or scan data, and none ever leave your device.</li>
-      <li><strong>No network calls of our own.</strong> The app has no INTERNET permission, so it is technically incapable of sending anything anywhere on its own.</li>
-    </ul>
-
-    <h2>External links</h2>
-    <p>A few places in the app open an external link when you explicitly tap
-    a button — for example, a data-broker's own opt-out page, or an app's
-    official Play Store "Data safety" listing. In every case:</p>
-    <ul>
-      <li>The link only opens when you tap it; nothing is fetched automatically.</li>
-      <li>It opens in your browser or the Google Play Store app, not inside PrivacyBrew — that external site or app handles the request, under its own privacy policy, not ours.</li>
-      <li>PrivacyBrew never reads, scrapes, or stores anything from those pages; it simply hands your device an address to open, the same as any regular hyperlink.</li>
-    </ul>
-
-    <h2>Data retention</h2>
-    <p>There is nothing to retain. PrivacyBrew keeps no logs, databases, or
-    files of what it finds on your device, on our servers (we don't have
-    any) or anywhere else. Uninstalling the app removes 100% of anything it
-    ever touched.</p>
-
-    <h2>Children's privacy</h2>
-    <p>PrivacyBrew is not directed at children and does not knowingly
-    collect any information from anyone, children included — it doesn't
-    collect information from anyone at all.</p>
-
-    <h2>Changes to this policy</h2>
-    <p>If this policy ever changes — for example, if a future version adds
-    a feature that changes what data is read or how — we'll update this
-    page and the in-app version with a new effective date before that
-    change ships.</p>
-
-    <h2>Contact</h2>
-    <p>Questions about this policy or PrivacyBrew's privacy practices:
-    <a href="mailto:privacybrew@protonmail.com">privacybrew@protonmail.com</a></p>
-
-    <div class="footer">A BrewLabs project · <a href="/">Back to home</a></div>
-  </div>
 </body>
 </html>
