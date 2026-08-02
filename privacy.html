@@ -71,7 +71,18 @@
         <li><strong>No account or sign-in</strong> — nothing to register for, nothing tied to your identity.</li>
         <li><strong>No analytics, telemetry, or crash reporting.</strong> No third-party SDK reports back to us or anyone else.</li>
         <li><strong>No advertising</strong> — no ad SDKs, no ad IDs used, no targeting.</li>
-        <li><strong>No data storage.</strong> Every screen is recomputed live from Android's current state each time you open it. The only exceptions are a handful of on-device UI preferences — like your chosen theme and text size — which are never scan data and never leave your device.</li>
+        <li><strong>No data storage.</strong> Most screens are recomputed
+        live from Android's current state every time you open them. A
+        few small things are kept on-device so the app doesn't lose
+        useful context between opens:
+          <ul>
+            <li>UI preferences — theme, text size, and whether you've dismissed the intro or tab tour</li>
+            <li>Access notices you've dismissed, so a reviewed item doesn't keep reappearing (Settings → Dismissed Access)</li>
+            <li>A snapshot of each app's last-seen permissions, used only to flag what's new since your last visit</li>
+            <li>Up to 90 days of daily tracker/sensitive-permission totals, used only for the Home screen trend line</li>
+          </ul>
+          None of it is transmitted anywhere, shared with anyone, or readable by anyone but you — uninstalling the app removes all of it.
+        </li>
       </ul>
 
       <h2>External links</h2>
@@ -82,10 +93,10 @@
       policy, and PrivacyBrew never reads or stores anything from it.</p>
 
       <h2>Data retention</h2>
-      <p>There is nothing to retain. PrivacyBrew keeps no logs, databases,
-      or files of what it finds — on your device, on our servers (we don't
-      have any), or anywhere else. Uninstalling the app removes 100% of
-      anything it ever touched.</p>
+      <p>PrivacyBrew keeps no logs, databases, or files on our servers —
+      we don't have any. The on-device items listed above stay only on
+      your device, only until you clear the app's data or uninstall it,
+      at which point 100% of it is gone.</p>
 
       <h2>Children's privacy</h2>
       <p>PrivacyBrew isn't directed at children and doesn't knowingly
