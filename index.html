@@ -64,14 +64,67 @@
     </div>
   </header>
 
-  <section class="statement">
-    <div class="wrap reveal">
-      <blockquote>
-        Permission screens tell you what an app <strong>could</strong> do the
-        day you installed it. They don't tell you what it's <strong>still
-        doing</strong> six months later, or which of your other apps quietly
-        picked up the same access. That gap is where PrivacyBrew lives.
-      </blockquote>
+  <section class="statement" id="why-it-matters">
+    <div class="wrap">
+      <div class="eyebrow reveal">The bigger picture</div>
+      <p class="why-lead reveal">
+        Data has become one of the defining currencies of the AI era —
+        and the phone in your pocket is one of its richest sources.
+      </p>
+      <p class="why-body reveal">
+        Every recommendation engine, ad platform, and AI model runs on
+        data, and a lot of it is gathered in ways apps don't advertise
+        up front. It usually shows up only where regulators require it —
+        the "Data safety" section buried in a Play Store listing, easy to
+        scroll past during an install.
+      </p>
+      <p class="why-body reveal">
+        Not every access is a red flag. A maps app needs your location —
+        it can't route you anywhere without it. A video-calling app needs
+        your camera and microphone — that's the entire feature. The real
+        question isn't <em>whether</em> an app asks for access, it's
+        whether that access matches what the app is actually for.
+      </p>
+
+      <div class="compare-grid reveal">
+        <div>
+          <div class="compare-col-label expected">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            Expected
+          </div>
+          <div class="compare-card">
+            <div class="pair">Maps <span>→</span> Location</div>
+            <p>Can't get you from A to B without knowing where "A" is.</p>
+          </div>
+          <div class="compare-card">
+            <div class="pair">Video calling <span>→</span> Camera &amp; microphone</div>
+            <p>That's not extra access — that's the whole feature.</p>
+          </div>
+        </div>
+        <div>
+          <div class="compare-col-label flag">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86l-8.16 14A2 2 0 004 21h16a2 2 0 001.87-3.14l-8.16-14a2 2 0 00-3.44 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+            Worth a second look
+          </div>
+          <div class="compare-card flag">
+            <div class="pair">Messaging app <span>→</span> Local network access</div>
+            <p>Sometimes it's for finding nearby devices — it can also be
+            used to fingerprint what else is on your network across apps.</p>
+          </div>
+          <div class="compare-card flag">
+            <div class="pair">News app <span>→</span> Camera access</div>
+            <p>Fine if it scans documents or codes. If it doesn't do
+            either, that access is doing something else.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="why-bridge reveal">
+        PrivacyBrew doesn't tell you an app is guilty — it tells you
+        what's unusual for what an app does, and lets you decide. The
+        goal is awareness, not alarm.
+        <a href="#features">See how it works ↓</a>
+      </p>
     </div>
   </section>
 
