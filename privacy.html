@@ -53,10 +53,19 @@
       device. It requests exactly two permissions:</p>
       <p><strong>QUERY_ALL_PACKAGES</strong> — lets PrivacyBrew list your
       installed apps and read their already-granted permissions via
-      Android's PackageManager. A plain metadata read: it can't open,
-      modify, or see data <em>inside</em> those apps, only their name and
-      permissions — the same information Android's own Settings app can
-      show you.</p>
+      Android's PackageManager. By default this is a plain metadata read:
+      just each app's name and permissions — the same information
+      Android's own Settings app can show you.</p>
+      <p>One additional feature, <strong>Deep Tracker Scan</strong>
+      (Settings → Advanced), is fully opt-in and off by default, and uses
+      this same permission to go further: with your explicit consent, it
+      reads the actual installed code of other apps directly from your
+      device's storage, to detect tracker/ad SDKs invisible to the
+      metadata-only method above. This never runs automatically or in the
+      background — only when you enable it and tap "Scan Now." The only
+      thing kept is a small list of detected SDK names per app; none of
+      the other app's actual code, resources, or any other data is copied,
+      stored, or sent anywhere.</p>
       <p><strong>PACKAGE_USAGE_STATS</strong> (optional, off by default) —
       powers one opt-in feature: showing when you last opened an app.
       Android requires granting this explicitly in system Settings, and
@@ -80,6 +89,7 @@
             <li>Access notices you've dismissed, so a reviewed item doesn't keep reappearing (Settings → Dismissed Access)</li>
             <li>A snapshot of each app's last-seen permissions, used only to flag what's new since your last visit</li>
             <li>Up to 90 days of daily tracker/sensitive-permission totals, used only for the Home screen trend line</li>
+            <li>If you've enabled the opt-in Deep Tracker Scan feature (off by default): a cache of which tracker SDKs were found in each scanned app's actual code, per app version, so an unchanged app isn't re-scanned every time — turning the feature off stops it being used immediately, and "Clear cached results" deletes it entirely</li>
           </ul>
           None of it is transmitted anywhere, shared with anyone, or readable by anyone but you — uninstalling the app removes all of it.
         </li>
