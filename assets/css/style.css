@@ -3,17 +3,17 @@
    and product feel like one thing, not two. */
 
 :root {
-  --bg: #1a140f;
-  --bg-2: #150f0b;
-  --panel: #241a13;
-  --panel-2: #2c2018;
-  --border: #3a2c1f;
-  --accent: #d99a5b;
-  --accent-dim: #a97a48;
-  --accent-2: #6b8f71;
-  --text: #f3e9dd;
-  --text-dim: #b9a894;
-  --text-faint: #6b5c4a;
+  --bg: #120a1a;
+  --bg-2: #0d0712;
+  --panel: #1f1329;
+  --panel-2: #281a35;
+  --border: #3a2c4a;
+  --accent: #9b6dd1;
+  --accent-dim: #7a52ad;
+  --accent-2: #5fae96;
+  --text: #f0eaf7;
+  --text-dim: #b8a8c9;
+  --text-faint: #6b5c7d;
   --radius-lg: 24px;
   --radius-md: 16px;
   --radius-sm: 10px;
@@ -112,12 +112,12 @@ img { max-width: 100%; display: block; }
   letter-spacing: 0.04em;
   padding: 8px 16px;
   border-radius: 999px;
-  background: rgba(217, 154, 91, 0.12);
+  background: rgba(155, 109, 209, 0.12);
   color: var(--accent) !important;
-  border: 1px solid rgba(217, 154, 91, 0.3);
+  border: 1px solid rgba(155, 109, 209, 0.3);
   white-space: nowrap;
 }
-.nav-cta:hover { text-decoration: none; background: rgba(217, 154, 91, 0.2); }
+.nav-cta:hover { text-decoration: none; background: rgba(155, 109, 209, 0.2); }
 
 .nav-toggle { display: none; }
 
@@ -137,7 +137,7 @@ img { max-width: 100%; display: block; }
   width: 900px;
   height: 700px;
   transform: translateX(-50%);
-  background: radial-gradient(circle, rgba(217, 154, 91, 0.16), transparent 65%);
+  background: radial-gradient(circle, rgba(155, 109, 209, 0.16), transparent 65%);
   pointer-events: none;
 }
 
@@ -190,7 +190,7 @@ img { max-width: 100%; display: block; }
   background: var(--accent);
   color: #24170b;
 }
-.btn-primary:hover { background: #e5aa6c; text-decoration: none; }
+.btn-primary:hover { background: #b088dd; text-decoration: none; }
 
 .btn-ghost {
   color: var(--text-dim);
@@ -379,7 +379,7 @@ section { padding: 88px 0; }
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(217, 154, 91, 0.14);
+  background: rgba(155, 109, 209, 0.14);
   margin-bottom: 20px;
 }
 .card-icon svg { width: 20px; height: 20px; stroke: var(--accent); }
@@ -537,7 +537,7 @@ section { padding: 88px 0; }
   border: 1px dashed var(--border);
   border-radius: var(--radius-md);
   padding: 26px;
-  background: rgba(217, 154, 91, 0.03);
+  background: rgba(155, 109, 209, 0.03);
 }
 
 .roadmap-tag {
