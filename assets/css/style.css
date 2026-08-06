@@ -121,6 +121,46 @@ img { max-width: 100%; display: block; }
 
 .nav-toggle { display: none; }
 
+/* ---------- Mobile section tracker ---------- */
+/* Hidden by default (desktop) -- the top nav's anchor links already cover
+   this there. Shown only under the same 640px breakpoint where
+   .nav-links disappears (see Responsive section below), and only once
+   scrolled past the hero (toggled via the "visible" class in main.js). */
+.section-tracker {
+  display: none;
+  position: fixed;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%) translateY(12px);
+  z-index: 60;
+  background: rgba(31, 19, 41, 0.92);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px;
+  gap: 2px;
+  max-width: calc(100vw - 24px);
+  overflow-x: auto;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.section-tracker.visible { opacity: 1; transform: translateX(-50%) translateY(0); }
+.section-tracker a {
+  flex: 0 0 auto;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--text-faint);
+  padding: 7px 13px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.section-tracker a:hover { color: var(--text-dim); text-decoration: none; }
+.section-tracker a.active {
+  color: #24170b;
+  background: var(--accent);
+}
+
 /* ---------- Hero ---------- */
 
 .hero {
@@ -714,6 +754,7 @@ section { padding: 88px 0; }
 
 @media (max-width: 640px) {
   .nav-links { display: none; }
+  .section-tracker { display: flex; }
   .hero { padding: 56px 0 40px; }
   section { padding: 64px 0; }
   .bento { grid-template-columns: 1fr; }
