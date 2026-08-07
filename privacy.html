@@ -80,9 +80,9 @@
         <li><strong>No account or sign-in</strong> — nothing to register for, nothing tied to your identity.</li>
         <li><strong>No analytics, telemetry, or crash reporting.</strong> No third-party SDK reports back to us or anyone else.</li>
         <li><strong>No advertising</strong> — no ad SDKs, no ad IDs used, no targeting.</li>
-        <li><strong>No data storage.</strong> Most screens are recomputed
-        live from Android's current state every time you open them. A
-        few small things are kept on-device so the app doesn't lose
+        <li><strong>No off-device data storage.</strong> Most screens are
+        recomputed live from Android's current state every time you open them. A
+        few small things are kept locally on your device so the app doesn't lose
         useful context between opens:
           <ul>
             <li>UI preferences — theme, text size, and whether you've dismissed the intro or tab tour</li>
@@ -103,6 +103,17 @@
       "Data safety" listing. Nothing is fetched automatically; it opens in
       your browser or the Play Store app, under that site's own privacy
       policy, and PrivacyBrew never reads or stores anything from it.</p>
+
+      <h2>This website</h2>
+      <p>Everything above describes the <strong>PrivacyBrew Android app</strong>.
+      This website (privacybrew.app) is a separate, static, script-free
+      page: it doesn't use cookies, analytics, or tracking pixels of any
+      kind. It's hosted on GitHub Pages, which — like any web host —
+      automatically logs basic connection data (e.g. IP address, browser
+      type, request timestamp) as part of serving the page; we don't
+      control or access those logs beyond what GitHub's own hosting
+      infrastructure retains. See <a href="https://docs.github.com/en/pages">GitHub Pages' documentation</a>
+      for details on that infrastructure-level logging.</p>
 
       <h2>Data retention</h2>
       <p>PrivacyBrew keeps no logs, databases, or files on our servers —
