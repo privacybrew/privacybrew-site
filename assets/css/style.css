@@ -587,7 +587,8 @@ section { padding: 88px 0; }
 
 .roadmap-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 340px));
+  justify-content: center;
   gap: 20px;
 }
 
