@@ -470,30 +470,64 @@ section { padding: 88px 0; }
 .card.span-3 { grid-column: span 3; }
 .card.span-2 { grid-column: span 2; }
 
-.card.with-shot {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  padding-bottom: 0;
+.card.trust {
+  background: transparent;
+  border: 1px dashed var(--border);
 }
 
-.card.with-shot .card-body { padding: 0; }
-.card.with-shot .shot-wrap {
+/* ---------- Screenshot gallery (horizontal, scroll-snap) ----------
+   Previously these 4 screenshots sat in the bento grid as full-height
+   phone mockups, one after another -- on a single-column mobile layout
+   that's ~4 phone-heights of scrolling for one section. A horizontal,
+   swipeable strip keeps all 4 visible in far less vertical space.
+   Deliberately plain CSS scroll-snap (no scroll-jacking/JS-driven
+   pinning): native momentum scroll on touch, works with mouse-wheel/
+   trackpad/keyboard out of the box, respects prefers-reduced-motion by
+   default, and needs zero new JS -- consistent with this site staying
+   dependency-free (see main.js's own comment to that effect). The next
+   card intentionally peeks in at the right edge on both desktop and
+   mobile as the "there's more, swipe" affordance, instead of an
+   explicit arrow/dot indicator. */
+
+.shot-gallery {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: 4px;
+  padding: 4px 4px 18px;
+  margin: 0 0 28px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+.shot-gallery::-webkit-scrollbar { height: 6px; }
+.shot-gallery::-webkit-scrollbar-track { background: transparent; }
+.shot-gallery::-webkit-scrollbar-thumb { background: var(--border); border-radius: 999px; }
+
+.shot-gallery-item {
+  flex: 0 0 300px;
+  scroll-snap-align: start;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 28px 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.shot-gallery-item .shot-wrap {
   margin-top: auto;
   display: flex;
   justify-content: center;
   padding-top: 8px;
 }
 
-.card.with-shot .shot-wrap img {
+.shot-gallery-item .shot-wrap img {
   width: 210px;
   border-radius: 16px 16px 0 0;
   box-shadow: 0 -10px 40px -12px rgba(0,0,0,0.5);
-}
-
-.card.trust {
-  background: transparent;
-  border: 1px dashed var(--border);
 }
 
 /* ---------- How it works ---------- */
@@ -753,6 +787,7 @@ section { padding: 88px 0; }
   .phone-back { display: none; }
   .bento { grid-template-columns: repeat(2, 1fr); }
   .card.span-4, .card.span-3, .card.span-2 { grid-column: span 2; }
+  .shot-gallery-item { flex-basis: 260px; }
   .steps { grid-template-columns: 1fr; gap: 40px; }
   .roadmap-grid { grid-template-columns: 1fr; }
   .diff-row { grid-template-columns: 1fr; gap: 10px; }
@@ -774,6 +809,11 @@ section { padding: 88px 0; }
   .bento { grid-template-columns: 1fr; }
   .card.span-4, .card.span-3, .card.span-2 { grid-column: span 1; }
   .footer-inner { flex-direction: column; align-items: flex-start; }
+
+  /* Sized so the current card plus a clear peek of the next one both
+     fit the screen width -- the "swipe for more" cue this gallery
+     relies on instead of an arrow/dot indicator. */
+  .shot-gallery-item { flex-basis: 72vw; }
 
   /* Smallest body-copy sizes read as cramped on a real phone screen even
      though they're reasonable on desktop. Bump just the paragraph-level
