@@ -438,13 +438,20 @@ section { padding: 88px 0; }
   align-items: center;
   justify-content: center;
   background: rgba(155, 109, 209, 0.14);
-  margin-bottom: 20px;
+  flex-shrink: 0;
 }
 .card-icon svg { width: 20px; height: 20px; stroke: var(--accent); }
 
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
 .card h3 {
   font-size: 1.15rem;
-  margin: 0 0 10px;
+  margin: 0;
   letter-spacing: -0.01em;
 }
 
@@ -466,14 +473,12 @@ section { padding: 88px 0; }
   padding-bottom: 0;
 }
 
-.card.with-shot .card-body { padding: 0 32px 0 0; }
+.card.with-shot .card-body { padding: 0; }
 .card.with-shot .shot-wrap {
   margin-top: auto;
   display: flex;
   justify-content: center;
-  background: var(--bg-2);
-  border-top: 1px solid var(--border);
-  padding-top: 28px;
+  padding-top: 8px;
 }
 
 .card.with-shot .shot-wrap img {
