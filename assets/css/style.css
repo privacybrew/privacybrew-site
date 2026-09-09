@@ -546,8 +546,8 @@ section { padding: 88px 0; }
 
 .step-header {
   display: flex;
-  align-items: center;
-  gap: 12px;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .step .num {
@@ -555,7 +555,6 @@ section { padding: 88px 0; }
   font-weight: 700;
   color: var(--accent);
   letter-spacing: 0.06em;
-  white-space: nowrap;
 }
 
 .step h3 {
