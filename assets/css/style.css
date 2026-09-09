@@ -757,8 +757,25 @@ section { padding: 88px 0; }
   .nav-links { display: none; }
   .section-tracker { display: flex; }
   .hero { padding: 56px 0 40px; }
+  /* On phones the hero phone mockup previously filled the entire first
+     screen (order: -1 above), pushing the headline below the fold.
+     Dropping it entirely here means the page opens on the value-prop
+     copy instead -- the screenshot is still shown later in the "Your
+     privacy snapshot" feature card. */
+  .hero-visual { display: none; }
   section { padding: 64px 0; }
   .bento { grid-template-columns: 1fr; }
   .card.span-4, .card.span-3, .card.span-2 { grid-column: span 1; }
   .footer-inner { flex-direction: column; align-items: flex-start; }
+
+  /* Smallest body-copy sizes read as cramped on a real phone screen even
+     though they're reasonable on desktop. Bump just the paragraph-level
+     text (not labels/eyebrows, which are intentionally small caps) and
+     loosen line-height slightly so the page reads less like a wall of
+     text. */
+  .card p { font-size: 1rem; line-height: 1.65; }
+  .compare-card p { font-size: 0.98rem; line-height: 1.6; }
+  .why-fact p { font-size: 1rem; }
+  .diff-col { font-size: 1.02rem; }
+  .step p { font-size: 1rem; }
 }
