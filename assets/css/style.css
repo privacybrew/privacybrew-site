@@ -684,6 +684,10 @@ section { padding: 88px 0; }
   margin: 0 auto 34px;
 }
 
+.cta-actions {
+  justify-content: center;
+}
+
 /* ---------- Footer ---------- */
 
 .footer {
