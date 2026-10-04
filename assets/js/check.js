@@ -383,13 +383,25 @@
           soWhat: "The test page didn't respond. A strict blocker or network setting may have stopped it, which " +
             "usually means third-party content is being blocked too.",
         };
+      } else if (r.unpartitioned && navigator.brave) {
+        // Brave isolates third-party storage per site by default ("ephemeral
+        // storage"), but still reports full access to the frame itself, so
+        // the frame can't see the isolation. Verified on Brave for Android.
+        results.cookies = { status: "good", short: "kept separate" };
+        view = {
+          status: "good",
+          statusText: "Kept separate per site",
+          soWhat: "Brave gives embedded content a separate, temporary cookie jar on each site, so a tracker on " +
+            "two different sites can't use cookies to follow you between them. This holds unless you turn " +
+            "Shields off for a site.",
+        };
       } else if (r.unpartitioned) {
         results.cookies = { status: "risk", short: "allowed" };
         view = {
           status: "risk",
           statusText: "Allowed",
           soWhat: "An ad or tracker embedded on one site can set a cookie and read it back on every other site " +
-            "that embeds it, building a list of where you go. Chrome still allows this by default.",
+            "that embeds it, building a list of where you go. Some browsers, including Chrome, allow this by default.",
           todo: tip("cookies"),
         };
       } else if (r.partitioned) {
