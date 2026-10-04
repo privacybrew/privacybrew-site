@@ -32,6 +32,8 @@
   }
 
   const shortCode = (hex) => (hex.slice(0, 4) + "-" + hex.slice(4, 8)).toUpperCase();
+  // Longer, ID-style version (16 hex digits) for the headline "browser ID".
+  const browserIdCode = (hex) => hex.slice(0, 16).toUpperCase().match(/.{4}/g).join("-");
   const withTimeout = (p, ms) => Promise.race([p, new Promise((r) => setTimeout(() => r("timeout"), ms))]);
 
   // ---------- browser detection (for "what you can do" tips) ----------
@@ -305,12 +307,14 @@
     const a = results.arrival || {};
     const combined = [a.browser, a.os, a.screen, a.tz, a.langs, navigator.hardwareConcurrency, canvas,
       gl.vendor, gl.renderer, audio, fonts.join(",")].join("|");
-    const code = shortCode(await sha256(combined));
+    const idHex = await sha256(combined);
+    const code = browserIdCode(idHex);
     const canvasCode = canvas ? shortCode(await sha256(canvas)) : "Not available";
     const audioCode = audio ? shortCode(await sha256(audio)) : "Not available";
 
     const rows = [
-      ["Your fingerprint code", code],
+      ["Your browser ID", code],
+      ["Browser ID string (user agent)", navigator.userAgent],
       ["Drawing test (canvas)", scrambled ? `${canvasCode} (scrambled by your browser)` : canvasCode],
       ["Graphics card (WebGL)", gl.renderer || "Not shared"],
       ["Audio test", audioCode],
@@ -324,7 +328,10 @@
       status: results.fingerprint.status,
       statusText: scrambled ? "Partly protected" : "Readable by any site",
       rows,
-      note: "Your fingerprint code changes if you switch browsers or devices. Compare it across browsers to see which ones give away less.",
+      note: "Your browser ID is built from all the tests here, the way tracking scripts build theirs. Trackers can " +
+        "use one like it to recognize you across websites without cookies. It changes if you switch browsers or " +
+        "devices: compare it across browsers to see which ones give away less. The user agent is the name tag your " +
+        "browser sends with every request.",
       soWhat: scrambled
         ? "Your browser adds tiny random changes to drawing tests, so trackers get a different answer on " +
           "different sites and can't easily link your visits. Other details above still help identify you."
@@ -561,7 +568,7 @@
   function resultsText() {
     const lines = [`PrivacyBrew Browser Privacy Check (${BROWSER})`, ""];
     (results.arrival ? results.arrival.rows : []).forEach(([k, v]) => lines.push(`${k}: ${v}`));
-    if (results.fingerprint) lines.push(`Fingerprint: ${results.fingerprint.short} (code ${results.fingerprint.code})`);
+    if (results.fingerprint) lines.push(`Fingerprint: ${results.fingerprint.short} (browser ID ${results.fingerprint.code})`);
     if (results.signals) lines.push(`Global Privacy Control: ${results.signals.short}`);
     if (results.cookies) lines.push(`Third-party cookies: ${results.cookies.short}`);
     if (results.trackers) lines.push(`Tracker blocking: ${results.trackers.short}`);
