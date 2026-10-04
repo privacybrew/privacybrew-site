@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Locks the page down: our own files only. The opt-in tests are the only
+     exceptions, and only for the exact third parties they name. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; frame-src https://privacybrew.github.io http://127.0.0.1:8766; connect-src 'self' https://www.google-analytics.com https://connect.facebook.net https://static.doubleclick.net https://bat.bing.com; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="See what any website learns about you the moment you arrive. Runs entirely in your browser; nothing is sent to PrivacyBrew.">
+<link rel="icon" type="image/png" href="assets/img/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/img/favicon-180.png">
+<link rel="stylesheet" href="assets/css/style.css">
+<title>Browser Privacy Check — PrivacyBrew</title>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="/">
+        <img src="assets/img/logo.png" alt="">
+        PrivacyBrew
+      </a>
+      <div class="nav-links">
+        <a href="/#features">Features</a>
+        <a href="/#how-it-works">How it works</a>
+        <a href="/check.html" aria-current="page">Browser check</a>
+        <a href="/privacy.html">Privacy Policy</a>
+      </div>
+      <a class="nav-cta" href="https://play.google.com/store/apps/details?id=com.brewlabs.privacybrew" target="_blank" rel="noopener">Get the app</a>
+    </div>
+  </nav>
+
+  <main class="check">
+    <div class="wrap">
+      <div class="eyebrow">Browser Privacy Check</div>
+      <h1>What does a website learn about you?</h1>
+      <p class="check-lead">The moment you open any website, your browser hands it a stack
+      of details about your device, without asking. This page shows you
+      exactly what, and what it means.</p>
+      <div class="check-promise">
+        <strong>Runs entirely in your browser.</strong> Nothing on this page is
+        sent to PrivacyBrew or anyone else, unless you choose to run one of
+        the clearly marked optional tests at the bottom.
+      </div>
+
+      <div class="check-summary" id="summary" aria-live="polite">
+        <span class="check-summary-label">Running checks…</span>
+      </div>
+
+      <!-- Filled in by check.js. Each section: what we found, so what, what you can do. -->
+      <section class="check-section" id="arrival">
+        <h2>1. What every site sees when you arrive</h2>
+        <div class="check-body"></div>
+      </section>
+
+      <section class="check-section" id="fingerprint">
+        <h2>2. Your browser fingerprint</h2>
+        <div class="check-body"></div>
+      </section>
+
+      <section class="check-section" id="signals">
+        <h2>3. Privacy signals your browser sends</h2>
+        <div class="check-body"></div>
+      </section>
+
+      <section class="check-section" id="cookies">
+        <h2>4. Third-party cookies</h2>
+        <div class="check-body"></div>
+      </section>
+
+      <section class="check-section check-optin" id="optin">
+        <h2>5. Optional tests</h2>
+        <div class="check-callout" role="note">
+          <strong>Heads up:</strong> these two tests can only work by contacting
+          outside companies. They're off until you start them.
+        </div>
+
+        <div class="check-card" id="trackers">
+          <h3>Do you have a tracker blocker?</h3>
+          <p>We try to load a few well-known tracking scripts (Google Analytics,
+          Google's ad network, Meta, Microsoft) and see whether something stops them.</p>
+          <p class="check-warn"><strong>Before you run it:</strong> if nothing blocks
+          them, your browser really does contact Google, Meta and Microsoft, and they see
+          your IP address. No cookies are sent, and nothing goes to PrivacyBrew.</p>
+          <button class="btn btn-ghost check-run" type="button" data-test="trackers">Run tracker test</button>
+          <div class="check-result"></div>
+        </div>
+
+        <div class="check-card" id="webrtc">
+          <h3>Can your IP address leak past a VPN?</h3>
+          <p>A browser feature for video calls (WebRTC) can reveal your real IP
+          address even when you use a VPN.</p>
+          <p class="check-warn"><strong>Before you run it:</strong> this asks a public
+          Google server to report your IP address back to your browser, so Google sees
+          the request. The result is shown only to you.</p>
+          <button class="btn btn-ghost check-run" type="button" data-test="webrtc">Run IP leak test</button>
+          <div class="check-result"></div>
+        </div>
+      </section>
+
+      <div class="check-actions">
+        <button class="btn btn-primary" type="button" id="copy-results">Copy my results</button>
+        <span class="check-copied" id="copied" aria-live="polite"></span>
+      </div>
+
+      <p class="check-footnote">Have Android? The <a href="https://play.google.com/store/apps/details?id=com.brewlabs.privacybrew" target="_blank" rel="noopener">PrivacyBrew app</a>
+      does the same for the apps on your phone.</p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div>A BrewLabs project</div>
+      <div class="footer-links">
+        <a href="/">Back to home</a>
+        <a href="/privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/check.js"></script>
+</body>
+</html>
