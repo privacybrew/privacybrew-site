@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
 <!-- Locks the page down: our own files only. The opt-in tests are the only
      exceptions, and only for the exact third parties they name. -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; frame-src https://privacybrew.github.io http://127.0.0.1:8766; connect-src 'self' https://www.google-analytics.com https://connect.facebook.net https://static.doubleclick.net https://bat.bing.com; base-uri 'none'; form-action 'none'">
@@ -21,13 +22,16 @@
         <img src="assets/img/logo.png" alt="">
         PrivacyBrew
       </a>
-      <div class="nav-links">
+      <div class="nav-links" id="nav-links">
         <a href="/#features">Features</a>
         <a href="/#how-it-works">How it works</a>
         <a href="/check.html" aria-current="page">Browser check</a>
         <a href="/privacy.html">Privacy Policy</a>
       </div>
       <a class="nav-cta" href="https://play.google.com/store/apps/details?id=com.brewlabs.privacybrew" target="_blank" rel="noopener">Get the app</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
 
@@ -35,66 +39,122 @@
     <div class="wrap">
       <div class="eyebrow">Browser Privacy Check</div>
       <h1>What does a website learn about you?</h1>
-      <p class="check-lead">The moment you open any website, your browser hands it a stack
-      of details about your device, without asking. This page shows you
-      exactly what, and what it means.</p>
+      <p class="check-lead">Each website gets data about your device when you open it.
+      This page shows that data and what it means.</p>
       <div class="check-promise">
-        <strong>Runs entirely in your browser.</strong> Nothing on this page is
-        sent to PrivacyBrew or anyone else, unless you choose to run one of
-        the clearly marked optional tests at the bottom.
+        <strong>All tests run in your browser.</strong> This page sends no data to PrivacyBrew.
       </div>
 
       <div class="check-summary" id="summary" aria-live="polite">
         <span class="check-summary-label">Running checks…</span>
       </div>
 
-      <!-- Filled in by check.js. Each section: what we found, so what, what you can do. -->
+      <!-- Filled in by check.js. -->
       <section class="check-section" id="arrival">
-        <h2>1. What every site sees when you arrive</h2>
+        <h2>1. What all websites see</h2>
+        <p class="check-intro">Your browser sends this data to each website automatically.</p>
+        <img class="check-diagram" src="assets/img/diagrams/arrival.svg" alt="Your browser sends device, system, browser, time zone, language and screen data to each website automatically." width="360" loading="lazy">
         <div class="check-body"></div>
       </section>
 
       <section class="check-section" id="fingerprint">
         <h2>2. Your browser fingerprint</h2>
+        <p class="check-intro">Trackers combine small tests into one ID. The ID is the same on all websites.</p>
+        <img class="check-diagram" src="assets/img/diagrams/fingerprint.svg" alt="Fonts, graphics, drawing and audio tests combine into one browser ID. Website A and Website B see the same ID." width="360" loading="lazy">
         <div class="check-body"></div>
+        <details class="check-details">
+          <summary>Show more</summary>
+          <p>The ID is not saved in a cookie. Clearing cookies does not remove it.</p>
+          <p>Each browser gives a different ID. Open this page in a different browser to compare.</p>
+          <p>The user agent is the name that your browser sends to each website.</p>
+        </details>
       </section>
 
       <section class="check-section" id="signals">
-        <h2>3. Privacy signals your browser sends</h2>
+        <h2>3. Does your browser say "do not sell my data"?</h2>
+        <p class="check-intro">Your browser can send this request to each website.</p>
+        <img class="check-diagram" src="assets/img/diagrams/signals.svg" alt="Your browser sends a do not sell my data request to the website. In some US states the website must obey it." width="360" loading="lazy">
         <div class="check-body"></div>
+        <details class="check-details">
+          <summary>Show more</summary>
+          <p>The name of the request is Global Privacy Control (GPC).</p>
+          <p>In some US states, the law tells websites to obey it. California and Colorado are examples.</p>
+          <p>Do Not Track is an older request. Most websites ignore it.</p>
+        </details>
+      </section>
+
+      <section class="check-section" id="autofill">
+        <h2>4. Autofill: hidden boxes</h2>
+        <p class="check-intro">Autofill can also fill in boxes that you cannot see.</p>
+        <img class="check-diagram" src="assets/img/diagrams/autofill.svg" alt="Your saved data fills the visible name box and hidden email, phone and address boxes. The website gets all of it." width="360" loading="lazy">
+        <div class="check-card">
+          <p class="check-good-note"><strong>Stays on this page.</strong> This page does not send or keep your data.</p>
+          <form class="check-autofill" id="autofill-form" autocomplete="on" novalidate>
+            <label for="af-name">Your name</label>
+            <input id="af-name" name="name" type="text" autocomplete="name"
+                   placeholder="Select a saved suggestion">
+            <!-- The hidden boxes this test is about. Off-screen, not display:none,
+                 because that's the trick a real site would use. -->
+            <div class="check-af-hidden" aria-hidden="true">
+              <input name="email" type="email" autocomplete="email" tabindex="-1">
+              <input name="tel" type="tel" autocomplete="tel" tabindex="-1">
+              <input name="organization" type="text" autocomplete="organization" tabindex="-1">
+              <input name="address" type="text" autocomplete="address-line1" tabindex="-1">
+              <input name="address2" type="text" autocomplete="address-line2" tabindex="-1">
+              <input name="city" type="text" autocomplete="address-level2" tabindex="-1">
+              <input name="region" type="text" autocomplete="address-level1" tabindex="-1">
+              <input name="postal" type="text" autocomplete="postal-code" tabindex="-1">
+              <input name="country" type="text" autocomplete="country-name" tabindex="-1">
+            </div>
+          </form>
+          <div class="check-result" id="autofill-result"></div>
+          <button class="btn btn-ghost check-run" type="button" id="autofill-clear" hidden>Clear</button>
+        </div>
+        <details class="check-details">
+          <summary>Show more</summary>
+          <p>A website can show one box for your name. Hidden boxes can then get your email, phone and address.</p>
+          <p>Typing does not test anything. Use a saved suggestion from your browser.</p>
+          <p>Your data shows only on your screen. Select Clear or close the page to delete it.</p>
+        </details>
       </section>
 
       <section class="check-section" id="cookies">
-        <h2>4. Third-party cookies</h2>
+        <h2>5. Can ads follow you to other websites?</h2>
+        <p class="check-intro">One ad company is on many websites. Its cookie can identify you on each of them.</p>
+        <img class="check-diagram" src="assets/img/diagrams/cookies.svg" alt="The same ad company is on Website A and Website B. Its cookie identifies you on both, so it knows that you visited A and B." width="360" loading="lazy">
         <div class="check-body"></div>
+        <details class="check-details">
+          <summary>Show more</summary>
+          <p>A cookie is a small file that a website keeps in your browser. It lets the website remember you.</p>
+          <p>A third-party cookie comes from a different company on the page, for example an ad.</p>
+          <p>With these cookies, an ad company can make a list of the websites that you visit.</p>
+        </details>
       </section>
 
       <section class="check-section check-optin" id="optin">
-        <h2>5. Optional tests</h2>
+        <h2>6. Optional tests</h2>
         <div class="check-callout" role="note">
-          <strong>Heads up:</strong> these two tests can only work by contacting
-          outside companies. They're off until you start them.
+          <strong>Heads up:</strong> these two tests contact other companies.
+          They do not start until you select them.
         </div>
 
         <div class="check-card" id="trackers">
           <h3>Do you have a tracker blocker?</h3>
-          <p>We try to load a few well-known tracking scripts (Google Analytics,
-          Google's ad network, Meta, Microsoft) and see whether something stops them.</p>
-          <p class="check-warn"><strong>Before you run it:</strong> if nothing blocks
-          them, your browser really does contact Google, Meta and Microsoft, and they see
-          your IP address. No cookies are sent, and nothing goes to PrivacyBrew.</p>
-          <button class="btn btn-ghost check-run" type="button" data-test="trackers">Run tracker test</button>
+          <p>This test tries to load tracker scripts. It shows if something stops them.</p>
+          <img class="check-diagram" src="assets/img/diagrams/trackers.svg" alt="This page tries to load tracker scripts from Google, Meta and Microsoft. A blocker can stop them." width="360" loading="lazy">
+          <p class="check-warn"><strong>Before you start:</strong> if nothing stops the scripts,
+          Google, Meta and Microsoft see your IP address. The test sends no cookies.</p>
+          <button class="btn btn-ghost check-run" type="button" data-test="trackers">Start tracker test</button>
           <div class="check-result"></div>
         </div>
 
         <div class="check-card" id="webrtc">
-          <h3>Can your IP address leak past a VPN?</h3>
-          <p>A browser feature for video calls (WebRTC) can reveal your real IP
-          address even when you use a VPN.</p>
-          <p class="check-warn"><strong>Before you run it:</strong> this asks a public
-          Google server to report your IP address back to your browser, so Google sees
-          the request. The result is shown only to you.</p>
-          <button class="btn btn-ghost check-run" type="button" data-test="webrtc">Run IP leak test</button>
+          <h3>Can your IP address get past your VPN?</h3>
+          <p>WebRTC is a browser feature for video calls. It can show your real IP address.</p>
+          <img class="check-diagram" src="assets/img/diagrams/webrtc.svg" alt="Normal traffic goes through your VPN. WebRTC can go around the VPN and show your real IP address." width="360" loading="lazy">
+          <p class="check-warn"><strong>Before you start:</strong> this test asks a Google server
+          for your IP address. Google sees the request. Only you see the result.</p>
+          <button class="btn btn-ghost check-run" type="button" data-test="webrtc">Start IP leak test</button>
           <div class="check-result"></div>
         </div>
       </section>
@@ -119,6 +179,7 @@
     </div>
   </footer>
 
+  <script src="assets/js/main.js"></script>
   <script src="assets/js/check.js"></script>
 </body>
 </html>

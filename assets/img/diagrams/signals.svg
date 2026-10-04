@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 116" width="360" height="116" role="img">
+<title>Your browser sends a do not sell my data request to the website. In some US states the website must obey it.</title>
+<defs>
+<marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#9b6dd1"/></marker>
+<marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#e8a87c"/></marker>
+<marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#5fae96"/></marker>
+</defs>
+<g font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+<rect x="8" y="16" width="112" height="50" rx="10" fill="#281a35" stroke="#3a2c4a" stroke-width="1.5"/><text x="64.0" y="46.0" text-anchor="middle" font-size="14" font-weight="600" fill="#f0eaf7">Your browser</text><rect x="240" y="16" width="112" height="50" rx="10" fill="#281a35" stroke="#3a2c4a" stroke-width="1.5"/><text x="296.0" y="46.0" text-anchor="middle" font-size="14" font-weight="600" fill="#f0eaf7">Website</text><line x1="126" y1="41" x2="234" y2="41" stroke="#5fae96" stroke-width="2" stroke-linecap="round" marker-end="url(#g)"/><text x="180" y="32" text-anchor="middle" font-size="11" font-weight="600" fill="#5fae96">Do not sell my data</text><text x="296" y="88" text-anchor="middle" font-size="12" font-weight="400" fill="#b8a8c9">Some US states:</text><text x="296" y="105" text-anchor="middle" font-size="12" font-weight="600" fill="#f0eaf7">website must obey</text>
+</g>
+</svg>

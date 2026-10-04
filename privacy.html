@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
 <meta name="description" content="PrivacyBrew's Privacy Policy: no accounts, no analytics, no ads, no INTERNET permission. Everything is read and shown entirely on your device.">
 <link rel="icon" type="image/png" href="assets/img/favicon-32.png">
 <link rel="apple-touch-icon" href="assets/img/favicon-180.png">
@@ -17,14 +18,16 @@
         <img src="assets/img/logo.png" alt="">
         PrivacyBrew
       </a>
-      <div class="nav-links">
+      <div class="nav-links" id="nav-links">
         <a href="/#features">Features</a>
         <a href="/#how-it-works">How it works</a>
-        <a href="/#roadmap">Roadmap</a>
         <a href="/check.html">Browser check</a>
-        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/privacy.html" aria-current="page">Privacy Policy</a>
       </div>
       <a class="nav-cta" href="https://play.google.com/store/apps/details?id=com.brewlabs.privacybrew" target="_blank" rel="noopener">Get the app</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
 
@@ -155,6 +158,10 @@
       Microsoft (they see the request, without cookies), and the IP leak test
       asks a public Google server to report your IP address back to your
       browser. Neither result is sent to PrivacyBrew.</p>
+      <p>The autofill test shows what your browser's autofill would hand to a
+      form, including boxes you can't see. Anything it fills in stays on the
+      page, is shown only to you, is never sent or saved, and is cleared when you
+      tap Clear or leave the page.</p>
 
       <h2>Contact</h2>
       <p>Questions about this policy: <a href="mailto:privacybrew@protonmail.com">privacybrew@protonmail.com</a></p>
@@ -171,5 +178,6 @@
     </div>
   </footer>
 
+  <script src="assets/js/main.js"></script>
 </body>
 </html>

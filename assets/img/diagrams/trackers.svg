@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 110" width="360" height="110" role="img">
+<title>This page tries to load tracker scripts from Google, Meta and Microsoft. A blocker can stop them.</title>
+<defs>
+<marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#9b6dd1"/></marker>
+<marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#e8a87c"/></marker>
+<marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#5fae96"/></marker>
+</defs>
+<g font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+<rect x="6" y="30" width="96" height="50" rx="10" fill="#281a35" stroke="#3a2c4a" stroke-width="1.5"/><text x="54.0" y="60.0" text-anchor="middle" font-size="14" font-weight="600" fill="#f0eaf7">This page</text><line x1="106" y1="55" x2="140" y2="55" stroke="#9b6dd1" stroke-width="2" stroke-linecap="round" marker-end="url(#a)"/><circle cx="176" cy="55" r="32" fill="#281a35" stroke="#5fae96" stroke-width="1.5"/><text x="176" y="52" text-anchor="middle" font-size="11" font-weight="600" fill="#5fae96">Blocker</text><text x="176" y="67" text-anchor="middle" font-size="13" font-weight="700" fill="#5fae96">?</text><line x1="212" y1="55" x2="240" y2="55" stroke="#9b6dd1" stroke-width="2" stroke-linecap="round" stroke-dasharray="5 4" marker-end="url(#a)"/><rect x="244" y="22" width="112" height="66" rx="10" fill="#281a35" stroke="#3a2c4a" stroke-width="1.5"/><text x="300.0" y="53.0" text-anchor="middle" font-size="14" font-weight="600" fill="#f0eaf7">Google</text><text x="300.0" y="70.0" text-anchor="middle" font-size="12" fill="#b8a8c9">Meta, Microsoft</text>
+</g>
+</svg>

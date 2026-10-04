@@ -1,7 +1,7 @@
 // PrivacyBrew Browser Privacy Check.
 // Everything here runs in the visitor's browser. Nothing is sent to
 // PrivacyBrew. The only network requests are the two opt-in tests in
-// section 5, and only after the visitor taps them.
+// section 6, and only after the visitor taps them.
 
 (() => {
   "use strict";
@@ -57,19 +57,20 @@
       Chrome: "In Chrome: Settings › Privacy and security › Third-party cookies › Block third-party cookies.",
       Edge: "In Edge: Settings › Privacy, search, and services › Cookies › turn on Block third-party cookies.",
       Opera: "In Opera: Settings › Privacy & security › Third-party cookies › Block third-party cookies.",
-      "Samsung Internet": "In Samsung Internet: Settings › Privacy › turn on Smart anti-tracking and block third-party cookies.",
-      default: "Look for \"Block third-party cookies\" in your browser's privacy settings.",
+      "Samsung Internet": "In Samsung Internet: Settings › Privacy › turn on Smart anti-tracking.",
+      default: "In your browser privacy settings, find \"Block third-party cookies\" and turn it on.",
     },
     fingerprint: {
-      Chrome: "Chrome doesn't resist fingerprinting on its own. Brave and Firefox (Enhanced Tracking Protection set to Strict) do.",
-      Edge: "In Edge, set Tracking prevention to Strict (Settings › Privacy, search, and services). It blocks known fingerprinting scripts, but doesn't scramble these readouts.",
-      Firefox: "In Firefox, set Enhanced Tracking Protection to Strict (Settings › Privacy & Security) to block known fingerprinting scripts.",
-      Safari: "Safari adds extra fingerprinting protection in Private Browsing windows.",
-      default: "Browsers like Brave and Firefox (Strict mode) make fingerprinting harder.",
+      Chrome: "Chrome does not protect you from fingerprints. Brave does. Firefox does when you set it to Strict.",
+      Edge: "In Edge: Settings › Privacy, search, and services › set Tracking prevention to Strict.",
+      Firefox: "In Firefox: Settings › Privacy & Security › set Enhanced Tracking Protection to Strict.",
+      Safari: "Safari gives more protection in Private Browsing windows.",
+      default: "Brave and Firefox (Strict mode) give more protection from fingerprints.",
     },
     gpc: {
       Firefox: "In Firefox: Settings › Privacy & Security › turn on \"Tell websites not to sell or share my data\".",
-      default: `${BROWSER === "your browser" ? "Your browser" : BROWSER} doesn't send this signal on its own. Brave, DuckDuckGo and Firefox can; in other browsers it takes an extension.`,
+      default: `${BROWSER === "your browser" ? "Your browser" : BROWSER} does not send this request. ` +
+        "Brave, DuckDuckGo and Firefox can send it. Other browsers need an extension.",
     },
   };
   const tip = (topic) => TIPS[topic][BROWSER] || TIPS[topic].default;
@@ -79,7 +80,7 @@
   // status: "neutral" (just a fact), "good", or "risk"
   const results = {};
 
-  const STATUS_LABEL = { good: "Protected", risk: "Exposed", neutral: "Shared with every site", info: "Good to know" };
+  const STATUS_LABEL = { good: "Protected", risk: "Exposed", neutral: "All websites get this", info: "Good to know" };
 
   function renderSection(id, { status, statusText, rows, soWhat, todo, note }) {
     const body = $(`#${id} .check-body`);
@@ -95,6 +96,98 @@
       });
       card.append(dl);
     }
+    if (note) card.append(el("p", "check-note", note));
+    if (soWhat) {
+      const p = el("p", "check-sowhat");
+      p.append(el("strong", null, "So what? "), soWhat);
+      card.append(p);
+    }
+    if (todo) {
+      const p = el("p", "check-todo");
+      p.append(el("strong", null, "What you can do: "), todo);
+      card.append(p);
+    }
+    body.append(card);
+  }
+
+  // Simple line icons (24x24, stroke). Built as DOM nodes so the strict CSP holds.
+  const ICONS = {
+    device: "M8 2h8a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zM11 18h2",
+    laptop: "M5 5h14v10H5zM2 19h20",
+    system: "M3 4h18v16H3zM3 8h18M6 6h.01M8.5 6h.01",
+    browser: "M12 3a9 9 0 1 0 0 18a9 9 0 1 0 0-18zM3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18",
+    clock: "M12 3a9 9 0 1 0 0 18a9 9 0 1 0 0-18zM12 7v5l3 2",
+    language: "M4 5h11v8H9l-4 3v-3H4zM15 9h5v8h-1v3l-3-3h-4v-2",
+    screen: "M3 4h18v12H3zM3 13h18M8 20h8",
+    font: "M4 20L10 4h1l6 16M6.5 14h8M17 20h3",
+    chip: "M7 7h10v10H7zM10 3v4M14 3v4M10 17v4M14 17v4M3 10h4M3 14h4M17 10h4M17 14h4",
+    draw: "M4 20l4-1L19 8l-3-3L5 16zM14 7l3 3",
+    audio: "M3 12h2l2-6 3 12 3-9 2 6 2-3h4",
+  };
+
+  function icon(name) {
+    const NS = "http://www.w3.org/2000/svg";
+    const svg = document.createElementNS(NS, "svg");
+    svg.setAttribute("viewBox", "0 0 24 24");
+    svg.setAttribute("aria-hidden", "true");
+    svg.setAttribute("class", "check-icon");
+    const path = document.createElementNS(NS, "path");
+    path.setAttribute("d", ICONS[name]);
+    svg.append(path);
+    return svg;
+  }
+
+  // Info card: a headline number, a grid of tiles, and the rest behind a toggle.
+  // Used for sections that only show what the browser hands over.
+  function renderInfoCard(id, { status, statusText, hero, meter, tiles, more, note, soWhat, todo }) {
+    const body = $(`#${id} .check-body`);
+    body.textContent = "";
+    const card = el("div", "check-card check-info");
+    const head = el("div", "check-card-head");
+    head.append(el("span", `check-chip check-chip-${status}`, statusText || STATUS_LABEL[status]));
+    card.append(head);
+
+    const h = el("div", "check-hero");
+    h.append(el("div", `check-hero-value${hero.mono ? " check-mono" : ""}`, hero.value));
+    h.append(el("div", "check-hero-label", hero.label));
+    card.append(h);
+
+    if (meter) {
+      const m = el("div", "check-meter");
+      const bar = el("div", "check-meter-bar");
+      const fill = el("div", `check-meter-fill check-meter-${status}`);
+      fill.style.width = `${Math.round((meter.value / meter.max) * 100)}%`;
+      bar.append(fill);
+      m.append(bar, el("div", "check-meter-label", meter.label));
+      card.append(m);
+    }
+
+    const grid = el("div", tiles.length === 4 ? "check-tiles check-tiles-2" : "check-tiles");
+    tiles.forEach((t) => {
+      const tile = el("div", "check-tile");
+      tile.append(icon(t.icon));
+      const v = el("div", `check-tile-value${t.mono ? " check-mono" : ""}`, t.value);
+      v.title = t.value;
+      tile.append(v, el("div", "check-tile-label", t.label));
+      grid.append(tile);
+    });
+    card.append(grid);
+
+    if (more && more.rows.length) {
+      const btn = el("button", "check-more", more.label);
+      btn.type = "button";
+      btn.setAttribute("aria-expanded", "false");
+      const dl = el("dl", "check-rows");
+      dl.hidden = true;
+      more.rows.forEach(([k, v]) => dl.append(el("dt", null, k), el("dd", null, v)));
+      btn.addEventListener("click", () => {
+        dl.hidden = !dl.hidden;
+        btn.setAttribute("aria-expanded", String(!dl.hidden));
+        btn.textContent = dl.hidden ? more.label : "Hide details";
+      });
+      card.append(btn, dl);
+    }
+
     if (note) card.append(el("p", "check-note", note));
     if (soWhat) {
       const p = el("p", "check-sowhat");
@@ -131,8 +224,9 @@
     s.textContent = "";
     const items = [
       ["Fingerprint", results.fingerprint],
-      ["Privacy signal", results.signals],
-      ["Third-party cookies", results.cookies],
+      ["Don't sell my data", results.signals],
+      ["Autofill", results.autofill],
+      ["Cross-site cookies", results.cookies],
       ["Tracker blocking", results.trackers],
       ["IP leak", results.webrtc],
     ].filter(([, r]) => r);
@@ -188,13 +282,23 @@
     rows.push(["Page you came from", document.referrer || "Not shared"]);
 
     results.arrival = { rows, tz, langs, screen: `${screen.width}x${screen.height}x${devicePixelRatio}`, browser, os };
-    renderSection("arrival", {
+    const shared = rows.filter(([, v]) => v !== "Not shared").length;
+    const deviceShort = device || (mobile ? "Phone or tablet" : "Computer");
+    renderInfoCard("arrival", {
       status: "neutral",
-      rows,
-      soWhat: "No single detail here names you. But your time zone and languages hint at where you live, and " +
-        "all of them together narrow you down a lot. Every website, ad and embedded widget gets this without asking.",
-      todo: "There's no switch to hide all of this; browsers need some of it to show pages properly. " +
-        "What matters is whether sites can combine it into a fingerprint (next section).",
+      hero: { value: String(shared), label: "items of data this page got when you opened it" },
+      tiles: [
+        { icon: mobile ? "device" : "laptop", value: deviceShort, label: "Device" },
+        { icon: "system", value: os, label: "System" },
+        { icon: "browser", value: browser, label: "Browser" },
+        { icon: "clock", value: tz.replace(/_/g, " "), label: "Time zone" },
+        { icon: "language", value: (navigator.languages || [navigator.language])[0] || "Unknown", label: "Language" },
+        { icon: "screen", value: `${screen.width} × ${screen.height}`, label: "Screen" },
+      ],
+      more: { label: "Show all details", rows },
+      soWhat: "One item does not identify you. Your time zone and language show approximately where you live. " +
+        "Together, the items make you easier to identify.",
+      todo: "You cannot hide all of this data. Browsers need some of it to show pages correctly.",
     });
   }
 
@@ -313,55 +417,68 @@
     const audioCode = audio ? shortCode(await sha256(audio)) : "Not available";
 
     const rows = [
-      ["Your browser ID", code],
       ["Browser ID string (user agent)", navigator.userAgent],
       ["Drawing test (canvas)", scrambled ? `${canvasCode} (scrambled by your browser)` : canvasCode],
       ["Graphics card (WebGL)", gl.renderer || "Not shared"],
       ["Audio test", audioCode],
-      ["Fonts detected", fonts.length ? `${fonts.length}: ${fonts.slice(0, 6).join(", ")}${fonts.length > 6 ? "…" : ""}` : "None detected"],
+      ["Fonts detected", fonts.length ? `${fonts.length}: ${fonts.join(", ")}` : "None detected"],
     ];
+
+    // Each test that gives the same answer every time is one more thing a tracker can lean on.
+    const tests = [
+      !!navigator.userAgent,
+      !!canvas && !scrambled,
+      !!gl.renderer && gl.renderer !== "Not available",
+      !!audio,
+      fonts.length > 0,
+    ];
+    const readable = tests.filter(Boolean).length;
 
     results.fingerprint = scrambled
       ? { status: "good", short: "scrambled", code }
       : { status: "risk", short: "readable", code };
-    renderSection("fingerprint", {
+    renderInfoCard("fingerprint", {
       status: results.fingerprint.status,
-      statusText: scrambled ? "Partly protected" : "Readable by any site",
-      rows,
-      note: "Your browser ID is built from all the tests here, the way tracking scripts build theirs. Trackers can " +
-        "use one like it to recognize you across websites without cookies. It changes if you switch browsers or " +
-        "devices: compare it across browsers to see which ones give away less. The user agent is the name tag your " +
-        "browser sends with every request.",
+      statusText: scrambled ? "Partly protected" : "Any website can read it",
+      hero: { value: code, label: "Your browser ID", mono: true },
+      meter: { value: readable, max: tests.length, label: `${readable} of ${tests.length} tests give the same result each time` },
+      tiles: [
+        { icon: "font", value: fonts.length ? `${fonts.length} found` : "None found", label: "Fonts" },
+        { icon: "chip", value: gl.renderer || "Not shared", label: "Graphics card" },
+        { icon: "draw", value: scrambled ? "Scrambled" : canvasCode, label: "Drawing test", mono: !scrambled },
+        { icon: "audio", value: audioCode, label: "Audio test", mono: !!audio },
+      ],
+      more: { label: "Show technical details", rows },
       soWhat: scrambled
-        ? "Your browser adds tiny random changes to drawing tests, so trackers get a different answer on " +
-          "different sites and can't easily link your visits. Other details above still help identify you."
-        : "Trackers combine these results into an ID that stays the same across websites, even if you clear " +
-          "cookies or use a private window. It's one of the main ways you're followed around the web without cookies.",
+        ? "Your browser adds small random changes to the drawing test. Trackers get a different result on each " +
+          "website. This makes it hard to connect your visits."
+        : "Trackers can identify you on all websites with this ID. Clearing cookies does not change it. " +
+          "A private window does not change it.",
       todo: scrambled ? null : tip("fingerprint"),
     });
   }
 
-  // ---------- 3. privacy signals ----------
+  // ---------- 3. "don't sell my data" signal ----------
 
   function signals() {
     const gpc = navigator.globalPrivacyControl === true;
     const dnt = navigator.doNotTrack === "1" || window.doNotTrack === "1";
-    results.signals = gpc ? { status: "good", short: "GPC on" } : { status: "risk", short: "not sent" };
+    results.signals = gpc ? { status: "good", short: "sent" } : { status: "risk", short: "not sent" };
     renderSection("signals", {
       status: results.signals.status,
-      statusText: gpc ? "Sending Global Privacy Control" : "Not sending Global Privacy Control",
+      statusText: gpc ? "Yes, your browser asks" : "No, your browser does not ask",
       rows: [
-        ["Global Privacy Control", gpc ? "On" : "Off"],
-        ["Do Not Track", dnt ? "On (most sites ignore it)" : "Off"],
+        ["Do not sell my data (GPC)", gpc ? "Sent" : "Not sent"],
+        ["Do Not Track (old, most websites ignore it)", dnt ? "Sent" : "Not sent"],
       ],
-      soWhat: "Global Privacy Control tells every site \"don't sell or share my data\". In some places, like " +
-        "California and Colorado, sites are legally required to honor it. Do Not Track is an older signal that " +
-        "most sites ignore and that browsers are phasing out.",
+      soWhat: gpc
+        ? "All websites get the request. Where the law supports it, websites must obey it."
+        : "Websites do not know your choice. Many websites think that they can sell your data.",
       todo: gpc ? null : tip("gpc"),
     });
   }
 
-  // ---------- 4. third-party cookies ----------
+  // ---------- 5. third-party cookies ----------
 
   // The test frame lives on a different website, so to the browser it's a
   // third party, just like an ad or tracker embedded in a page.
@@ -387,8 +504,7 @@
         view = {
           status: "neutral",
           statusText: "Couldn't run this test",
-          soWhat: "The test page didn't respond. A strict blocker or network setting may have stopped it, which " +
-            "usually means third-party content is being blocked too.",
+          soWhat: "The test page did not respond. Possibly a blocker stopped it. Then it probably stops ads too.",
         };
       } else if (r.unpartitioned && navigator.brave) {
         // Brave isolates third-party storage per site by default ("ephemeral
@@ -397,34 +513,32 @@
         results.cookies = { status: "good", short: "kept separate" };
         view = {
           status: "good",
-          statusText: "Kept separate per site",
-          soWhat: "Brave gives embedded content a separate, temporary cookie jar on each site, so a tracker on " +
-            "two different sites can't use cookies to follow you between them. This holds unless you turn " +
-            "Shields off for a site.",
+          statusText: "No, kept separate per site",
+          soWhat: "Brave keeps a different, temporary set of these cookies for each website. Ad companies cannot " +
+            "connect your visits. This stops if you turn off Shields for a website.",
         };
       } else if (r.unpartitioned) {
         results.cookies = { status: "risk", short: "allowed" };
         view = {
           status: "risk",
-          statusText: "Allowed",
-          soWhat: "An ad or tracker embedded on one site can set a cookie and read it back on every other site " +
-            "that embeds it, building a list of where you go. Some browsers, including Chrome, allow this by default.",
+          statusText: "Yes, they can",
+          soWhat: "Ad companies can make a list of the websites that you visit.",
           todo: tip("cookies"),
         };
       } else if (r.partitioned) {
         results.cookies = { status: "good", short: "kept separate" };
         view = {
           status: "good",
-          statusText: "Kept separate per site",
-          soWhat: "Your browser lets embedded content keep cookies, but only within each site. A tracker on two " +
-            "different sites sees two unrelated cookies, so it can't follow you between them this way.",
+          statusText: "No, kept separate per site",
+          soWhat: "Your browser keeps a different set of these cookies for each website. Ad companies cannot " +
+            "connect your visits.",
         };
       } else {
         results.cookies = { status: "good", short: "blocked" };
         view = {
           status: "good",
-          statusText: "Blocked",
-          soWhat: "Ads and trackers embedded on websites can't use cookies to follow you from site to site.",
+          statusText: "No, blocked",
+          soWhat: "Ad companies cannot use cookies to follow you.",
         };
       }
       renderSection("cookies", view);
@@ -442,7 +556,7 @@
     document.body.append(frame);
   }
 
-  // ---------- 5a. opt-in: tracker blocking ----------
+  // ---------- 6a. opt-in: tracker blocking ----------
 
   const TRACKER_PROBES = [
     ["Google Analytics", "https://www.google-analytics.com/analytics.js"],
@@ -466,7 +580,7 @@
 
   async function trackers() {
     if (!navigator.onLine) {
-      renderResult("trackers", { status: "neutral", statusText: "You're offline", lines: ["Connect to the internet and try again."] });
+      renderResult("trackers", { status: "neutral", statusText: "You are offline", lines: ["Connect to the internet. Then try again."] });
       return;
     }
     const out = await Promise.all(TRACKER_PROBES.map(async ([name, url]) => [name, await probe(url)]));
@@ -476,24 +590,24 @@
     let view;
     if (blocked === out.length) {
       results.trackers = { status: "good", short: "all blocked" };
-      view = { status: "good", statusText: "All blocked", soWhat: "Something in your browser stops these well-known trackers before they load." };
+      view = { status: "good", statusText: "All blocked", soWhat: "Something in your browser stops these trackers." };
     } else if (loaded === out.length) {
       results.trackers = { status: "risk", short: "none blocked" };
       view = {
         status: "risk",
         statusText: "None blocked",
-        soWhat: "Most websites embed scripts like these. Without a blocker, each one learns which page you're on " +
-          "and can link it to what you do on other sites.",
-        todo: "Switch to a browser with built-in tracker blocking (Brave, DuckDuckGo, or Firefox with Strict " +
-          "protection), or add a well-known tracker-blocking extension.",
+        soWhat: "Most websites use scripts like these. Each script sees the page you open. " +
+          "It connects that page to your visits on other websites.",
+        todo: "Use a browser that blocks trackers (Brave, DuckDuckGo, or Firefox set to Strict). " +
+          "Or add a tracker-blocking extension.",
       };
     } else {
       results.trackers = { status: "risk", short: `${blocked} of ${out.length} blocked` };
       view = {
         status: "risk",
         statusText: `${blocked} of ${out.length} blocked`,
-        soWhat: "Some trackers are stopped, others get through.",
-        todo: "Turn up your browser's tracking protection, or add a tracker-blocking extension.",
+        soWhat: "Your browser stops some trackers, but not all.",
+        todo: "Set tracking protection to Strict. Or add a tracker-blocking extension.",
       };
     }
     view.lines = lines;
@@ -501,14 +615,14 @@
     renderSummary();
   }
 
-  // ---------- 5b. opt-in: WebRTC IP leak ----------
+  // ---------- 6b. opt-in: WebRTC IP leak ----------
 
   const isPrivateIp = (ip) => /^(10\.|192\.168\.|172\.(1[6-9]|2\d|3[01])\.|fc|fd|fe80)/i.test(ip);
 
   async function webrtc() {
     if (!window.RTCPeerConnection) {
       results.webrtc = { status: "good", short: "WebRTC off" };
-      renderResult("webrtc", { status: "good", statusText: "Can't leak", soWhat: "WebRTC is turned off in your browser, so it can't reveal your IP address." });
+      renderResult("webrtc", { status: "good", statusText: "Cannot leak", soWhat: "WebRTC is off in your browser. It cannot show your IP address." });
       renderSummary();
       return;
     }
@@ -545,22 +659,94 @@
       view = {
         status: "risk",
         statusText: "Network address visible",
-        soWhat: "Sites can see your device's address on your home or office network, an extra detail that helps fingerprint you.",
-        todo: "Update your browser, or turn off WebRTC IP sharing in its privacy settings.",
+        soWhat: "Websites can see the address of your device on your home network. This helps to identify you.",
+        todo: "Update your browser. Or turn off WebRTC IP sharing in its privacy settings.",
       };
     } else {
       results.webrtc = { status: "neutral", short: "check if you use a VPN" };
       view = {
         status: "neutral",
         statusText: found.public.size ? "Compare with your VPN" : "Nothing revealed",
-        soWhat: "Every site sees your public IP address anyway. This only matters if you use a VPN: if the address " +
-          "above is your real home connection instead of your VPN's, your VPN is leaking it to websites.",
-        todo: "If it leaks, turn on your VPN app's WebRTC or leak protection, or use a browser that limits WebRTC.",
+        soWhat: "All websites see your public IP address. This is important only if you use a VPN. " +
+          "Is the address above your home address, not the VPN address? Then your VPN leaks it.",
+        todo: "If it leaks, turn on leak protection in your VPN app. Or use a browser that limits WebRTC.",
       };
     }
     view.lines = lines;
     renderResult("webrtc", view);
     renderSummary();
+  }
+
+  // ---------- 4. autofill hidden fields (local only) ----------
+
+  const AF_LABELS = {
+    email: "Email",
+    tel: "Phone number",
+    organization: "Company",
+    address: "Street address",
+    address2: "Address line 2",
+    city: "City",
+    region: "State or region",
+    postal: "Postal code",
+    country: "Country",
+  };
+
+  const looksAutofilled = (input) =>
+    [":autofill", ":-webkit-autofill"].some((sel) => {
+      try { return input.matches(sel); } catch (e) { return false; }
+    });
+
+  // Shows enough to recognise your own details without putting them in full on screen.
+  const mask = (v) => (v.length <= 2 ? v[0] + "•" : v.slice(0, 2) + "•".repeat(Math.min(v.length - 2, 10)));
+
+  let afShowFull = false;
+
+  function autofillCheck() {
+    const form = $("#autofill-form");
+    const name = $("#af-name");
+    const caught = [...form.querySelectorAll(".check-af-hidden input")]
+      .filter((i) => i.value.trim())
+      .map((i) => [AF_LABELS[i.name] || i.name, i.value.trim()]);
+    const box = $("#autofill-result");
+    $("#autofill-clear").hidden = !name.value && !caught.length;
+
+    if (caught.length) {
+      results.autofill = { status: "risk", short: `${caught.length} hidden ${caught.length === 1 ? "box" : "boxes"} filled` };
+      renderResult("autofill", {
+        status: "risk",
+        statusText: `Filled ${caught.length} hidden ${caught.length === 1 ? "box" : "boxes"}`,
+        lines: ["You filled in only your name. Your browser also gave this page:"],
+        soWhat: "A website can get your data this way. You do not see the hidden boxes. This page did not send your data.",
+        todo: "Before you select a suggestion, look at the data it fills in. Use autofill only on websites that you trust.",
+      });
+      const list = el("dl", "check-rows");
+      caught.forEach(([k, v]) => list.append(el("dt", null, k), el("dd", "check-caught", afShowFull ? v : mask(v))));
+      box.insertBefore(list, box.querySelector(".check-sowhat"));
+      const toggle = el("button", "btn btn-ghost check-run", afShowFull ? "Hide full details" : "Show full details");
+      toggle.type = "button";
+      toggle.addEventListener("click", () => { afShowFull = !afShowFull; autofillCheck(); });
+      box.insertBefore(toggle, box.querySelector(".check-sowhat"));
+    } else if (name.value && looksAutofilled(name)) {
+      results.autofill = { status: "good", short: "only the visible box" };
+      renderResult("autofill", {
+        status: "good",
+        statusText: "Filled only the box you can see",
+        soWhat: "Your browser filled in only your name. Hidden boxes cannot get your data here.",
+      });
+    } else if (name.value) {
+      box.textContent = "";
+      box.append(el("p", "check-note", "You typed your name, so the test did not run. Clear the box. Then select it and select a saved suggestion. No suggestion? Then your browser has no saved address. That is good."));
+    } else {
+      box.textContent = "";
+      delete results.autofill;
+    }
+    renderSummary();
+  }
+
+  function autofillClear() {
+    $("#autofill-form").reset();
+    afShowFull = false;
+    autofillCheck();
   }
 
   // ---------- copy results ----------
@@ -569,8 +755,9 @@
     const lines = [`PrivacyBrew Browser Privacy Check (${BROWSER})`, ""];
     (results.arrival ? results.arrival.rows : []).forEach(([k, v]) => lines.push(`${k}: ${v}`));
     if (results.fingerprint) lines.push(`Fingerprint: ${results.fingerprint.short} (browser ID ${results.fingerprint.code})`);
-    if (results.signals) lines.push(`Global Privacy Control: ${results.signals.short}`);
-    if (results.cookies) lines.push(`Third-party cookies: ${results.cookies.short}`);
+    if (results.signals) lines.push(`"Don't sell my data" request (GPC): ${results.signals.short}`);
+    if (results.autofill) lines.push(`Autofill hidden boxes: ${results.autofill.short}`);
+    if (results.cookies) lines.push(`Third-party cookies (ads following you): ${results.cookies.short}`);
     if (results.trackers) lines.push(`Tracker blocking: ${results.trackers.short}`);
     if (results.webrtc) lines.push(`IP leak test: ${results.webrtc.short}`);
     lines.push("", "Check yours: https://privacybrew.app/check.html");
@@ -590,10 +777,21 @@
         } catch (e) {
           renderResult(which, { status: "neutral", statusText: "Couldn't run this test", lines: [String(e.message || e)] });
         }
-        btn.textContent = "Run again";
+        btn.textContent = "Start again";
         btn.disabled = false;
       });
     });
+
+    const afForm = $("#autofill-form");
+    let afTimer;
+    const afSoon = () => { clearTimeout(afTimer); afTimer = setTimeout(autofillCheck, 300); };
+    afForm.addEventListener("input", afSoon);
+    afForm.addEventListener("change", afSoon);
+    afForm.addEventListener("submit", (e) => e.preventDefault());
+    $("#autofill-clear").addEventListener("click", autofillClear);
+    // Don't keep filled-in details around if the page is left or restored from cache.
+    window.addEventListener("pagehide", () => afForm.reset());
+    window.addEventListener("pageshow", (e) => { if (e.persisted) autofillClear(); });
 
     $("#copy-results").addEventListener("click", async () => {
       const msg = $("#copied");

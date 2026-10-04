@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
 <meta name="description" content="PrivacyBrew reads what Android already exposes about your installed apps and explains it in plain language — entirely on your device. No accounts, no analytics, no ads, no INTERNET permission.">
 <link rel="icon" type="image/png" href="assets/img/favicon-32.png">
 <link rel="apple-touch-icon" href="assets/img/favicon-180.png">
@@ -17,13 +18,16 @@
         <img src="assets/img/logo.png" alt="">
         PrivacyBrew
       </a>
-      <div class="nav-links">
+      <div class="nav-links" id="nav-links">
         <a href="#features">Features</a>
         <a href="#how-it-works">How it works</a>
         <a href="/check.html">Browser check</a>
         <a href="/privacy.html">Privacy Policy</a>
       </div>
       <a class="nav-cta" href="https://play.google.com/store/apps/details?id=com.brewlabs.privacybrew" target="_blank" rel="noopener">Get the app</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
 
@@ -37,6 +41,11 @@
   <header class="hero">
     <div class="wrap hero-grid">
       <div>
+        <a class="hero-news" href="/check.html">
+          <span class="hero-news-tag">New</span>
+          <span class="hero-news-text">Check what any website learns about your browser</span>
+          <span class="hero-news-arrow" aria-hidden="true">→</span>
+        </a>
         <div class="eyebrow">For Android · On-device only</div>
         <h1>See what's actually<br><em>brewing</em> in your data.</h1>
         <p class="hero-sub">

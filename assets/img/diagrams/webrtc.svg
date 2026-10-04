@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 146" width="360" height="146" role="img">
+<title>Normal traffic goes through your VPN. WebRTC can go around the VPN and show your real IP address.</title>
+<defs>
+<marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#9b6dd1"/></marker>
+<marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#e8a87c"/></marker>
+<marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#5fae96"/></marker>
+</defs>
+<g font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+<rect x="6" y="50" width="110" height="50" rx="10" fill="#281a35" stroke="#3a2c4a" stroke-width="1.5"/><text x="61.0" y="80.0" text-anchor="middle" font-size="14" font-weight="600" fill="#f0eaf7">Your browser</text><line x1="120" y1="60" x2="146" y2="36" stroke="#9b6dd1" stroke-width="2" stroke-linecap="round" marker-end="url(#a)"/><rect x="150" y="10" width="82" height="40" rx="10" fill="#281a35" stroke="#5fae96" stroke-width="1.5"/><text x="191.0" y="35.0" text-anchor="middle" font-size="14" font-weight="600" fill="#f0eaf7">VPN</text><line x1="236" y1="30" x2="256" y2="30" stroke="#5fae96" stroke-width="2" stroke-linecap="round" marker-end="url(#g)"/><rect x="260" y="10" width="94" height="40" rx="10" fill="#281a35" stroke="#3a2c4a" stroke-width="1.5"/><text x="307.0" y="35.0" text-anchor="middle" font-size="14" font-weight="600" fill="#f0eaf7">Website</text><line x1="120" y1="90" x2="254" y2="116" stroke="#e8a87c" stroke-width="2" stroke-linecap="round" stroke-dasharray="5 4" marker-end="url(#o)"/><rect x="260" y="96" width="94" height="40" rx="10" fill="#281a35" stroke="#3a2c4a" stroke-width="1.5"/><text x="307.0" y="114.0" text-anchor="middle" font-size="14" font-weight="600" fill="#f0eaf7">Google</text><text x="307.0" y="131.0" text-anchor="middle" font-size="12" fill="#b8a8c9">server</text><text x="176" y="128" text-anchor="middle" font-size="12" font-weight="600" fill="#e8a87c">WebRTC: real IP?</text>
+</g>
+</svg>
