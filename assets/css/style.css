@@ -1060,7 +1060,17 @@ section { padding: 88px 0; }
   .check h1 { font-size: 1.6rem; }
   .check-rows { grid-template-columns: 1fr; gap: 2px; }
   .check-rows dd { margin-bottom: 10px; }
-  .check-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .check-tiles, .check-tiles-2 { grid-template-columns: 1fr; gap: 8px; }
+  .check-tile {
+    display: grid;
+    grid-template-columns: 22px 1fr;
+    column-gap: 12px;
+    align-items: center;
+    padding: 10px 14px;
+  }
+  .check-tile .check-icon { grid-row: span 2; margin: 0; }
+  .check-tile-value { -webkit-line-clamp: unset; display: block; }
+  .check-tile-label { margin-top: 1px; }
   .check-hero-value { font-size: 2.2rem; }
   .check-hero-value.check-mono { font-size: 1.35rem; }
 }

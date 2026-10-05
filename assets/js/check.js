@@ -42,11 +42,11 @@
     const ua = navigator.userAgent;
     if (navigator.brave) return "Brave";
     if (/SamsungBrowser/.test(ua)) return "Samsung Internet";
-    if (/Edg\//.test(ua)) return "Edge";
+    if (/Edg\/|EdgiOS\//.test(ua)) return "Edge";
     if (/OPR\//.test(ua)) return "Opera";
     if (/DuckDuckGo/.test(ua)) return "DuckDuckGo";
-    if (/Firefox\//.test(ua)) return "Firefox";
-    if (/Chrome\//.test(ua)) return "Chrome";
+    if (/Firefox\/|FxiOS\//.test(ua)) return "Firefox";
+    if (/Chrome\/|CriOS\//.test(ua)) return "Chrome";
     if (/Safari\//.test(ua)) return "Safari";
     return "your browser";
   }
@@ -241,6 +241,68 @@
     });
   }
 
+  // Model codes some phones report, mapped to the names people know.
+  // Samsung codes: SM-<series><model><region>, so match the prefix only.
+  const MODEL_NAMES = [
+    [/^SM-S931/, "Galaxy S25"], [/^SM-S936/, "Galaxy S25+"], [/^SM-S938/, "Galaxy S25 Ultra"],
+    [/^SM-S921/, "Galaxy S24"], [/^SM-S926/, "Galaxy S24+"], [/^SM-S928/, "Galaxy S24 Ultra"], [/^SM-S721/, "Galaxy S24 FE"],
+    [/^SM-S911/, "Galaxy S23"], [/^SM-S916/, "Galaxy S23+"], [/^SM-S918/, "Galaxy S23 Ultra"], [/^SM-S711/, "Galaxy S23 FE"],
+    [/^SM-S901/, "Galaxy S22"], [/^SM-S906/, "Galaxy S22+"], [/^SM-S908/, "Galaxy S22 Ultra"],
+    [/^SM-G991/, "Galaxy S21"], [/^SM-G996/, "Galaxy S21+"], [/^SM-G998/, "Galaxy S21 Ultra"], [/^SM-G990/, "Galaxy S21 FE"],
+    [/^SM-F966/, "Galaxy Z Fold7"], [/^SM-F766/, "Galaxy Z Flip7"], [/^SM-F956/, "Galaxy Z Fold6"], [/^SM-F741/, "Galaxy Z Flip6"],
+    [/^SM-F946/, "Galaxy Z Fold5"], [/^SM-F731/, "Galaxy Z Flip5"],
+    [/^SM-A566/, "Galaxy A56"], [/^SM-A556/, "Galaxy A55"], [/^SM-A546/, "Galaxy A54"], [/^SM-A536/, "Galaxy A53"],
+    [/^SM-A366/, "Galaxy A36"], [/^SM-A356/, "Galaxy A35"], [/^SM-A346/, "Galaxy A34"],
+    [/^SM-A266/, "Galaxy A26"], [/^SM-A256/, "Galaxy A25"], [/^SM-A166/, "Galaxy A16"], [/^SM-A156/, "Galaxy A15"],
+    [/^SM-X/, "Galaxy Tab"],
+  ];
+  const friendlyModel = (code) => {
+    const hit = MODEL_NAMES.find(([re]) => re.test(code));
+    return hit ? hit[1] : code;
+  };
+
+  // When the browser does not share the model, name the kind of device.
+  function deviceKind(ua, os, mobile) {
+    if (/iPhone/.test(ua)) return "iPhone";
+    if (/iPad/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1)) return "iPad";
+    if (/Android/.test(ua) || /^Android/.test(os)) return mobile ? "Android phone" : "Android tablet";
+    if (/CrOS/.test(ua) || /Chrome OS/.test(os)) return "Chromebook";
+    if (/Windows/.test(ua) || /^Windows/.test(os)) return "Windows PC";
+    if (/Macintosh/.test(ua) || /^macOS/.test(os)) return "Mac";
+    if (/Linux/.test(ua) || /^Linux/.test(os)) return "Linux computer";
+    return mobile ? "Phone or tablet" : "Computer";
+  }
+
+  // iOS: Safari 26+ freezes the OS in the user agent at 18_6 / 18_7 for privacy,
+  // but its Version/ number still matches the iOS release.
+  function iosVersion(ua) {
+    const os = ua.match(/OS (\d+)[_.](\d+)(?:[_.](\d+))? like Mac OS X/);
+    if (!os) return null;
+    const name = /iPad/.test(ua) ? "iPadOS" : "iOS";
+    const [maj, min] = [+os[1], +os[2]];
+    const frozen = maj === 18 && min >= 6;
+    const safari = ua.match(/Version\/(\d+)(?:\.(\d+))?/);
+    if (frozen && safari && +safari[1] >= 26) return `${name} ${safari[1]}${safari[2] && safari[2] !== "0" ? "." + safari[2] : ""} (about)`;
+    if (frozen) return `${name} 18.6 or newer`;
+    return `${name} ${maj}.${min}${os[3] ? "." + os[3] : ""}`;
+  }
+
+  // Chrome reports Windows as an internal number: 13 or higher is Windows 11,
+  // 1 to 10 is Windows 10. Other systems report their real version.
+  function osLabel(platform, version) {
+    const major = parseInt(version, 10);
+    if (platform === "Windows" && version) {
+      if (major >= 13) return "Windows 11";
+      if (major > 0) return "Windows 10";
+      return "Windows 8.1 or older";
+    }
+    if (platform === "Android" || platform === "macOS") {
+      const v = version.replace(/(\.0)+$/, "");
+      return v ? `${platform} ${v}` : platform;
+    }
+    return platform;
+  }
+
   // ---------- 1. arrival data ----------
 
   async function arrival() {
@@ -253,42 +315,43 @@
         const hi = await uaData.getHighEntropyValues(["platformVersion", "model", "fullVersionList"]);
         const brand = (hi.fullVersionList || []).find((b) => !/Not.?A.?Brand|Chromium/i.test(b.brand));
         if (brand) browser = `${brand.brand} ${brand.version.split(".")[0]}`;
-        os = `${hi.platform || uaData.platform} ${hi.platformVersion || ""}`.trim();
+        os = osLabel(hi.platform || uaData.platform, hi.platformVersion || "");
         if (hi.model) device = hi.model;
       } catch (e) { /* fall back to the user agent below */ }
     }
     const ua = navigator.userAgent;
+    if (!os) os = iosVersion(ua) || "";
     if (!os) {
       const m = ua.match(/\(([^)]+)\)/);
       os = m ? m[1].split(";").slice(0, 2).join(",").trim() : "Unknown";
     }
     if (browser === BROWSER) {
-      const m = ua.match(/(Firefox|Version|Chrome|Edg|OPR)\/(\d+)/);
+      const m = ua.match(/(Firefox|FxiOS|CriOS|EdgiOS|Edg|OPR|Chrome|Version)\/(\d+)/);
       if (m) browser = `${BROWSER} ${m[2]}`;
     }
     const mobile = (uaData && uaData.mobile) || /Mobi|Android|iPhone|iPad/.test(ua) || navigator.maxTouchPoints > 1;
+    const deviceName = device ? friendlyModel(device) : deviceKind(ua, os, mobile);
     const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "Unknown";
     const langs = (navigator.languages || [navigator.language]).join(", ");
     const rows = [
       ["Browser", browser],
       ["Operating system", os],
-      ["Device", device ? `${device} (${mobile ? "phone or tablet" : "computer"})` : mobile ? "Phone or tablet" : "Computer"],
+      ["Device", deviceName + (device && deviceName !== device ? ` (model ${device})` : "")],
       ["Screen", `${screen.width} × ${screen.height}, ${window.devicePixelRatio}× pixel density`],
       ["Time zone", tz],
       ["Languages", langs],
       ["Processor cores", String(navigator.hardwareConcurrency || "Not shared")],
     ];
-    if (navigator.deviceMemory) rows.push(["Memory", `About ${navigator.deviceMemory} GB`]);
+    if (navigator.deviceMemory) rows.push(["Memory (rounded by your browser)", navigator.deviceMemory >= 8 ? "8 GB or more" : `About ${navigator.deviceMemory} GB`]);
     rows.push(["Page you came from", document.referrer || "Not shared"]);
 
     results.arrival = { rows, tz, langs, screen: `${screen.width}x${screen.height}x${devicePixelRatio}`, browser, os };
     const shared = rows.filter(([, v]) => v !== "Not shared").length;
-    const deviceShort = device || (mobile ? "Phone or tablet" : "Computer");
     renderInfoCard("arrival", {
       status: "neutral",
       hero: { value: String(shared), label: "items of data this page got when you opened it" },
       tiles: [
-        { icon: mobile ? "device" : "laptop", value: deviceShort, label: "Device" },
+        { icon: mobile ? "device" : "laptop", value: deviceName, label: "Device" },
         { icon: "system", value: os, label: "System" },
         { icon: "browser", value: browser, label: "Browser" },
         { icon: "clock", value: tz.replace(/_/g, " "), label: "Time zone" },
@@ -441,9 +504,9 @@
       status: results.fingerprint.status,
       statusText: scrambled ? "Partly protected" : "Any website can read it",
       hero: { value: code, label: "Your browser ID", mono: true },
-      meter: { value: readable, max: tests.length, label: `${readable} of ${tests.length} tests give the same result each time` },
+      meter: { value: readable, max: tests.length, label: `${readable} of ${tests.length} tests could be read` },
       tiles: [
-        { icon: "font", value: fonts.length ? `${fonts.length} found` : "None found", label: "Fonts" },
+        { icon: "font", value: `${fonts.length} of ${FONTS.length} checked`, label: "Fonts found" },
         { icon: "chip", value: gl.renderer || "Not shared", label: "Graphics card" },
         { icon: "draw", value: scrambled ? "Scrambled" : canvasCode, label: "Drawing test", mono: !scrambled },
         { icon: "audio", value: audioCode, label: "Audio test", mono: !!audio },
@@ -579,8 +642,12 @@
   }
 
   async function trackers() {
-    if (!navigator.onLine) {
-      renderResult("trackers", { status: "neutral", statusText: "You are offline", lines: ["Connect to the internet. Then try again."] });
+    // Control request to this website. If it fails, the network is the problem, not a blocker.
+    const control = navigator.onLine ? await probe(`/assets/img/favicon-32.png?t=${Date.now()}`) : "blocked";
+    if (control !== "loaded") {
+      results.trackers = { status: "neutral", short: "no answer" };
+      renderResult("trackers", { status: "neutral", statusText: "No connection", lines: ["Your connection did not work during the test. Connect to the internet. Then try again."] });
+      renderSummary();
       return;
     }
     const out = await Promise.all(TRACKER_PROBES.map(async ([name, url]) => [name, await probe(url)]));
