@@ -1,7 +1,7 @@
 // PrivacyBrew Browser Privacy Check.
 // Everything here runs in the visitor's browser. Nothing is sent to
-// PrivacyBrew. The only network requests are the two opt-in tests in
-// section 6, and only after the visitor taps them.
+// PrivacyBrew. The only network requests are the opt-in tests (section 7)
+// and the location test (section 5), only after the visitor taps them.
 
 (() => {
   "use strict";
@@ -226,6 +226,7 @@
       ["Fingerprint", results.fingerprint],
       ["Don't sell my data", results.signals],
       ["Autofill", results.autofill],
+      ["Site access", results.access],
       ["Cross-site cookies", results.cookies],
       ["Tracker blocking", results.trackers],
       ["IP leak", results.webrtc],
@@ -332,14 +333,30 @@
     const mobile = (uaData && uaData.mobile) || /Mobi|Android|iPhone|iPad/.test(ua) || navigator.maxTouchPoints > 1;
     const deviceName = device ? friendlyModel(device) : deviceKind(ua, os, mobile);
     const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "Unknown";
+    let tzName = "";
+    try {
+      tzName = new Intl.DateTimeFormat("en-US", { timeZoneName: "longGeneric" })
+        .formatToParts(new Date()).find((p) => p.type === "timeZoneName").value;
+    } catch (e) { /* older browsers: city only */ }
+    const tzLabel = tz.replace(/_/g, " ") + (tzName && !/^GMT/.test(tzName) ? ` (${tzName})` : "");
     const langs = (navigator.languages || [navigator.language]).join(", ");
+    const dpr = window.devicePixelRatio || 1;
+    const realRes = `${Math.round(screen.width * dpr)} × ${Math.round(screen.height * dpr)}`;
+    const langCodes = navigator.languages || [navigator.language];
+    let langName = (code) => code;
+    try {
+      const dn = new Intl.DisplayNames(["en"], { type: "language" });
+      langName = (code) => { try { return dn.of(code) || code; } catch (e) { return code; } };
+    } catch (e) { /* older browsers: show codes */ }
     const rows = [
       ["Browser", browser],
       ["Operating system", os],
       ["Device", deviceName + (device && deviceName !== device ? ` (model ${device})` : "")],
-      ["Screen", `${screen.width} × ${screen.height}, ${window.devicePixelRatio}× pixel density`],
-      ["Time zone", tz],
-      ["Languages", langs],
+      ["Screen resolution", `${realRes} pixels`],
+      ["Screen size in website pixels", `${screen.width} × ${screen.height}`],
+      ["Pixel density", `${Math.round(dpr * 100) / 100}× (each website pixel is ${Math.round(dpr * 100) / 100} real pixels wide)`],
+      ["Time zone", tzLabel],
+      ["Languages", langCodes.map((c) => `${langName(c)} (${c})`).join(", ")],
       ["Processor cores", String(navigator.hardwareConcurrency || "Not shared")],
     ];
     if (navigator.deviceMemory) rows.push(["Memory (rounded by your browser)", navigator.deviceMemory >= 8 ? "8 GB or more" : `About ${navigator.deviceMemory} GB`]);
@@ -352,11 +369,11 @@
       hero: { value: String(shared), label: "items of data this page got when you opened it" },
       tiles: [
         { icon: mobile ? "device" : "laptop", value: deviceName, label: "Device" },
-        { icon: "system", value: os, label: "System" },
+        { icon: "system", value: os, label: "Operating system" },
         { icon: "browser", value: browser, label: "Browser" },
-        { icon: "clock", value: tz.replace(/_/g, " "), label: "Time zone" },
-        { icon: "language", value: (navigator.languages || [navigator.language])[0] || "Unknown", label: "Language" },
-        { icon: "screen", value: `${screen.width} × ${screen.height}`, label: "Screen" },
+        { icon: "clock", value: tzLabel, label: "Time zone" },
+        { icon: "language", value: langCodes[0] ? langName(langCodes[0]) : "Unknown", label: "Language" },
+        { icon: "screen", value: realRes, label: "Screen resolution" },
       ],
       more: { label: "Show all details", rows },
       soWhat: "One item does not identify you. Your time zone and language show approximately where you live. " +
@@ -480,11 +497,11 @@
     const audioCode = audio ? shortCode(await sha256(audio)) : "Not available";
 
     const rows = [
-      ["Browser ID string (user agent)", navigator.userAgent],
-      ["Drawing test (canvas)", scrambled ? `${canvasCode} (scrambled by your browser)` : canvasCode],
+      ["Browser identity text (user agent)", navigator.userAgent],
+      ["Hidden drawing test (canvas)", scrambled ? `${canvasCode} (scrambled by your browser)` : canvasCode],
       ["Graphics card (WebGL)", gl.renderer || "Not shared"],
-      ["Audio test", audioCode],
-      ["Fonts detected", fonts.length ? `${fonts.length}: ${fonts.join(", ")}` : "None detected"],
+      ["Audio test result", audioCode],
+      [`Fonts found (of ${FONTS.length} checked)`, fonts.length ? `${fonts.length}: ${fonts.join(", ")}` : "None detected"],
     ];
 
     // Each test that gives the same answer every time is one more thing a tracker can lean on.
@@ -508,8 +525,8 @@
       tiles: [
         { icon: "font", value: `${fonts.length} of ${FONTS.length} checked`, label: "Fonts found" },
         { icon: "chip", value: gl.renderer || "Not shared", label: "Graphics card" },
-        { icon: "draw", value: scrambled ? "Scrambled" : canvasCode, label: "Drawing test", mono: !scrambled },
-        { icon: "audio", value: audioCode, label: "Audio test", mono: !!audio },
+        { icon: "draw", value: scrambled ? "Scrambled" : canvasCode, label: "Hidden drawing test", mono: !scrambled },
+        { icon: "audio", value: audioCode, label: "Audio test result", mono: !!audio },
       ],
       more: { label: "Show technical details", rows },
       soWhat: scrambled
@@ -541,7 +558,7 @@
     });
   }
 
-  // ---------- 5. third-party cookies ----------
+  // ---------- 6. third-party cookies ----------
 
   // The test frame lives on a different website, so to the browser it's a
   // third party, just like an ad or tracker embedded in a page.
@@ -619,7 +636,7 @@
     document.body.append(frame);
   }
 
-  // ---------- 6a. opt-in: tracker blocking ----------
+  // ---------- 7a. opt-in: tracker blocking ----------
 
   const TRACKER_PROBES = [
     ["Google Analytics", "https://www.google-analytics.com/analytics.js"],
@@ -682,7 +699,7 @@
     renderSummary();
   }
 
-  // ---------- 6b. opt-in: WebRTC IP leak ----------
+  // ---------- 7b. opt-in: WebRTC IP leak ----------
 
   const isPrivateIp = (ip) => /^(10\.|192\.168\.|172\.(1[6-9]|2\d|3[01])\.|fc|fd|fe80)/i.test(ip);
 
@@ -816,6 +833,101 @@
     autofillCheck();
   }
 
+  // ---------- 5. location, camera, microphone ----------
+
+  const PERMISSIONS = [["geolocation", "Location"], ["camera", "Camera"], ["microphone", "Microphone"], ["notifications", "Notifications"]];
+  const PERM_LABEL = { granted: "Allowed", denied: "Blocked", prompt: "Asks first" };
+  let watchingPermissions = false;
+
+  async function access() {
+    // Before you allow the camera, browsers show at most whether one exists, not how many.
+    let cam = "Not shown by your browser";
+    let mic = "Not shown by your browser";
+    if (navigator.mediaDevices && navigator.mediaDevices.enumerateDevices) {
+      try {
+        const devices = await navigator.mediaDevices.enumerateDevices();
+        const named = devices.some((d) => d.label);
+        const show = (list, one, many) =>
+          !list.length ? "Not shown by your browser" : named ? `Yes, ${list.length} ${list.length === 1 ? one : many}` : "Yes";
+        cam = show(devices.filter((d) => d.kind === "videoinput"), "camera", "cameras");
+        mic = show(devices.filter((d) => d.kind === "audioinput"), "microphone", "microphones");
+      } catch (e) { /* keep "Not shown" */ }
+    }
+
+    const states = [];
+    for (const [name, label] of PERMISSIONS) {
+      let state = null;
+      try {
+        if (navigator.permissions && navigator.permissions.query) {
+          const st = await navigator.permissions.query({ name });
+          state = st.state;
+          if (!watchingPermissions) st.addEventListener("change", () => access());
+        }
+      } catch (e) { /* this browser does not report it */ }
+      states.push([label, state]);
+    }
+    watchingPermissions = true;
+
+    const allowed = states.filter(([, s]) => s === "granted").map(([l]) => l);
+    const seen = cam.startsWith("Yes") || mic.startsWith("Yes");
+    const rows = [
+      ["Has a camera (seen without asking)", cam],
+      ["Has a microphone (seen without asking)", mic],
+      ...states.map(([l, s]) => [`${l}: this website`, s ? PERM_LABEL[s] : "Not shown by your browser"]),
+    ];
+    const status = allowed.length ? "risk" : "good";
+    results.access = { status, short: allowed.length ? `${allowed.join(", ").toLowerCase()} allowed` : "asks first" };
+    renderSection("access", {
+      status,
+      statusText: allowed.length ? `This website has access: ${allowed.join(", ")}` : "This website must ask first",
+      rows,
+      soWhat: (allowed.length
+        ? "You allowed this website. It can use this access again without asking."
+        : "Websites must ask before they use your location, camera or microphone.") +
+        (seen ? " All websites can see that you have a camera or microphone. This adds to your fingerprint." : ""),
+      todo: allowed.length
+        ? "If you do not want this, open Site settings in your browser and remove the access."
+        : "Allow access only for websites that need it. For example, a map needs your location.",
+    });
+    renderSummary();
+  }
+
+  function locationTest() {
+    if (!navigator.geolocation) {
+      renderResult("location", { status: "good", statusText: "Not available", soWhat: "Your browser does not give location to websites." });
+      return Promise.resolve();
+    }
+    return new Promise((resolve) => {
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          const { latitude, longitude, accuracy } = pos.coords;
+          const acc = Math.round(accuracy);
+          const accText = acc >= 1000 ? `${(acc / 1000).toFixed(1)} km` : `${acc} m`;
+          const area = acc <= 100 ? "your street, and possibly your building" : acc <= 2000 ? "your neighborhood" : "your town or city";
+          renderResult("location", {
+            status: "risk",
+            statusText: `Exact to ${accText}`,
+            lines: [
+              `Accuracy: within ${accText}`,
+              `Position (rounded on this screen): ${latitude.toFixed(2)}, ${longitude.toFixed(2)}`,
+            ],
+            soWhat: `A website with this access can find ${area}. It gets the exact numbers. This page did not send them.`,
+            todo: "Allow location only for websites that need it. You can remove access in Site settings.",
+          });
+          access().then(resolve);
+        },
+        (err) => {
+          const blocked = err.code === 1;
+          renderResult("location", blocked
+            ? { status: "good", statusText: "You blocked it", soWhat: "This website cannot get your location." }
+            : { status: "neutral", statusText: "Location not found", soWhat: "Your device could not find its location. Location services may be off." });
+          access().then(resolve);
+        },
+        { enableHighAccuracy: true, timeout: 15000, maximumAge: 0 },
+      );
+    });
+  }
+
   // ---------- copy results ----------
 
   function resultsText() {
@@ -824,6 +936,7 @@
     if (results.fingerprint) lines.push(`Fingerprint: ${results.fingerprint.short} (browser ID ${results.fingerprint.code})`);
     if (results.signals) lines.push(`"Don't sell my data" request (GPC): ${results.signals.short}`);
     if (results.autofill) lines.push(`Autofill hidden boxes: ${results.autofill.short}`);
+    if (results.access) lines.push(`Location, camera, microphone: ${results.access.short}`);
     if (results.cookies) lines.push(`Third-party cookies (ads following you): ${results.cookies.short}`);
     if (results.trackers) lines.push(`Tracker blocking: ${results.trackers.short}`);
     if (results.webrtc) lines.push(`IP leak test: ${results.webrtc.short}`);
@@ -834,13 +947,13 @@
   // ---------- wire up ----------
 
   document.addEventListener("DOMContentLoaded", async () => {
-    document.querySelectorAll(".check-run").forEach((btn) => {
+    document.querySelectorAll(".check-run[data-test]").forEach((btn) => {
       btn.addEventListener("click", async () => {
         const which = btn.dataset.test;
         btn.disabled = true;
         btn.textContent = "Testing…";
         try {
-          await (which === "trackers" ? trackers() : webrtc());
+          await ({ trackers, webrtc, location: locationTest })[which]();
         } catch (e) {
           renderResult(which, { status: "neutral", statusText: "Couldn't run this test", lines: [String(e.message || e)] });
         }
@@ -857,7 +970,11 @@
     afForm.addEventListener("submit", (e) => e.preventDefault());
     $("#autofill-clear").addEventListener("click", autofillClear);
     // Don't keep filled-in details around if the page is left or restored from cache.
-    window.addEventListener("pagehide", () => afForm.reset());
+    window.addEventListener("pagehide", () => {
+      afForm.reset();
+      const loc = $("#location .check-result");
+      if (loc) loc.textContent = "";
+    });
     window.addEventListener("pageshow", (e) => { if (e.persisted) autofillClear(); });
 
     $("#copy-results").addEventListener("click", async () => {
@@ -875,5 +992,6 @@
     signals();
     renderSummary();
     cookies();
+    access();
   });
 })();

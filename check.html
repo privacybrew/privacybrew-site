@@ -72,7 +72,9 @@
           <summary>Show more</summary>
           <p>The ID is not saved in a cookie. Clearing cookies does not remove it.</p>
           <p>Each browser gives a different ID. Open this page in a different browser to compare.</p>
-          <p>The user agent is the name that your browser sends to each website.</p>
+          <p>Hidden drawing test: the page draws text and shapes in a box that you cannot see. Each device draws them a little differently.</p>
+          <p>The drawing and audio results are short codes. The same code on two websites means the same browser.</p>
+          <p>The user agent is the identity text that your browser sends to each website.</p>
         </details>
       </section>
 
@@ -124,8 +126,29 @@
         </details>
       </section>
 
+      <section class="check-section" id="access">
+        <h2>5. Location, camera and microphone</h2>
+        <p class="check-intro">A website must ask before it uses these. But it can see some things without asking.</p>
+        <img class="check-diagram" src="assets/img/diagrams/access.svg" alt="A website must ask you before it uses your location, camera or microphone. Without asking, it can see if you have a camera and a microphone." width="360" loading="lazy">
+        <div class="check-body"></div>
+        <div class="check-card" id="location">
+          <h3>What does your location show?</h3>
+          <p>This test asks for your location. It shows how exact it is.</p>
+          <p class="check-warn"><strong>Before you start:</strong> your browser asks you first.
+          It can use a location service (for example Google or Apple). This page does not send your location.</p>
+          <button class="btn btn-ghost check-run" type="button" data-test="location">Show my location</button>
+          <div class="check-result"></div>
+        </div>
+        <details class="check-details">
+          <summary>Show more</summary>
+          <p>This page can see only its own access. It cannot see what you allowed for other websites.</p>
+          <p>To see all websites with access, open Site settings in your browser.</p>
+          <p>"Asks first" is the safe setting. "Allowed" means that the website can use it without asking again.</p>
+        </details>
+      </section>
+
       <section class="check-section" id="cookies">
-        <h2>5. Can ads follow you to other websites?</h2>
+        <h2>6. Can ads follow you to other websites?</h2>
         <p class="check-intro">One ad company is on many websites. Its cookie can identify you on each of them.</p>
         <img class="check-diagram" src="assets/img/diagrams/cookies.svg" alt="The same ad company is on Website A and Website B. Its cookie identifies you on both, so it knows that you visited A and B." width="360" loading="lazy">
         <div class="check-body"></div>
@@ -138,7 +161,7 @@
       </section>
 
       <section class="check-section check-optin" id="optin">
-        <h2>6. Optional tests</h2>
+        <h2>7. Optional tests</h2>
         <div class="check-callout" role="note">
           <strong>Heads up:</strong> these two tests contact other companies.
           They do not start until you select them.
