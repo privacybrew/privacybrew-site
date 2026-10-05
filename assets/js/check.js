@@ -902,18 +902,23 @@
         (pos) => {
           const { latitude, longitude, accuracy } = pos.coords;
           const acc = Math.round(accuracy);
-          const accText = acc >= 1000 ? `${(acc / 1000).toFixed(1)} km` : `${acc} m`;
-          const area = acc <= 100 ? "your street, and possibly your building" : acc <= 2000 ? "your neighborhood" : "your town or city";
+          const dist = (m) => (m >= 1000 ? `${(m / 1000).toFixed(1)} km` : `${m} m`);
+          const area = acc <= 50 ? "your building" : acc <= 200 ? "your street" : acc <= 2000 ? "your neighborhood"
+            : acc <= 10000 ? "your town or city" : "your region";
           renderResult("location", {
             status: "risk",
-            statusText: `Exact to ${accText}`,
+            statusText: `Can find ${area}`,
             lines: [
-              `Accuracy: within ${accText}`,
-              `Position (rounded on this screen): ${latitude.toFixed(2)}, ${longitude.toFixed(2)}`,
+              `Your browser gave this point: ${latitude.toFixed(2)}, ${longitude.toFixed(2)} (rounded on this screen).`,
+              `You are within ${dist(acc)} of that point. That is a circle about ${dist(acc * 2)} wide.`,
             ],
             soWhat: `A website with this access can find ${area}. It gets the exact numbers. This page did not send them.`,
             todo: "Allow location only for websites that need it. You can remove access in Site settings.",
           });
+          if (acc > 1000) {
+            $("#location .check-result").append(el("p", "check-note",
+              "Computers often find location from Wi-Fi or the internet connection. Phones with GPS are usually exact to a few meters."));
+          }
           access().then(resolve);
         },
         (err) => {
