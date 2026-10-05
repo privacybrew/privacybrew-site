@@ -359,16 +359,6 @@
     const tzLabel = tz.replace(/_/g, " ") + (tzName && !/^GMT/.test(tzName) ? ` (${tzName})` : "");
     const langs = (navigator.languages || [navigator.language]).join(", ");
     const conn = connectionInfo();
-    const dpr = window.devicePixelRatio || 1;
-    // With a fractional density (e.g. 3.5) the browser rounds the size first, so the
-    // result can be a few pixels off. Then round to 10 and say "about".
-    const exactDpr = Number.isInteger(dpr);
-    const px = (v) => (exactDpr ? Math.round(v * dpr) : Math.round((v * dpr) / 10) * 10);
-    // Phones report the screen sideways in landscape. Show narrow × tall so the
-    // result does not change when you rotate.
-    const sw = mobile ? Math.min(screen.width, screen.height) : screen.width;
-    const sh = mobile ? Math.max(screen.width, screen.height) : screen.height;
-    const realRes = `${exactDpr ? "" : "about "}${px(sw)} × ${px(sh)}`;
     const langCodes = navigator.languages || [navigator.language];
     let langName = (code) => code;
     try {
@@ -379,9 +369,6 @@
       ["Browser", browser],
       ["Operating system", os],
       ["Device", deviceName + (device && deviceName !== device ? ` (model ${device})` : "")],
-      ["Screen resolution", `${realRes} pixels`],
-      ["Screen size in website pixels", `${sw} × ${sh}`],
-      ["Pixel density", `${Math.round(dpr * 100) / 100}× (each website pixel is ${Math.round(dpr * 100) / 100} real pixels wide)`],
       ["Time zone", tzLabel],
       ["Languages", langCodes.map((c) => `${langName(c)} (${c})`).join(", ")],
       ["Connection in use", conn.type || "Not shown by your browser"],
@@ -402,7 +389,6 @@
         { icon: "browser", value: browser, label: "Browser" },
         { icon: "clock", value: tzLabel, label: "Time zone" },
         { icon: "language", value: langCodes[0] ? langName(langCodes[0]) : "Unknown", label: "Language" },
-        { icon: "screen", value: realRes, label: "Screen resolution" },
         ...(conn.type ? [{ icon: conn.icon, value: conn.type, label: "Connection in use" }] : []),
       ],
       more: { label: "Show all details", rows },
