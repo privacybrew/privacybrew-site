@@ -123,6 +123,8 @@
     chip: "M7 7h10v10H7zM10 3v4M14 3v4M10 17v4M14 17v4M3 10h4M3 14h4M17 10h4M17 14h4",
     draw: "M4 20l4-1L19 8l-3-3L5 16zM14 7l3 3",
     audio: "M3 12h2l2-6 3 12 3-9 2 6 2-3h4",
+    wifi: "M2 9a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0M12 19.5h.01",
+    cellular: "M4 20v-3M9 20v-7M14 20V9M19 20V4",
   };
 
   function icon(name) {
@@ -304,6 +306,22 @@
     return platform;
   }
 
+  // Connection in use. Only Chrome on Android names it; others give a speed class or nothing.
+  const CONN_TYPES = {
+    wifi: "Wi-Fi", cellular: "Mobile data", ethernet: "Cable (Ethernet)", bluetooth: "Bluetooth",
+    wimax: "WiMAX", none: "Offline", other: "Other", unknown: "Not known",
+  };
+  const SPEED = { "slow-2g": "Very slow", "2g": "Slow", "3g": "Medium", "4g": "Fast" };
+  function connectionInfo() {
+    const c = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    if (!c) return { type: null, speed: null };
+    return {
+      type: c.type ? CONN_TYPES[c.type] || c.type : null,
+      icon: c.type === "cellular" ? "cellular" : "wifi",
+      speed: c.effectiveType ? SPEED[c.effectiveType] || c.effectiveType : null,
+    };
+  }
+
   // ---------- 1. arrival data ----------
 
   async function arrival() {
@@ -340,8 +358,13 @@
     } catch (e) { /* older browsers: city only */ }
     const tzLabel = tz.replace(/_/g, " ") + (tzName && !/^GMT/.test(tzName) ? ` (${tzName})` : "");
     const langs = (navigator.languages || [navigator.language]).join(", ");
+    const conn = connectionInfo();
     const dpr = window.devicePixelRatio || 1;
-    const realRes = `${Math.round(screen.width * dpr)} × ${Math.round(screen.height * dpr)}`;
+    // With a fractional density (e.g. 3.5) the browser rounds the size first, so the
+    // result can be a few pixels off. Then round to 10 and say "about".
+    const exactDpr = Number.isInteger(dpr);
+    const px = (v) => (exactDpr ? Math.round(v * dpr) : Math.round((v * dpr) / 10) * 10);
+    const realRes = `${exactDpr ? "" : "about "}${px(screen.width)} × ${px(screen.height)}`;
     const langCodes = navigator.languages || [navigator.language];
     let langName = (code) => code;
     try {
@@ -357,6 +380,8 @@
       ["Pixel density", `${Math.round(dpr * 100) / 100}× (each website pixel is ${Math.round(dpr * 100) / 100} real pixels wide)`],
       ["Time zone", tzLabel],
       ["Languages", langCodes.map((c) => `${langName(c)} (${c})`).join(", ")],
+      ["Connection in use", conn.type || "Not shown by your browser"],
+      ["Connection speed (estimated)", conn.speed || "Not shown by your browser"],
       ["Processor cores", String(navigator.hardwareConcurrency || "Not shared")],
     ];
     if (navigator.deviceMemory) rows.push(["Memory (rounded by your browser)", navigator.deviceMemory >= 8 ? "8 GB or more" : `About ${navigator.deviceMemory} GB`]);
@@ -374,6 +399,7 @@
         { icon: "clock", value: tzLabel, label: "Time zone" },
         { icon: "language", value: langCodes[0] ? langName(langCodes[0]) : "Unknown", label: "Language" },
         { icon: "screen", value: realRes, label: "Screen resolution" },
+        ...(conn.type ? [{ icon: conn.icon, value: conn.type, label: "Connection in use" }] : []),
       ],
       more: { label: "Show all details", rows },
       soWhat: "One item does not identify you. Your time zone and language show approximately where you live. " +
@@ -993,6 +1019,8 @@
     });
 
     await arrival();
+    const netInfo = navigator.connection;
+    if (netInfo && netInfo.addEventListener) netInfo.addEventListener("change", () => arrival());
     await fingerprint();
     signals();
     renderSummary();
