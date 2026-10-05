@@ -364,7 +364,11 @@
     // result can be a few pixels off. Then round to 10 and say "about".
     const exactDpr = Number.isInteger(dpr);
     const px = (v) => (exactDpr ? Math.round(v * dpr) : Math.round((v * dpr) / 10) * 10);
-    const realRes = `${exactDpr ? "" : "about "}${px(screen.width)} × ${px(screen.height)}`;
+    // Phones report the screen sideways in landscape. Show narrow × tall so the
+    // result does not change when you rotate.
+    const sw = mobile ? Math.min(screen.width, screen.height) : screen.width;
+    const sh = mobile ? Math.max(screen.width, screen.height) : screen.height;
+    const realRes = `${exactDpr ? "" : "about "}${px(sw)} × ${px(sh)}`;
     const langCodes = navigator.languages || [navigator.language];
     let langName = (code) => code;
     try {
@@ -376,7 +380,7 @@
       ["Operating system", os],
       ["Device", deviceName + (device && deviceName !== device ? ` (model ${device})` : "")],
       ["Screen resolution", `${realRes} pixels`],
-      ["Screen size in website pixels", `${screen.width} × ${screen.height}`],
+      ["Screen size in website pixels", `${sw} × ${sh}`],
       ["Pixel density", `${Math.round(dpr * 100) / 100}× (each website pixel is ${Math.round(dpr * 100) / 100} real pixels wide)`],
       ["Time zone", tzLabel],
       ["Languages", langCodes.map((c) => `${langName(c)} (${c})`).join(", ")],
@@ -387,7 +391,7 @@
     if (navigator.deviceMemory) rows.push(["Memory (rounded by your browser)", navigator.deviceMemory >= 8 ? "8 GB or more" : `About ${navigator.deviceMemory} GB`]);
     rows.push(["Page you came from", document.referrer || "Not shared"]);
 
-    results.arrival = { rows, tz, langs, screen: `${screen.width}x${screen.height}x${devicePixelRatio}`, browser, os };
+    results.arrival = { rows, tz, langs, screen: `${Math.min(screen.width, screen.height)}x${Math.max(screen.width, screen.height)}x${devicePixelRatio}`, browser, os };
     const shared = rows.filter(([, v]) => v !== "Not shared").length;
     renderInfoCard("arrival", {
       status: "neutral",

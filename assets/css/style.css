@@ -1055,6 +1055,37 @@ section { padding: 88px 0; }
 
 .nav-links a[aria-current="page"] { color: var(--text); }
 
+/* Phones in portrait and landscape: menu button instead of the full nav. */
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .nav-inner { position: relative; }
+  .nav-cta { margin-left: auto; }
+  .nav-toggle { display: flex; }
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 8px 16px 16px;
+    background: #1a140f;
+    z-index: 70;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+  }
+  .nav-links.open a {
+    padding: 14px 8px;
+    font-size: 1.05rem;
+    color: var(--text);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-links.open a:last-child { border-bottom: 0; }
+  .nav-links.open a[aria-current="page"] { color: var(--accent); }
+}
+
 @media (max-width: 640px) {
   .check .check-section { padding: 0; }
   .check h1 { font-size: 1.6rem; }
@@ -1102,33 +1133,6 @@ section { padding: 88px 0; }
 }
 
 @media (max-width: 640px) {
-  .nav-links { display: none; }
-  .nav-inner { position: relative; }
-  .nav-cta { margin-left: auto; }
-  .nav-toggle { display: flex; }
-  .nav-links.open {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    padding: 8px 16px 16px;
-    background: #1a140f;
-    z-index: 70;
-    border-bottom: 1px solid var(--border);
-    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
-  }
-  .nav-links.open a {
-    padding: 14px 8px;
-    font-size: 1.05rem;
-    color: var(--text);
-    border-bottom: 1px solid var(--border);
-  }
-  .nav-links.open a:last-child { border-bottom: 0; }
-  .nav-links.open a[aria-current="page"] { color: var(--accent); }
   .section-tracker { display: flex; }
   .hero { padding: 56px 0 40px; }
   /* On phones the hero phone mockup previously filled the entire first

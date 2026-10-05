@@ -58,6 +58,11 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("click", (e) => {
       if (links.classList.contains("open") && !links.contains(e.target)) setOpen(false);
     });
+    // Close the menu when the phone rotates or the window gets wide.
+    const narrow = window.matchMedia("(max-width: 900px)");
+    const closeOnChange = () => setOpen(false);
+    if (narrow.addEventListener) narrow.addEventListener("change", closeOnChange);
+    window.addEventListener("orientationchange", closeOnChange);
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && links.classList.contains("open")) {
         setOpen(false);
