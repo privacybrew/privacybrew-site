@@ -111,7 +111,16 @@ document.addEventListener("DOMContentLoaded", () => {
       const heroVisible = hero ? hero.getBoundingClientRect().bottom > 80 : false;
       const ctaVisible = cta ? cta.getBoundingClientRect().top <= refLine : false;
       tracker.classList.toggle("visible", !heroVisible && !ctaVisible);
+
+      // Hide while scrolling down so the bar does not cover what you read.
+      // Show again when you scroll up or stop near a section start.
+      const y = window.scrollY;
+      if (Math.abs(y - lastY) > 6) {
+        tracker.classList.toggle("tucked", y > lastY);
+        lastY = y;
+      }
     };
+    let lastY = window.scrollY;
 
     window.addEventListener(
       "scroll",

@@ -200,6 +200,8 @@ img { max-width: 100%; display: block; }
   transition: opacity 0.25s ease, transform 0.25s ease;
 }
 .section-tracker.visible { opacity: 1; transform: translateX(-50%) translateY(0); }
+/* Hidden while you scroll down (reading), so it does not cover text. */
+.section-tracker.visible.tucked { opacity: 0; transform: translateX(-50%) translateY(24px); pointer-events: none; }
 .section-tracker a {
   flex: 0 0 auto;
   font-size: 0.74rem;
@@ -409,6 +411,7 @@ section { padding: 88px 0; }
   color: var(--text);
   letter-spacing: -0.01em;
 }
+.why-fact p { color: var(--text-dim); font-size: 0.95rem; line-height: 1.6; margin: 10px 0 0 56px; }
 
 .compare-grid {
   margin-top: 44px;
@@ -529,6 +532,14 @@ section { padding: 88px 0; }
   border: 1px dashed var(--border);
 }
 
+/* Full-width card that links to another page (Browser Privacy Check). */
+.card.card-wide { grid-column: 1 / -1; }
+.card-link { display: block; color: inherit; transition: border-color 0.2s ease, background 0.2s ease; }
+.card-link:hover { text-decoration: none; border-color: rgba(95, 174, 150, 0.6); background: rgba(95, 174, 150, 0.06); }
+.card-link .card-icon { background: rgba(95, 174, 150, 0.14); }
+.card-link .card-icon svg { stroke: var(--accent-2); }
+.card-cta { display: inline-block; margin-top: 14px; font-weight: 700; color: var(--accent-2); }
+
 /* ---------- Screenshot gallery (horizontal, scroll-snap) ----------
    Previously these 4 screenshots sat in the bento grid as full-height
    phone mockups, one after another -- on a single-column mobile layout
@@ -615,6 +626,10 @@ section { padding: 88px 0; }
   font-size: 1.2rem;
   margin: 0;
 }
+.step p { color: var(--text-dim); font-size: 0.95rem; line-height: 1.6; margin: 10px 0 0; }
+
+/* How-it-works diagram. */
+.how-diagram { display: block; width: 100%; max-width: 520px; height: auto; margin: 0 auto 40px; }
 
 .step::after {
   content: "";
