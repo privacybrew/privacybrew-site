@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
       trackerLinks.forEach((a) => a.classList.toggle("active", a.dataset.section === id));
     };
 
-    const sectionIds = ["features", "why-it-matters", "how-it-works", "compare"];
+    const sectionIds = ["features", "tools", "why-it-matters", "how-it-works", "compare"];
     const sections = sectionIds
       .map((id) => document.getElementById(id))
       .filter(Boolean);

@@ -540,6 +540,54 @@ section { padding: 88px 0; }
 .card-link .card-icon svg { stroke: var(--accent-2); }
 .card-cta { display: inline-block; margin-top: 14px; font-weight: 700; color: var(--accent-2); }
 
+/* ---------- Tools (suite) ---------- */
+.tools-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.tool-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  color: inherit;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.tool-card:hover { text-decoration: none; border-color: var(--accent-dim); transform: translateY(-2px); }
+.tool-card h3 { font-size: 1.15rem; margin: 16px 0 4px; }
+.tool-card p { color: var(--text-dim); font-size: 0.95rem; line-height: 1.6; margin: 0; }
+.tool-card .tool-what { color: var(--accent); font-weight: 600; font-size: 0.9rem; margin-bottom: 10px; }
+.tool-card .card-cta { margin-top: auto; padding-top: 16px; }
+.tool-status {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+.tool-status.live { color: var(--accent-2); background: rgba(95, 174, 150, 0.12); border: 1px solid rgba(95, 174, 150, 0.4); }
+.tool-status.soon { color: #e8a87c; background: rgba(232, 168, 124, 0.12); border: 1px solid rgba(232, 168, 124, 0.4); }
+
+/* ---------- Extension page ---------- */
+.ext-hero h1 { font-size: clamp(2rem, 4.2vw, 3.1rem); }
+.btn-soon { opacity: 0.6; cursor: default; }
+.btn-soon:hover { background: var(--accent); }
+.ext-shot { display: flex; flex-direction: column; align-items: center; }
+.ext-shot img {
+  width: 300px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+.credits { color: var(--text-faint); font-size: 0.85rem; margin-top: 28px; }
+.ext-shot-note { color: var(--text-faint); font-size: 0.85rem; margin-top: 10px; }
+
 /* ---------- Screenshot gallery (horizontal, scroll-snap) ----------
    Previously these 4 screenshots sat in the bento grid as full-height
    phone mockups, one after another -- on a single-column mobile layout
@@ -630,6 +678,10 @@ section { padding: 88px 0; }
 
 /* How-it-works diagram. */
 .how-diagram { display: block; width: 100%; max-width: 520px; height: auto; margin: 0 auto 40px; }
+/* Phones: use the full screen width so the diagram text stays readable. */
+@media (max-width: 480px) {
+  .how-diagram { width: calc(100% + 32px); max-width: none; margin-left: -16px; margin-right: -16px; }
+}
 
 .step::after {
   content: "";
@@ -1133,6 +1185,7 @@ section { padding: 88px 0; }
 /* ---------- Responsive ---------- */
 
 @media (max-width: 920px) {
+  .tools-grid { grid-template-columns: 1fr; }
   .hero-grid { grid-template-columns: 1fr; }
   .hero-visual { order: -1; margin-bottom: 24px; }
   .phone { width: 220px; }

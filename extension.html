@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="PrivacyBrew for your browser: a simple report card for each website. Blocks trackers and ads, rejects cookie pop-ups and asks websites not to sell your data. Coming soon.">
+<link rel="icon" type="image/png" href="assets/img/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/img/favicon-180.png">
+<link rel="stylesheet" href="assets/css/style.css?v=20261011b">
+<title>Browser extension — PrivacyBrew</title>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="/">
+        <img src="assets/img/logo.png" alt="">
+        PrivacyBrew
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="/#features">Features</a>
+        <a href="/#tools">Tools</a>
+        <a href="/check.html">Browser check</a>
+        <a href="/extension.html" aria-current="page">Extension</a>
+        <a href="/privacy.html">Privacy Policy</a>
+      </div>
+      <a class="nav-cta" href="https://play.google.com/store/apps/details?id=com.brewlabs.privacybrew" target="_blank" rel="noopener">Get the app</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <header class="hero ext-hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Browser extension · Coming soon</div>
+        <h1>The universe ain't giving you signs.<br><em>They're targeted ads, dear.</em></h1>
+        <p class="hero-sub">
+          PrivacyBrew for your browser shows who sees your visit to each
+          website. It blocks trackers and ads. All checks stay in your browser.
+        </p>
+        <div class="hero-actions">
+          <span class="btn btn-primary btn-soon" aria-disabled="true">Chrome Web Store · Coming soon</span>
+          <a class="btn btn-ghost" href="#how">See how it works</a>
+        </div>
+        <div class="hero-trust">
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/></svg>
+            No account
+          </span>
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l22 22M8.5 8.5A5 5 0 0012 17a4.9 4.9 0 002.9-.9M16.7 16.7A9.4 9.4 0 0112 18c-6 0-10-6-10-6a17.6 17.6 0 015-5.5M9.5 4.3A9 9 0 0112 4c6 0 10 6 10 6a17.7 17.7 0 01-3.1 3.6"/></svg>
+            No analytics
+          </span>
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+            Your data stays in your browser
+          </span>
+        </div>
+      </div>
+      <div class="ext-shot">
+        <img src="assets/img/extension/report-card.png" width="360" height="830"
+             alt="PrivacyBrew extension report card for a test page: 6 trackers found, 5 blocked, ads blocked, outside scripts and fingerprinting.">
+        <p class="ext-shot-note">Report card on a test page</p>
+      </div>
+    </div>
+  </header>
+
+  <section id="what">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">What it does</div>
+        <h2>A privacy report card for each website.</h2>
+        <p>Open the extension on any website. You see who saw your visit, and what PrivacyBrew stopped.</p>
+      </div>
+      <div class="bento">
+        <div class="card span-2 reveal">
+          <div class="card-header">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div>
+            <h3>Report card</h3>
+          </div>
+          <p>Trackers, ads, outside scripts, cookies and fingerprinting. Each with a short line about what it means.</p>
+        </div>
+        <div class="card span-2 reveal">
+          <div class="card-header">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg></div>
+            <h3>Blocks trackers and ads</h3>
+          </div>
+          <p>Known trackers and ads do not load. Pages often load faster.</p>
+        </div>
+        <div class="card span-2 reveal">
+          <div class="card-header">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 109 9 4 4 0 01-4-4 4 4 0 01-4-4z"/><path d="M8.5 11h.01M12 15h.01M15 12h.01"/></svg></div>
+            <h3>Rejects cookie pop-ups</h3>
+          </div>
+          <p>It selects "Reject all" or keeps only necessary cookies. It never selects "Accept all".</p>
+        </div>
+        <div class="card span-3 reveal">
+          <div class="card-header">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H8l-4 4z"/><path d="M9 10h6"/></svg></div>
+            <h3>Asks websites not to sell your data</h3>
+          </div>
+          <p>It sends Global Privacy Control to each website. In some US states, websites must obey it.</p>
+        </div>
+        <div class="card span-3 reveal">
+          <div class="card-header">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h10M4 12h16M4 17h7"/><circle cx="17" cy="7" r="2"/><circle cx="14" cy="17" r="2"/></svg></div>
+            <h3>You stay in control</h3>
+          </div>
+          <p>Is a website broken? Turn off blocking for that website only. Each feature has its own switch.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" class="statement">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">How it works</div>
+        <h2>All checks happen in your browser.</h2>
+      </div>
+      <img class="how-diagram reveal" src="assets/img/diagrams/extension-how.svg" width="520" height="309" loading="lazy"
+           alt="When you open a website, PrivacyBrew checks each request in your browser. It blocks trackers and ads, rejects cookie pop-ups and asks the website not to sell your data. Then it shows a report card.">
+      <div class="steps">
+        <div class="step reveal">
+          <div class="step-header">
+            <span class="num">01 · CHECK</span>
+            <h3>Compare each request with known lists</h3>
+          </div>
+          <p>A tracker list and an ad list ship inside the extension. Nothing is looked up online.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-header">
+            <span class="num">02 · STOP</span>
+            <h3>Block, reject and ask</h3>
+          </div>
+          <p>Chrome stops matched requests. Cookie pop-ups get "Reject". Each website gets a "do not sell" request.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-header">
+            <span class="num">03 · SHOW</span>
+            <h3>Tell you in simple words</h3>
+          </div>
+          <p>The report card shows what happened. Only you see it. It resets when you open a new page.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="why">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Why we built it</div>
+        <h2>Ads follow you because trackers follow you.</h2>
+        <p>Trackers on many websites record your visits. Ad companies use that record to choose the ads that you see.
+        Most blockers show only a number. PrivacyBrew also tells you what each tracker is and why it is important.</p>
+      </div>
+      <div class="compare-grid reveal">
+        <div>
+          <div class="compare-col-label expected">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            What it does not do
+          </div>
+          <div class="compare-card"><p>It does not send your data anywhere. It has no account and no analytics.</p></div>
+          <div class="compare-card"><p>It does not keep your browsing history. Each report is for the open page only.</p></div>
+        </div>
+        <div>
+          <div class="compare-col-label flag">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86l-8.16 14A2 2 0 004 21h16a2 2 0 001.87-3.14l-8.16-14a2 2 0 00-3.44 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+            Its limits
+          </div>
+          <div class="compare-card flag"><p>It finds known trackers and ads only. It cannot block all video ads.</p></div>
+          <div class="compare-card flag"><p>Some websites can break. Turn off blocking for that website.</p></div>
+        </div>
+      </div>
+      <p class="credits reveal">Lists: Disconnect tracker list (CC BY-NC-SA 4.0), EasyList.
+        Cookie pop-up rules: DuckDuckGo autoconsent (MPL-2.0).</p>
+    </div>
+  </section>
+
+  <section id="cta" class="cta">
+    <div class="wrap reveal">
+      <div class="eyebrow">Chrome, Edge, Brave · Free</div>
+      <h2>Coming soon to the Chrome Web Store.</h2>
+      <p>Until then, see what websites learn about your browser now.</p>
+      <div class="hero-actions cta-actions">
+        <a class="btn btn-primary" href="/check.html">Check your browser</a>
+        <a class="btn btn-ghost" href="https://play.google.com/store/apps/details?id=com.brewlabs.privacybrew" target="_blank" rel="noopener">Get the Android app</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div>A BrewLabs project</div>
+      <div class="footer-links">
+        <a href="/check.html">Browser check</a>
+        <a href="/extension.html">Extension</a>
+        <a href="/privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js?v=20261011b"></script>
+</body>
+</html>

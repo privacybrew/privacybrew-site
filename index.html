@@ -7,7 +7,7 @@
 <meta name="description" content="PrivacyBrew shows what your Android apps can access, in simple words. All checks stay on your phone. No accounts, no analytics, no ads, no internet permission.">
 <link rel="icon" type="image/png" href="assets/img/favicon-32.png">
 <link rel="apple-touch-icon" href="assets/img/favicon-180.png">
-<link rel="stylesheet" href="assets/css/style.css?v=20261009a">
+<link rel="stylesheet" href="assets/css/style.css?v=20261011b">
 <title>PrivacyBrew — See what's brewing in your data</title>
 </head>
 <body>
@@ -20,8 +20,9 @@
       </a>
       <div class="nav-links" id="nav-links">
         <a href="#features">Features</a>
-        <a href="#how-it-works">How it works</a>
+        <a href="#tools">Tools</a>
         <a href="/check.html">Browser check</a>
+        <a href="/extension.html">Extension</a>
         <a href="/privacy.html">Privacy Policy</a>
       </div>
       <a class="nav-cta" href="https://play.google.com/store/apps/details?id=com.brewlabs.privacybrew" target="_blank" rel="noopener">Get the app</a>
@@ -33,6 +34,7 @@
 
   <nav class="section-tracker" id="section-tracker" aria-label="Section">
     <a href="#features" data-section="features">What</a>
+    <a href="#tools" data-section="tools">Tools</a>
     <a href="#why-it-matters" data-section="why-it-matters">Why</a>
     <a href="#how-it-works" data-section="how-it-works">How</a>
     <a href="#compare" data-section="compare">Compare</a>
@@ -41,9 +43,9 @@
   <header class="hero">
     <div class="wrap hero-grid">
       <div>
-        <a class="hero-news" href="/check.html">
-          <span class="hero-news-tag">New</span>
-          <span class="hero-news-text">Check what any website learns about your browser</span>
+        <a class="hero-news" href="/extension.html">
+          <span class="hero-news-tag">Soon</span>
+          <span class="hero-news-text">PrivacyBrew for your browser blocks trackers and ads</span>
           <span class="hero-news-arrow" aria-hidden="true">→</span>
         </a>
         <div class="eyebrow">For Android · On-device only</div>
@@ -149,16 +151,41 @@
           </div>
           <p>The app has no internet permission. It cannot send your data.</p>
         </div>
-        <a class="card card-wide card-link reveal" href="/check.html">
-          <div class="card-header">
-            <div class="card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg>
-            </div>
-            <h3>Browser Privacy Check</h3>
-          </div>
-          <p>See what each website learns about your browser. It is free and
-          runs on this website. Use it on your phone or computer.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="tools">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Three tools, one goal</div>
+        <h2>Your data moves through your phone, your browser and each website.</h2>
+        <p>Each PrivacyBrew tool checks one part. All of them use simple words. None of them send your data to us.</p>
+      </div>
+      <div class="tools-grid">
+        <a class="tool-card reveal" href="https://play.google.com/store/apps/details?id=com.brewlabs.privacybrew" target="_blank" rel="noopener">
+          <span class="tool-status live">Available</span>
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg></div>
+          <h3>Android app</h3>
+          <p class="tool-what">Checks the apps on your phone</p>
+          <p>See what each app can access and which trackers are inside it.</p>
+          <span class="card-cta">Get it on Google Play →</span>
+        </a>
+        <a class="tool-card reveal" href="/check.html">
+          <span class="tool-status live">Available</span>
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg></div>
+          <h3>Browser Privacy Check</h3>
+          <p class="tool-what">Checks your browser</p>
+          <p>See what each website learns about you when you open it. Free, on this website.</p>
           <span class="card-cta">Start the check →</span>
+        </a>
+        <a class="tool-card reveal" href="/extension.html">
+          <span class="tool-status soon">Coming soon</span>
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h4a2 2 0 012 2v4h-2a2 2 0 100 4h2v4a2 2 0 01-2 2h-4v-2a2 2 0 10-4 0v2H6a2 2 0 01-2-2v-4h2a2 2 0 100-4H4V6a2 2 0 012-2h4v2a2 2 0 104 0z"/></svg></div>
+          <h3>Browser extension</h3>
+          <p class="tool-what">Checks each website</p>
+          <p>Blocks trackers and ads. Rejects cookie pop-ups. Shows a report card.</p>
+          <span class="card-cta">See what it does →</span>
         </a>
       </div>
     </div>
@@ -320,11 +347,12 @@
       <div>A BrewLabs project</div>
       <div class="footer-links">
         <a href="/check.html">Browser check</a>
+        <a href="/extension.html">Extension</a>
         <a href="/privacy.html">Privacy Policy</a>
       </div>
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=20261009a"></script>
+  <script src="assets/js/main.js?v=20261011b"></script>
 </body>
 </html>
