@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<!-- Our own files only, plus the Tally feedback form in a frame. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; frame-src https://tally.so; connect-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex">
+<meta name="description" content="Send feedback about PrivacyBrew.">
+<link rel="icon" type="image/png" href="assets/img/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/img/favicon-180.png">
+<link rel="stylesheet" href="assets/css/style.css?v=20261011e">
+<title>Feedback — PrivacyBrew</title>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="/">
+        <img src="assets/img/logo.png" alt="">
+        PrivacyBrew
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="/#features">Features</a>
+        <a href="/#tools">Tools</a>
+        <a href="/check.html">Browser check</a>
+        <a href="/extension.html">Extension</a>
+        <a href="/privacy.html">Privacy Policy</a>
+      </div>
+      <a class="nav-cta" href="https://play.google.com/store/apps/details?id=com.brewlabs.privacybrew" target="_blank" rel="noopener">Get the app</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="check feedback">
+    <div class="wrap">
+      <div class="eyebrow">Feedback</div>
+      <h1>Tell us what works and what does not.</h1>
+      <p class="check-lead">Something broke? An idea? Write a few words. You do not need an account.</p>
+
+      <div class="check-promise">
+        <strong>How this form works.</strong> The form is run by Tally, a form service in the EU.
+        Tally receives what you type and sees your IP address, like any website.
+        Add your email only if you want a reply.
+      </div>
+
+      <div class="feedback-shared" id="feedback-shared" hidden>
+        <p><strong>You chose to share:</strong></p>
+        <div class="feedback-shared-list"></div>
+      </div>
+
+      <iframe id="feedback-frame" class="feedback-frame" title="PrivacyBrew feedback form" loading="lazy"></iframe>
+
+      <p class="check-footnote">Prefer email? Write to <a href="mailto:privacybrew@protonmail.com">privacybrew@protonmail.com</a>.</p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div>A BrewLabs project</div>
+      <div class="footer-links">
+        <a href="/check.html">Browser check</a>
+        <a href="/extension.html">Extension</a>
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/feedback.html">Feedback</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js?v=20261011e"></script>
+  <script src="assets/js/feedback.js?v=20261011e"></script>
+</body>
+</html>
