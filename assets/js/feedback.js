@@ -1,25 +1,16 @@
 // PrivacyBrew feedback page.
-// Passes only the details the extension user chose to share (v, browser, page)
+// Passes only the details the extension user chose to share (v, browser)
 // to the embedded Tally form. Nothing else is read or sent.
 (() => {
   "use strict";
   const FORM_ID = "PdM2QV";
-  const ALLOWED = ["v", "browser", "page"];
+  const ALLOWED = ["v", "browser"];
 
   const incoming = new URLSearchParams(location.search);
   const params = new URLSearchParams({ hideTitle: "1", transparentBackground: "1", dynamicHeight: "1" });
   const shared = [];
   for (const key of ALLOWED) {
-    let value = (incoming.get(key) || "").slice(0, 300);
-    if (key === "page" && value) {
-      // Keep the website address only: no query string or fragment.
-      try {
-        const u = new URL(value);
-        value = u.origin + u.pathname;
-      } catch (e) {
-        value = "";
-      }
-    }
+    const value = (incoming.get(key) || "").slice(0, 100);
     if (value) {
       params.set(key, value);
       shared.push([key, value]);
@@ -29,7 +20,7 @@
   const frame = document.getElementById("feedback-frame");
   frame.src = `https://tally.so/embed/${FORM_ID}?${params.toString()}`;
 
-  const labels = { v: "Extension version", browser: "Browser", page: "Page" };
+  const labels = { v: "Extension version", browser: "Browser" };
   const box = document.getElementById("feedback-shared");
   if (shared.length) {
     const list = document.createElement("dl");
