@@ -74,7 +74,7 @@
       <p><strong>PACKAGE_USAGE_STATS</strong> (optional, off by default) —
       powers two opt-in features: showing when you last opened each app,
       and, for the privacy quiz, how much time you spend in apps (your
-      daily average in social media apps over the last 7 days). Android
+      total time in social media apps over the last 7 days). Android
       requires granting this explicitly in system Settings, and you can
       revoke it at any time; every other part of the app works the same
       without it. Read on-device only, never transmitted.</p>
@@ -102,6 +102,7 @@
         useful context between opens:
           <ul>
             <li>UI preferences — theme, text size, and whether you've dismissed the intro or tab tour</li>
+            <li>Privacy quiz state — whether you took or skipped the first quiz, the date of the last quiz, whether the weekly quiz is on, the date each question was last asked (so it does not come back for 6 weeks), and for some phone questions the last value, so a later quiz can show "Last time / Now" (a number of apps, the screen timeout, the security update age in months, or whether a setting was on). No app names, no screen time, and no answers or scores are kept</li>
             <li>Access notices you've dismissed, so a reviewed item doesn't keep reappearing (Settings → Dismissed Access)</li>
             <li>A snapshot of each app's last-seen permissions, used only to flag what's new since your last visit</li>
             <li>Up to 90 days of daily tracker/sensitive-permission totals, used only for the Home screen trend line</li>
