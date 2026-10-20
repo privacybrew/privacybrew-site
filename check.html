@@ -11,7 +11,7 @@
 <meta name="description" content="See what any website learns about you the moment you arrive. Runs entirely in your browser; nothing is sent to PrivacyBrew.">
 <link rel="icon" type="image/png" href="assets/img/favicon-32.png">
 <link rel="apple-touch-icon" href="assets/img/favicon-180.png">
-<link rel="stylesheet" href="assets/css/style.css?v=20261014a">
+<link rel="stylesheet" href="assets/css/style.css?v=20261019a">
 <title>Browser Privacy Check — PrivacyBrew</title>
 </head>
 <body>
@@ -37,6 +37,7 @@
   </nav>
 
   <main class="check">
+  <svg class="dg-defs" aria-hidden="true" focusable="false"><defs><linearGradient id="pb-node" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#33233f"/><stop offset="1" stop-color="#21142c"/></linearGradient><marker id="pb-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#9b6dd1"/></marker><marker id="pb-t" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#5fae96"/></marker><marker id="pb-w" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#e8a87c"/></marker></defs></svg>
     <div class="wrap">
       <div class="eyebrow">Browser Privacy Check</div>
       <h1>What does a website learn about you?</h1>
@@ -54,7 +55,7 @@
       <section class="check-section" id="arrival">
         <h2>1. What all websites see</h2>
         <p class="check-intro">Your browser sends this data to each website automatically.</p>
-        <img class="check-diagram" src="assets/img/diagrams/arrival.svg" alt="Your browser sends device, system, browser, time zone and language data to each website automatically." width="360" loading="lazy">
+        <svg class="check-diagram dg " viewBox="0 0 360 152" role="img" aria-label="Your browser sends device, system, browser, time zone and language data to each website automatically."><g class="part p1"><rect class="n " x="8" y="16" width="122" height="50" rx="10" fill="url(#pb-node)"/><text class="t" x="69" y="46">Your browser</text></g><g class="part p2"><line class="ln flow" x1="136" y1="41" x2="224" y2="41" marker-end="url(#pb-a)"/><text class="ts" x="180" y="32">automatic</text><circle class="dot dot-a pkt pk-arr" cx="138" cy="41" r="3.5"/></g><g class="part p3"><rect class="n n-a" x="230" y="16" width="122" height="50" rx="10" fill="url(#pb-node)"/><text class="t" x="291" y="46">Website</text></g><g class="part p4"><rect class="chip seq" x="8" y="86" width="104" height="24" rx="12"/><text class="tc" x="60" y="102">Device</text></g><g class="part p5"><rect class="chip seq q2" x="128" y="86" width="104" height="24" rx="12"/><text class="tc" x="180" y="102">System</text></g><g class="part p6"><rect class="chip seq q3" x="248" y="86" width="104" height="24" rx="12"/><text class="tc" x="300" y="102">Browser</text></g><g class="part p7"><rect class="chip seq q4" x="68" y="118" width="104" height="24" rx="12"/><text class="tc" x="120" y="134">Time zone</text></g><g class="part p8"><rect class="chip seq q5" x="188" y="118" width="104" height="24" rx="12"/><text class="tc" x="240" y="134">Language</text></g></svg>
         <div class="check-body"></div>
         <details class="check-details">
           <summary>Show more</summary>
@@ -69,7 +70,7 @@
       <section class="check-section" id="fingerprint">
         <h2>2. Your browser fingerprint</h2>
         <p class="check-intro">Trackers combine small tests into one ID. The ID is the same on all websites.</p>
-        <img class="check-diagram" src="assets/img/diagrams/fingerprint.svg" alt="Fonts, graphics, drawing and audio tests combine into one browser ID. Website A and Website B see the same ID." width="360" loading="lazy">
+        <svg class="check-diagram dg " viewBox="0 0 360 156" role="img" aria-label="Fonts, graphics, drawing and audio tests combine into one browser ID. Website A and Website B see the same ID."><g class="part p1"><rect class="chip seq" x="8" y="12" width="84" height="24" rx="12"/><text class="tc" x="50" y="28">Fonts</text><rect class="chip seq q2" x="8" y="48" width="84" height="24" rx="12"/><text class="tc" x="50" y="64">Graphics</text><rect class="chip seq q3" x="8" y="84" width="84" height="24" rx="12"/><text class="tc" x="50" y="100">Drawing</text><rect class="chip seq q4" x="8" y="120" width="84" height="24" rx="12"/><text class="tc" x="50" y="136">Audio</text></g><g class="part p2"><path class="ln" d="M92 24 H104 Q112 24 112 32 V124 Q112 132 104 132 H92 M92 60 H112 M92 96 H112"/><line class="ln flow" x1="112" y1="78" x2="132" y2="78" marker-end="url(#pb-a)"/></g><g class="part p3"><rect class="n n-a glow" x="136" y="54" width="96" height="48" rx="10" fill="url(#pb-node)"/><text class="t" x="184" y="76">Browser ID</text><text class="ts" x="184" y="93">85C3-604D</text></g><g class="part p4"><line class="ln ln-w flow" x1="234" y1="66" x2="258" y2="38" marker-end="url(#pb-w)"/><line class="ln ln-w flow" x1="234" y1="90" x2="258" y2="118" marker-end="url(#pb-w)"/></g><g class="part p5"><rect class="n " x="264" y="14" width="90" height="40" rx="10" fill="url(#pb-node)"/><text class="t" x="309" y="39">Website A</text></g><g class="part p6"><rect class="n " x="264" y="102" width="90" height="40" rx="10" fill="url(#pb-node)"/><text class="t" x="309" y="127">Website B</text><text class="tc tw" x="309" y="82">same ID</text></g></svg>
         <div class="check-body"></div>
         <details class="check-details">
           <summary>Show more</summary>
@@ -84,7 +85,7 @@
       <section class="check-section" id="signals">
         <h2>3. Does your browser say "do not sell my data"?</h2>
         <p class="check-intro">Your browser can send this request to each website.</p>
-        <img class="check-diagram" src="assets/img/diagrams/signals.svg" alt="Your browser sends a do not sell my data request to the website. In some US states the website must obey it." width="360" loading="lazy">
+        <svg class="check-diagram dg " viewBox="0 0 360 116" role="img" aria-label="Your browser sends a do not sell my data request to the website. In some US states the website must obey it."><g class="part p1"><rect class="n " x="8" y="16" width="112" height="50" rx="10" fill="url(#pb-node)"/><text class="t" x="64" y="46">Your browser</text></g><g class="part p2"><line class="ln ln-t flow" x1="126" y1="41" x2="234" y2="41" marker-end="url(#pb-t)"/><text class="tc tt" x="180" y="30">Do not sell my data</text><circle class="dot pkt pk-sig" cx="128" cy="41" r="3.5"/></g><g class="part p3"><rect class="n n-t" x="240" y="16" width="112" height="50" rx="10" fill="url(#pb-node)"/><text class="t" x="296" y="46">Website</text></g><g class="part p4"><text class="ts ts-12" x="296" y="88">Some US states:</text><text class="t t-12" x="296" y="105">website must obey</text></g></svg>
         <div class="check-body"></div>
         <details class="check-details">
           <summary>Show more</summary>
@@ -97,7 +98,7 @@
       <section class="check-section" id="autofill">
         <h2>4. Autofill: hidden boxes</h2>
         <p class="check-intro">Autofill can also fill in boxes that you cannot see.</p>
-        <img class="check-diagram" src="assets/img/diagrams/autofill.svg" alt="Your saved data fills the visible name box and hidden email, phone and address boxes. The website gets all of it." width="360" loading="lazy">
+        <svg class="check-diagram dg " viewBox="0 0 360 204" role="img" aria-label="Your saved data fills the visible name box and hidden email, phone and address boxes. The website gets all of it."><g class="part p1"><rect class="n " x="4" y="70" width="102" height="50" rx="10" fill="url(#pb-node)"/><text class="t" x="55" y="93">Saved data</text><text class="ts ts-12" x="55" y="110">in your browser</text></g><g class="part p2"><line class="ln flow" x1="110" y1="95" x2="128" y2="95" marker-end="url(#pb-a)"/></g><g class="part p3"><rect class="n n-box" x="132" y="10" width="112" height="170" rx="10"/><text class="ts" x="188" y="28">Form</text><rect class="n n-a" x="138" y="36" width="100" height="30" rx="6" fill="url(#pb-node)"/><text class="t t-13" x="188" y="56">Name</text></g><g class="part p4"><rect class="n n-w n-dash-s" x="138" y="74" width="100" height="28" rx="6" fill="url(#pb-node)"/><rect class="fillw seq " x="138" y="74" width="100" height="28" rx="6"/><text class="tc tw" x="188" y="93">Email</text><rect class="n n-w n-dash-s" x="138" y="108" width="100" height="28" rx="6" fill="url(#pb-node)"/><rect class="fillw seq q2" x="138" y="108" width="100" height="28" rx="6"/><text class="tc tw" x="188" y="127">Phone</text><rect class="n n-w n-dash-s" x="138" y="142" width="100" height="28" rx="6" fill="url(#pb-node)"/><rect class="fillw seq q3" x="138" y="142" width="100" height="28" rx="6"/><text class="tc tw" x="188" y="161">Address</text><text class="tc tw" x="188" y="196">hidden</text></g><g class="part p5"><line class="ln ln-w flow" x1="248" y1="95" x2="272" y2="95" marker-end="url(#pb-w)"/></g><g class="part p6"><rect class="n n-w" x="276" y="70" width="80" height="50" rx="10" fill="url(#pb-node)"/><text class="t" x="316" y="93">Website</text><text class="ts ts-12" x="316" y="110">gets all</text></g></svg>
         <div class="check-card">
           <p class="check-good-note"><strong>Stays on this page.</strong> This page does not send or keep your data.</p>
           <form class="check-autofill" id="autofill-form" autocomplete="on" novalidate>
@@ -132,7 +133,7 @@
       <section class="check-section" id="access">
         <h2>5. Location, camera and microphone</h2>
         <p class="check-intro">A website must ask before it uses these. But it can see some things without asking.</p>
-        <img class="check-diagram" src="assets/img/diagrams/access.svg" alt="A website must ask you before it uses your location, camera or microphone. Without asking, it can see if you have a camera and a microphone." width="360" loading="lazy">
+        <svg class="check-diagram dg " viewBox="0 0 360 160" role="img" aria-label="A website must ask you before it uses your location, camera or microphone. Without asking, it can see if you have a camera and a microphone."><g class="part p1"><rect class="n " x="6" y="34" width="96" height="50" rx="10" fill="url(#pb-node)"/><text class="t" x="54" y="64">Website</text></g><g class="part p2"><line class="ln flow" x1="106" y1="59" x2="140" y2="59" marker-end="url(#pb-a)"/><text class="tc" x="123" y="48">asks</text></g><g class="part p3"><rect class="n n-t" x="144" y="34" width="92" height="50" rx="10" fill="url(#pb-node)"/><text class="t" x="190" y="57">You</text><text class="ts ts-12" x="190" y="74">Allow or Block</text></g><g class="part p4"><line class="ln ln-t flow" x1="240" y1="59" x2="258" y2="59" marker-end="url(#pb-t)"/></g><g class="part p5"><rect class="chip " x="262" y="12" width="92" height="24" rx="12"/><text class="tc" x="308" y="28">Location</text><rect class="chip " x="262" y="47" width="92" height="24" rx="12"/><text class="tc" x="308" y="63">Camera</text><rect class="chip " x="262" y="82" width="92" height="24" rx="12"/><text class="tc" x="308" y="98">Microphone</text></g><g class="part p6"><line class="ln ln-w flow" x1="54" y1="88" x2="54" y2="112" marker-end="url(#pb-w)"/></g><g class="part p7"><rect class="n n-w n-dash-s" x="6" y="118" width="348" height="34" rx="10" fill="url(#pb-node)"/><rect class="fillw seq" x="6" y="118" width="348" height="34" rx="10"/><text class="t t-12 t-reg" x="180" y="140"><tspan class="tw tb">Without asking:</tspan> has a camera? has a microphone?</text></g></svg>
         <div class="check-body"></div>
         <div class="check-card" id="location">
           <h3>What does your location show?</h3>
@@ -153,7 +154,7 @@
       <section class="check-section" id="cookies">
         <h2>6. Can ads follow you to other websites?</h2>
         <p class="check-intro">One ad company is on many websites. Its cookie can identify you on each of them.</p>
-        <img class="check-diagram" src="assets/img/diagrams/cookies.svg" alt="The same ad company is on Website A and Website B. Its cookie identifies you on both, so it knows that you visited A and B." width="360" loading="lazy">
+        <svg class="check-diagram dg " viewBox="0 0 360 192" role="img" aria-label="The same ad company is on Website A and Website B. Its cookie identifies you on both, so it knows that you visited A and B."><g class="part p1"><rect class="n " x="10" y="10" width="140" height="70" rx="10" fill="url(#pb-node)"/><text class="t t-13" x="80" y="32">Website A</text><rect class="chip chip-w" x="55" y="46" width="50" height="24" rx="12"/><text class="tc tw" x="80" y="62">Ad</text></g><g class="part p2"><rect class="n " x="210" y="10" width="140" height="70" rx="10" fill="url(#pb-node)"/><text class="t t-13" x="280" y="32">Website B</text><rect class="chip chip-w" x="255" y="46" width="50" height="24" rx="12"/><text class="tc tw" x="280" y="62">Ad</text></g><g class="part p3"><line class="ln ln-w flow" x1="80" y1="84" x2="150" y2="126" marker-end="url(#pb-w)"/><line class="ln ln-w flow" x1="280" y1="84" x2="210" y2="126" marker-end="url(#pb-w)"/><text class="tc tw" x="180" y="100">same cookie</text></g><g class="part p4"><rect class="n n-w glow" x="110" y="132" width="140" height="52" rx="10" fill="url(#pb-node)"/><text class="t" x="180" y="156">Ad company</text><text class="ts ts-12" x="180" y="173">knows: A, B</text></g></svg>
         <div class="check-body"></div>
         <details class="check-details">
           <summary>Show more</summary>
@@ -173,7 +174,7 @@
         <div class="check-card" id="trackers">
           <h3>Do you have a tracker blocker?</h3>
           <p>This test tries to load tracker scripts. It shows if something stops them.</p>
-          <img class="check-diagram" src="assets/img/diagrams/trackers.svg" alt="This page tries to load tracker scripts from Google, Meta and Microsoft. A blocker can stop them." width="360" loading="lazy">
+          <svg class="check-diagram dg " viewBox="0 0 360 110" role="img" aria-label="This page tries to load tracker scripts from Google, Meta and Microsoft. A blocker can stop them."><g class="part p1"><rect class="n " x="6" y="30" width="96" height="50" rx="10" fill="url(#pb-node)"/><text class="t" x="54" y="60">This page</text></g><g class="part p2"><line class="ln flow" x1="106" y1="55" x2="140" y2="55" marker-end="url(#pb-a)"/></g><g class="part p3"><circle class="n n-t glow" cx="176" cy="55" r="32" fill="url(#pb-node)"/><text class="tc tt" x="176" y="52">Blocker</text><text class="t t-13 tt tb" x="176" y="68">?</text></g><g class="part p4"><line class="ln flow" x1="212" y1="55" x2="240" y2="55" marker-end="url(#pb-a)"/></g><g class="part p5"><rect class="n " x="244" y="22" width="112" height="66" rx="10" fill="url(#pb-node)"/><text class="t" x="300" y="53">Google</text><text class="ts ts-12" x="300" y="70">Meta, Microsoft</text></g></svg>
           <p class="check-warn"><strong>Before you start:</strong> if nothing stops the scripts,
           Google, Meta and Microsoft see your IP address. The test sends no cookies.</p>
           <button class="btn btn-ghost check-run" type="button" data-test="trackers">Start tracker test</button>
@@ -183,7 +184,7 @@
         <div class="check-card" id="webrtc">
           <h3>Can your IP address get past your VPN?</h3>
           <p>WebRTC is a browser feature for video calls. It can show your real IP address.</p>
-          <img class="check-diagram" src="assets/img/diagrams/webrtc.svg" alt="Normal traffic goes through your VPN. WebRTC can go around the VPN and show your real IP address." width="360" loading="lazy">
+          <svg class="check-diagram dg " viewBox="0 0 360 146" role="img" aria-label="Normal traffic goes through your VPN. WebRTC can go around the VPN and show your real IP address."><g class="part p1"><rect class="n " x="6" y="50" width="110" height="50" rx="10" fill="url(#pb-node)"/><text class="t" x="61" y="80">Your browser</text></g><g class="part p2"><line class="ln flow" x1="120" y1="60" x2="146" y2="36" marker-end="url(#pb-a)"/></g><g class="part p3"><rect class="n n-t" x="150" y="10" width="82" height="40" rx="10" fill="url(#pb-node)"/><text class="t" x="191" y="35">VPN</text></g><g class="part p4"><line class="ln ln-t flow" x1="236" y1="30" x2="256" y2="30" marker-end="url(#pb-t)"/></g><g class="part p5"><rect class="n " x="260" y="10" width="94" height="40" rx="10" fill="url(#pb-node)"/><text class="t" x="307" y="35">Website</text></g><g class="part p6"><line class="ln ln-w flow" x1="120" y1="90" x2="254" y2="116" marker-end="url(#pb-w)"/><text class="tc tw" x="176" y="128">WebRTC: real IP?</text></g><g class="part p7"><rect class="n " x="260" y="96" width="94" height="40" rx="10" fill="url(#pb-node)"/><text class="t" x="307" y="114">Google</text><text class="ts ts-12" x="307" y="131">server</text></g></svg>
           <p class="check-warn"><strong>Before you start:</strong> this test asks a Google server
           for your IP address. Google sees the request. Only you see the result.</p>
           <button class="btn btn-ghost check-run" type="button" data-test="webrtc">Start IP leak test</button>
@@ -215,7 +216,7 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=20261014a"></script>
-  <script src="assets/js/check.js?v=20261014a"></script>
+  <script src="assets/js/main.js?v=20261019a"></script>
+  <script src="assets/js/check.js?v=20261019a"></script>
 </body>
 </html>
