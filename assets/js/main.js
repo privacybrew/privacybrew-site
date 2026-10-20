@@ -3,6 +3,10 @@
 // mobile nav. No frameworks, no analytics, nothing phoning home — same
 // spirit as the app itself.
 
+// Lets the CSS hide diagram parts until they rise into view. Without JS
+// they simply stay visible.
+document.documentElement.classList.add("js-dg");
+
 document.addEventListener("DOMContentLoaded", () => {
   const revealEls = document.querySelectorAll(".reveal");
   const reveal = (el) => el.classList.add("in");
@@ -135,4 +139,163 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("resize", update);
     update();
   }
+  // ---------- Diagrams and motion ----------
+  // CSS does the animation. JS only sets state classes, and stops the
+  // loops when a diagram is off screen or the tab is hidden.
+  const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const still = () => motionQuery.matches;
+  const hasIO = "IntersectionObserver" in window;
+
+  // Calls show/hide when el enters/leaves the screen (and on tab hide).
+  const watch = (el, show, hide, threshold) => {
+    let onScreen = false;
+    const sync = () => (onScreen && !document.hidden ? show() : hide());
+    document.addEventListener("visibilitychange", sync);
+    if (!hasIO) { onScreen = true; sync(); return; }
+    new IntersectionObserver(
+      (entries) => entries.forEach((e) => { onScreen = e.isIntersecting; sync(); }),
+      { threshold: threshold || 0 }
+    ).observe(el);
+  };
+
+  // Thin reading-progress bar under the sticky nav.
+  const nav = document.querySelector(".nav");
+  if (nav) {
+    const bar = document.createElement("div");
+    bar.className = "nav-progress";
+    bar.setAttribute("aria-hidden", "true");
+    const fill = document.createElement("span");
+    bar.appendChild(fill);
+    nav.appendChild(bar);
+    let queued = false;
+    const paint = () => {
+      queued = false;
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const p = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+      fill.style.transform = "scaleX(" + p.toFixed(4) + ")";
+    };
+    const queue = () => {
+      if (!queued) { queued = true; window.requestAnimationFrame(paint); }
+    };
+    window.addEventListener("scroll", queue, { passive: true });
+    window.addEventListener("resize", queue);
+    paint();
+  }
+
+  // .in = parts rise (once). .live = loops run (only while on screen).
+  document.querySelectorAll(".dg, [data-live]").forEach((el) => {
+    watch(
+      el,
+      () => el.classList.add("in", "live"),
+      () => el.classList.remove("live"),
+      0.15
+    );
+  });
+
+  const stepCards = (el) => (el.closest("section") || document).querySelectorAll("[data-step-card]");
+
+  // Home "How it works": select a step; the diagram and step card follow.
+  // It moves to the next step by itself only while on screen, and stops
+  // for good when you select a step.
+  document.querySelectorAll("[data-stepper]").forEach((box) => {
+    const btns = box.querySelectorAll("[data-step-btn]");
+    const cards = stepCards(box);
+    let cur = 1;
+    let timer = 0;
+    let user = false;
+    const set = (i) => {
+      cur = i;
+      box.dataset.step = String(i);
+      btns.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.stepBtn === String(i))));
+      cards.forEach((c) => c.classList.toggle("is-active", c.dataset.stepCard === String(i)));
+    };
+    const stop = () => { window.clearInterval(timer); timer = 0; };
+    const start = () => {
+      if (!timer && !user && !still()) timer = window.setInterval(() => set((cur % btns.length) + 1), 3800);
+    };
+    btns.forEach((b) =>
+      b.addEventListener("click", () => { user = true; stop(); set(Number(b.dataset.stepBtn)); })
+    );
+    watch(box, start, stop, 0.4);
+  });
+
+  // Extension "How it works": without/with toggle, and boxes you can
+  // select to read what each part does.
+  document.querySelectorAll("[data-ba]").forEach((ba) => {
+    const btns = ba.querySelectorAll("[data-ba-set]");
+    const nodes = ba.querySelectorAll(".dg-node");
+    const title = ba.querySelector("[data-detail-title]");
+    const text = ba.querySelector("[data-detail-text]");
+    const cards = stepCards(ba);
+    let selected = ba.querySelector('.dg-node[aria-pressed="true"]') || nodes[0];
+    let touched = false;
+    const show = (t, x) => { title.textContent = t; text.textContent = x; };
+    const pick = (node) => {
+      selected = node;
+      nodes.forEach((n) => n.setAttribute("aria-pressed", String(n === node)));
+      show(node.dataset.title, node.dataset.text);
+      cards.forEach((c) => c.classList.toggle("is-active", c.dataset.stepCard === node.dataset.step));
+    };
+    const setState = (s) => {
+      ba.dataset.state = s;
+      btns.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.baSet === s)));
+      if (s === "before") {
+        show(ba.dataset.beforeTitle, ba.dataset.beforeText);
+        cards.forEach((c) => c.classList.remove("is-active"));
+      } else if (selected) {
+        pick(selected);
+      }
+    };
+    btns.forEach((b) => b.addEventListener("click", () => { touched = true; setState(b.dataset.baSet); }));
+    nodes.forEach((n) => {
+      n.addEventListener("click", () => { touched = true; pick(n); });
+      n.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); touched = true; pick(n); }
+      });
+    });
+    // Tell the story once: start at "without", then change to "with"
+    // a moment after it comes into view. Not with reduced motion.
+    if (!still()) {
+      setState("before");
+      let pending = 0;
+      watch(
+        ba,
+        () => {
+          if (!touched && !pending && ba.dataset.state === "before") {
+            pending = window.setTimeout(() => { if (!touched) setState("after"); }, 2400);
+          }
+        },
+        () => { window.clearTimeout(pending); pending = 0; },
+        0.5
+      );
+    }
+  });
+
+  // Check page: a result number counts up once when you first see it.
+  // The final number is in the page from the start (for screen readers).
+  const countUp = (el) => {
+    const end = Number(el.textContent);
+    if (el.dataset.counted || !(end > 1) || end > 9999) return;
+    el.dataset.counted = "1";
+    if (still()) return;
+    const run = () => {
+      const t0 = performance.now();
+      const tick = (now) => {
+        const k = Math.min(1, (now - t0) / 900);
+        el.textContent = String(Math.round(end * (1 - Math.pow(1 - k, 3))));
+        if (k < 1) window.requestAnimationFrame(tick);
+      };
+      window.requestAnimationFrame(tick);
+    };
+    if (!hasIO) return;
+    const io = new IntersectionObserver((entries) => {
+      if (entries.some((e) => e.isIntersecting)) { io.disconnect(); run(); }
+    }, { threshold: 0.6 });
+    io.observe(el);
+  };
+  document.querySelectorAll(".check-body").forEach((body) => {
+    const scan = () => body.querySelectorAll(".check-hero-value:not(.check-mono)").forEach(countUp);
+    new MutationObserver(scan).observe(body, { childList: true, subtree: true });
+    scan();
+  });
 });
