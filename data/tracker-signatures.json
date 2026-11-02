@@ -1,0 +1,2907 @@
+{
+  "name": "PrivacyBrew Android tracker signatures",
+  "license": "ODbL-1.0",
+  "license_url": "https://opendatacommons.org/licenses/odbl/1-0/",
+  "notice": "Contains information from the Exodus Privacy tracker database, which is made available here under the Open Database License (ODbL).",
+  "source": "https://reports.exodus-privacy.eu.org/en/trackers/",
+  "changes": [
+    "Split signatures that had more than one package into separate entries.",
+    "Removed trailing dots from package prefixes.",
+    "Removed signatures that had no package prefix.",
+    "Mapped the Exodus categories to a smaller set of PrivacyBrew categories.",
+    "Added a small number of entries by hand where the Exodus data was out of date."
+  ],
+  "scope": "The ODbL applies to this data table only. It does not apply to the PrivacyBrew app.",
+  "entries": [
+    {
+      "name": "360Dialog",
+      "category": "advertising",
+      "package_prefix": "com.threesixtydialog.sdk"
+    },
+    {
+      "name": "AD(X)",
+      "category": "advertising",
+      "package_prefix": "com.adxcorp.ads"
+    },
+    {
+      "name": "AD(X)",
+      "category": "advertising",
+      "package_prefix": "com.adxcorp.nativead"
+    },
+    {
+      "name": "Aarki",
+      "category": "advertising",
+      "package_prefix": "com.aarki"
+    },
+    {
+      "name": "Actv8me",
+      "category": "advertising",
+      "package_prefix": "me.actv8"
+    },
+    {
+      "name": "Ad Generation",
+      "category": "advertising",
+      "package_prefix": "com.socdm.d.adgeneration"
+    },
+    {
+      "name": "Ad4Screen",
+      "category": "advertising",
+      "package_prefix": "com.ad4screen.sdk"
+    },
+    {
+      "name": "AdAdapted",
+      "category": "advertising",
+      "package_prefix": "com.adadapted.android.sdk"
+    },
+    {
+      "name": "AdBuddiz",
+      "category": "advertising",
+      "package_prefix": "com.purplebrain.adbuddiz.sdk"
+    },
+    {
+      "name": "AdColony",
+      "category": "advertising",
+      "package_prefix": "com.adcolony"
+    },
+    {
+      "name": "AdColony",
+      "category": "advertising",
+      "package_prefix": "com.jirbo.adcolony"
+    },
+    {
+      "name": "AdFalcon",
+      "category": "advertising",
+      "package_prefix": "com.noqoush.adfalcon.android.sdk"
+    },
+    {
+      "name": "AdGateMedia",
+      "category": "advertising",
+      "package_prefix": "com.adgatemedia"
+    },
+    {
+      "name": "AdGem",
+      "category": "advertising",
+      "package_prefix": "com.adgem.android"
+    },
+    {
+      "name": "AdLocus",
+      "category": "advertising",
+      "package_prefix": "com.adlocus"
+    },
+    {
+      "name": "AdMarvel",
+      "category": "advertising",
+      "package_prefix": "com.admarvel"
+    },
+    {
+      "name": "AdMuing",
+      "category": "advertising",
+      "package_prefix": "com.admuing.danmaku"
+    },
+    {
+      "name": "AdTiming",
+      "category": "advertising",
+      "package_prefix": "com.adtiming"
+    },
+    {
+      "name": "AdTiming",
+      "category": "advertising",
+      "package_prefix": "com.aiming.mdt"
+    },
+    {
+      "name": "AdTrial",
+      "category": "advertising",
+      "package_prefix": "com.adtrial.sdk"
+    },
+    {
+      "name": "Adcash",
+      "category": "advertising",
+      "package_prefix": "com.adcash.mobileads"
+    },
+    {
+      "name": "Adcenix",
+      "category": "advertising",
+      "package_prefix": "com.adcenix"
+    },
+    {
+      "name": "Adfurikun",
+      "category": "advertising",
+      "package_prefix": "com.glossomads.sdk"
+    },
+    {
+      "name": "Adfurikun",
+      "category": "advertising",
+      "package_prefix": "jp.tjkapp.adfurikunsdk"
+    },
+    {
+      "name": "Adjoe",
+      "category": "advertising",
+      "package_prefix": "io.adjoe.protection"
+    },
+    {
+      "name": "Adjoe",
+      "category": "advertising",
+      "package_prefix": "io.adjoe.sdk"
+    },
+    {
+      "name": "Admitad",
+      "category": "advertising",
+      "package_prefix": "ru.tachos.admitadstatisticsdk"
+    },
+    {
+      "name": "Admixer",
+      "category": "advertising",
+      "package_prefix": "com.admixer"
+    },
+    {
+      "name": "Admixer",
+      "category": "advertising",
+      "package_prefix": "net.admixer.sdk"
+    },
+    {
+      "name": "Admost",
+      "category": "advertising",
+      "package_prefix": "admost.adserver"
+    },
+    {
+      "name": "Admost",
+      "category": "advertising",
+      "package_prefix": "admost.sdk"
+    },
+    {
+      "name": "AerServ",
+      "category": "advertising",
+      "package_prefix": "com.aerserv.sdk"
+    },
+    {
+      "name": "Airpush",
+      "category": "advertising",
+      "package_prefix": "com.airpush"
+    },
+    {
+      "name": "Alimama (formerly AdsMogo)",
+      "category": "advertising",
+      "package_prefix": "com.adsmogo"
+    },
+    {
+      "name": "Alimama (formerly AdsMogo)",
+      "category": "advertising",
+      "package_prefix": "com.alimama"
+    },
+    {
+      "name": "Altamob",
+      "category": "advertising",
+      "package_prefix": "com.altamob.sdk"
+    },
+    {
+      "name": "Anvato (A Google Company)",
+      "category": "advertising",
+      "package_prefix": "com.anvato.androidsdk"
+    },
+    {
+      "name": "AnySDK",
+      "category": "advertising",
+      "package_prefix": "com.anysdk.framework.AdsWrapper"
+    },
+    {
+      "name": "AnySDK",
+      "category": "advertising",
+      "package_prefix": "com.anysdk.framework.AnalyticsWrapper"
+    },
+    {
+      "name": "AppLovin (MAX and SparkLabs)",
+      "category": "advertising",
+      "package_prefix": "com.applovin"
+    },
+    {
+      "name": "AppVador",
+      "category": "advertising",
+      "package_prefix": "com.appvador.ads"
+    },
+    {
+      "name": "Appodeal Stack",
+      "category": "advertising",
+      "package_prefix": "com.explorestack"
+    },
+    {
+      "name": "AppsGeyser",
+      "category": "advertising",
+      "package_prefix": "com.appsgeyser.multiTabApp.VideoPlayerActivity"
+    },
+    {
+      "name": "AppsGeyser",
+      "category": "advertising",
+      "package_prefix": "com.appsgeyser.sdk"
+    },
+    {
+      "name": "Apsalar",
+      "category": "advertising",
+      "package_prefix": "com.apsalar.sdk"
+    },
+    {
+      "name": "Beintoo",
+      "category": "advertising",
+      "package_prefix": "com.beintoo.nucleon"
+    },
+    {
+      "name": "BidMachine",
+      "category": "advertising",
+      "package_prefix": "io.bidmachine"
+    },
+    {
+      "name": "Braze (formerly Appboy)",
+      "category": "advertising",
+      "package_prefix": "com.appboy"
+    },
+    {
+      "name": "Braze (formerly Appboy)",
+      "category": "advertising",
+      "package_prefix": "com.braze"
+    },
+    {
+      "name": "BuzzAd Benefit",
+      "category": "advertising",
+      "package_prefix": "com.buzzvil"
+    },
+    {
+      "name": "CallDorado",
+      "category": "advertising",
+      "package_prefix": "com.calldorado.android"
+    },
+    {
+      "name": "Carto (formerly Nutiteq)",
+      "category": "advertising",
+      "package_prefix": "com.carto"
+    },
+    {
+      "name": "Carto (formerly Nutiteq)",
+      "category": "advertising",
+      "package_prefix": "com.nutiteq"
+    },
+    {
+      "name": "Cauly",
+      "category": "advertising",
+      "package_prefix": "com.cauly.android.ad"
+    },
+    {
+      "name": "Cauly",
+      "category": "advertising",
+      "package_prefix": "com.fsn.cauly"
+    },
+    {
+      "name": "Cauly",
+      "category": "advertising",
+      "package_prefix": "com.trid.tridad"
+    },
+    {
+      "name": "Cifrasoft",
+      "category": "advertising",
+      "package_prefix": "com.cifrasoft"
+    },
+    {
+      "name": "ComScore",
+      "category": "advertising",
+      "package_prefix": "com.comscore"
+    },
+    {
+      "name": "Coulus Coelib",
+      "category": "advertising",
+      "package_prefix": "coelib.c.couluslibrary"
+    },
+    {
+      "name": "DOV-E",
+      "category": "advertising",
+      "package_prefix": "com.dv.DVSDK"
+    },
+    {
+      "name": "Facebook Ads",
+      "category": "advertising",
+      "package_prefix": "com.facebook.ads"
+    },
+    {
+      "name": "Flurry",
+      "category": "advertising",
+      "package_prefix": "com.flurry"
+    },
+    {
+      "name": "FreeWheel",
+      "category": "advertising",
+      "package_prefix": "tv.freewheel.ad"
+    },
+    {
+      "name": "Fyber",
+      "category": "advertising",
+      "package_prefix": "com.fyber"
+    },
+    {
+      "name": "GOM Factory AdPie",
+      "category": "advertising",
+      "package_prefix": "com.gomfactory.adpie"
+    },
+    {
+      "name": "Geniee",
+      "category": "advertising",
+      "package_prefix": "jp.co.geniee.gnadsdk"
+    },
+    {
+      "name": "Google AdMob",
+      "category": "advertising",
+      "package_prefix": "com.google.ads"
+    },
+    {
+      "name": "Google AdMob",
+      "category": "advertising",
+      "package_prefix": "com.google.android.ads"
+    },
+    {
+      "name": "Google AdMob",
+      "category": "advertising",
+      "package_prefix": "com.google.android.gms.admob"
+    },
+    {
+      "name": "Google AdMob",
+      "category": "advertising",
+      "package_prefix": "com.google.android.gms.ads.AdActivity"
+    },
+    {
+      "name": "Google AdMob",
+      "category": "advertising",
+      "package_prefix": "com.google.android.gms.ads.AdRequest"
+    },
+    {
+      "name": "Google AdMob",
+      "category": "advertising",
+      "package_prefix": "com.google.android.gms.ads.AdView"
+    },
+    {
+      "name": "Google AdMob",
+      "category": "advertising",
+      "package_prefix": "com.google.android.gms.ads.doubleclick"
+    },
+    {
+      "name": "Google AdMob",
+      "category": "advertising",
+      "package_prefix": "com.google.android.gms.ads.mediation"
+    },
+    {
+      "name": "Google AdMob",
+      "category": "advertising",
+      "package_prefix": "com.google.firebase.firebase_ads"
+    },
+    {
+      "name": "Google AdMob",
+      "category": "advertising",
+      "package_prefix": "com.google.unity.ads"
+    },
+    {
+      "name": "Huawei AppGallery Connect",
+      "category": "analytics",
+      "package_prefix": "com.huawei.agconnect"
+    },
+    {
+      "name": "Huawei HMS Analytics Kit",
+      "category": "analytics",
+      "package_prefix": "com.huawei.hms.analytics"
+    },
+    {
+      "name": "Huawei HMS Analytics Kit",
+      "category": "analytics",
+      "package_prefix": "com.huawei.hms.flutter.analytics"
+    },
+    {
+      "name": "Huawei HMS Analytics Kit",
+      "category": "analytics",
+      "package_prefix": "com.huawei.hms.plugin.analytics"
+    },
+    {
+      "name": "Huawei HMS Ads Kit",
+      "category": "advertising",
+      "package_prefix": "com.huawei.hms.plugin.ads"
+    },
+    {
+      "name": "HyprMX",
+      "category": "advertising",
+      "package_prefix": "com.hyprmx.android.sdk"
+    },
+    {
+      "name": "IAB Open Measurement",
+      "category": "advertising",
+      "package_prefix": "com.iab.omid.library"
+    },
+    {
+      "name": "IAB Open Measurement",
+      "category": "advertising",
+      "package_prefix": "com.prime31.IAB"
+    },
+    {
+      "name": "IAB Open Measurement",
+      "category": "advertising",
+      "package_prefix": "com.prime31.util.IabHelperImpl"
+    },
+    {
+      "name": "IBM Mobile Marketing (Acoustic)",
+      "category": "advertising",
+      "package_prefix": "co.acoustic.mobile.push.sdk"
+    },
+    {
+      "name": "IBM Mobile Marketing (Acoustic)",
+      "category": "advertising",
+      "package_prefix": "com.ibm.mce.sdk"
+    },
+    {
+      "name": "IBM Mobile Marketing (Acoustic)",
+      "category": "advertising",
+      "package_prefix": "com.xtify.android.sdk"
+    },
+    {
+      "name": "IBM Mobile Marketing (Acoustic)",
+      "category": "advertising",
+      "package_prefix": "com.xtify.mce.sdk"
+    },
+    {
+      "name": "IQzone",
+      "category": "advertising",
+      "package_prefix": "com.iqzone"
+    },
+    {
+      "name": "Inneractive",
+      "category": "advertising",
+      "package_prefix": "com.inneractive.api.ads"
+    },
+    {
+      "name": "Instreamatic (Adman)",
+      "category": "advertising",
+      "package_prefix": "com.instreamatic"
+    },
+    {
+      "name": "JumpTap",
+      "category": "advertising",
+      "package_prefix": "com.jumptap.adtag"
+    },
+    {
+      "name": "KIDOZ",
+      "category": "advertising",
+      "package_prefix": "com.kidoz.sdk"
+    },
+    {
+      "name": "Kiip",
+      "category": "advertising",
+      "package_prefix": "me.kiip.sdk"
+    },
+    {
+      "name": "Kochava",
+      "category": "advertising",
+      "package_prefix": "com.kochava.android.tracker"
+    },
+    {
+      "name": "Kochava",
+      "category": "advertising",
+      "package_prefix": "com.kochava.base"
+    },
+    {
+      "name": "LoopMe",
+      "category": "advertising",
+      "package_prefix": "com.loopme"
+    },
+    {
+      "name": "MDOTM",
+      "category": "advertising",
+      "package_prefix": "com.mdotm.android"
+    },
+    {
+      "name": "Metaps",
+      "category": "advertising",
+      "package_prefix": "com.metaps"
+    },
+    {
+      "name": "Mintegral",
+      "category": "advertising",
+      "package_prefix": "com.mbridge.msdk"
+    },
+    {
+      "name": "Mintegral",
+      "category": "advertising",
+      "package_prefix": "com.mintegral"
+    },
+    {
+      "name": "Moat",
+      "category": "advertising",
+      "package_prefix": "com.moat.analytics.mobile"
+    },
+    {
+      "name": "MobFox",
+      "category": "advertising",
+      "package_prefix": "com.adsdk.sdk"
+    },
+    {
+      "name": "MobFox",
+      "category": "advertising",
+      "package_prefix": "com.mobfox"
+    },
+    {
+      "name": "MobPower",
+      "category": "advertising",
+      "package_prefix": "com.mobpower"
+    },
+    {
+      "name": "Moodmedia",
+      "category": "advertising",
+      "package_prefix": "com.moodmedia"
+    },
+    {
+      "name": "OfferToro",
+      "category": "advertising",
+      "package_prefix": "com.offertoro.sdk"
+    },
+    {
+      "name": "Ooyala",
+      "category": "advertising",
+      "package_prefix": "com.ooyala"
+    },
+    {
+      "name": "OpenX",
+      "category": "advertising",
+      "package_prefix": "com.openx.android_sdk_openx"
+    },
+    {
+      "name": "OpenX",
+      "category": "advertising",
+      "package_prefix": "com.openx.view.plugplay"
+    },
+    {
+      "name": "POKKT",
+      "category": "advertising",
+      "package_prefix": "com.pokkt.sdk"
+    },
+    {
+      "name": "Pangle",
+      "category": "advertising",
+      "package_prefix": "com.bytedance.sdk.openadsdk"
+    },
+    {
+      "name": "Pangle",
+      "category": "advertising",
+      "package_prefix": "com.pangle.global"
+    },
+    {
+      "name": "Pangle",
+      "category": "advertising",
+      "package_prefix": "com.pgl"
+    },
+    {
+      "name": "Pincrux",
+      "category": "advertising",
+      "package_prefix": "com.pincrux"
+    },
+    {
+      "name": "PingStart",
+      "category": "advertising",
+      "package_prefix": "com.pingstart.adsdk"
+    },
+    {
+      "name": "Prebid Mobile",
+      "category": "advertising",
+      "package_prefix": "org.prebid.mobile"
+    },
+    {
+      "name": "PredicIO",
+      "category": "advertising",
+      "package_prefix": "com.telescope.android"
+    },
+    {
+      "name": "PredicIO",
+      "category": "advertising",
+      "package_prefix": "io.predic.tracker"
+    },
+    {
+      "name": "PubMatic",
+      "category": "advertising",
+      "package_prefix": "com.pubmatic.sdk"
+    },
+    {
+      "name": "PubNative",
+      "category": "advertising",
+      "package_prefix": "net.pubnative"
+    },
+    {
+      "name": "Receptiv (formerly Mediabrix)",
+      "category": "advertising",
+      "package_prefix": "com.mediabrix.android"
+    },
+    {
+      "name": "Revmob",
+      "category": "advertising",
+      "package_prefix": "com.revmob.ads"
+    },
+    {
+      "name": "RjFun",
+      "category": "advertising",
+      "package_prefix": "com.rjfun.cordova.ad"
+    },
+    {
+      "name": "RjFun",
+      "category": "advertising",
+      "package_prefix": "com.rjfun.cordova.admob"
+    },
+    {
+      "name": "SK planet Tad",
+      "category": "advertising",
+      "package_prefix": "com.skplanet.tad"
+    },
+    {
+      "name": "Snap Ad Kit",
+      "category": "advertising",
+      "package_prefix": "com.snap.adkit"
+    },
+    {
+      "name": "Snap Ad Kit",
+      "category": "advertising",
+      "package_prefix": "com.snap.appadskit"
+    },
+    {
+      "name": "Solar2D (Corona)",
+      "category": "advertising",
+      "package_prefix": "com.ansca.corona"
+    },
+    {
+      "name": "Startapp",
+      "category": "advertising",
+      "package_prefix": "com.startapp"
+    },
+    {
+      "name": "SuperAwesome",
+      "category": "advertising",
+      "package_prefix": "tv.superawesome.lib"
+    },
+    {
+      "name": "SuperAwesome",
+      "category": "advertising",
+      "package_prefix": "tv.superawesome.sdk"
+    },
+    {
+      "name": "Synerise",
+      "category": "advertising",
+      "package_prefix": "com.synerise.sdk"
+    },
+    {
+      "name": "TNK Factory",
+      "category": "advertising",
+      "package_prefix": "com.tnkfactory.ad"
+    },
+    {
+      "name": "TalkingData",
+      "category": "advertising",
+      "package_prefix": "com.apptalkingdata.push"
+    },
+    {
+      "name": "TalkingData",
+      "category": "advertising",
+      "package_prefix": "com.gametalkingdata.push"
+    },
+    {
+      "name": "TalkingData",
+      "category": "advertising",
+      "package_prefix": "com.talkingdata.adtracking"
+    },
+    {
+      "name": "TalkingData",
+      "category": "advertising",
+      "package_prefix": "com.talkingdata.appanalytics"
+    },
+    {
+      "name": "TalkingData",
+      "category": "advertising",
+      "package_prefix": "com.talkingdata.sdk"
+    },
+    {
+      "name": "TalkingData",
+      "category": "advertising",
+      "package_prefix": "com.tendcloud.appcpa"
+    },
+    {
+      "name": "TalkingData",
+      "category": "advertising",
+      "package_prefix": "com.tendcloud.tenddata"
+    },
+    {
+      "name": "Tapdaq",
+      "category": "advertising",
+      "package_prefix": "com.tapdaq.adapters"
+    },
+    {
+      "name": "Tapdaq",
+      "category": "advertising",
+      "package_prefix": "com.tapdaq.sdk"
+    },
+    {
+      "name": "Taplytics",
+      "category": "advertising",
+      "package_prefix": "com.taplytics.sdk"
+    },
+    {
+      "name": "Tappx",
+      "category": "advertising",
+      "package_prefix": "com.tappx.sdk.android"
+    },
+    {
+      "name": "Teads",
+      "category": "advertising",
+      "package_prefix": "teads.tv"
+    },
+    {
+      "name": "Teads",
+      "category": "advertising",
+      "package_prefix": "tv.teads"
+    },
+    {
+      "name": "Twitter MoPub",
+      "category": "advertising",
+      "package_prefix": "com.mopub"
+    },
+    {
+      "name": "Unity3d Ads",
+      "category": "advertising",
+      "package_prefix": "com.unity3d.ads"
+    },
+    {
+      "name": "Unity3d Ads",
+      "category": "advertising",
+      "package_prefix": "com.unity3d.services"
+    },
+    {
+      "name": "Upsight",
+      "category": "advertising",
+      "package_prefix": "com.upsight.android"
+    },
+    {
+      "name": "Vdopia",
+      "category": "advertising",
+      "package_prefix": "com.vdopia.ads"
+    },
+    {
+      "name": "Vdopia",
+      "category": "advertising",
+      "package_prefix": "com.vdopia.client.android"
+    },
+    {
+      "name": "Veloxity",
+      "category": "advertising",
+      "package_prefix": "net.veloxity"
+    },
+    {
+      "name": "Verizon Ads",
+      "category": "advertising",
+      "package_prefix": "com.oath.mobile"
+    },
+    {
+      "name": "Verizon Ads",
+      "category": "advertising",
+      "package_prefix": "com.verizon.ads"
+    },
+    {
+      "name": "Verizon Ads",
+      "category": "advertising",
+      "package_prefix": "com.verizondigitalmedia.mobile"
+    },
+    {
+      "name": "Verve",
+      "category": "advertising",
+      "package_prefix": "com.vervewireless.advert"
+    },
+    {
+      "name": "Virgo Mobile",
+      "category": "advertising",
+      "package_prefix": "com.virgo.ads"
+    },
+    {
+      "name": "Vpon",
+      "category": "advertising",
+      "package_prefix": "com.vpadn.ads"
+    },
+    {
+      "name": "Vpon",
+      "category": "advertising",
+      "package_prefix": "com.vpadn.analytics"
+    },
+    {
+      "name": "Vpon",
+      "category": "advertising",
+      "package_prefix": "com.vpadn.widget"
+    },
+    {
+      "name": "Vpon",
+      "category": "advertising",
+      "package_prefix": "com.vpon.ads"
+    },
+    {
+      "name": "Vungle",
+      "category": "advertising",
+      "package_prefix": "com.vungle.publisher"
+    },
+    {
+      "name": "Vungle",
+      "category": "advertising",
+      "package_prefix": "com.vungle.warren"
+    },
+    {
+      "name": "YOC VIS.X",
+      "category": "advertising",
+      "package_prefix": "com.yoc.visx"
+    },
+    {
+      "name": "Yandex Ad",
+      "category": "advertising",
+      "package_prefix": "com.yandex.mobile.ads"
+    },
+    {
+      "name": "Yinzcam Sobek",
+      "category": "advertising",
+      "package_prefix": "com.yinzcam.sobek"
+    },
+    {
+      "name": "Yoadx",
+      "category": "advertising",
+      "package_prefix": "com.yoadx.yoadx"
+    },
+    {
+      "name": "YuMe",
+      "category": "advertising",
+      "package_prefix": "com.yume.android"
+    },
+    {
+      "name": "Zapr",
+      "category": "advertising",
+      "package_prefix": "com.redbricklane.zapr"
+    },
+    {
+      "name": "adPOPcorn",
+      "category": "advertising",
+      "package_prefix": "com.igaworks.adpopcorn"
+    },
+    {
+      "name": "adPOPcorn",
+      "category": "advertising",
+      "package_prefix": "com.igaworks.ssp"
+    },
+    {
+      "name": "fineboost",
+      "category": "advertising",
+      "package_prefix": "com.fineboost"
+    },
+    {
+      "name": "mediba",
+      "category": "advertising",
+      "package_prefix": "com.mediba.jp"
+    },
+    {
+      "name": "mediba",
+      "category": "advertising",
+      "package_prefix": "mediba.ad.sdk.android.openx"
+    },
+    {
+      "name": "myTarget",
+      "category": "advertising",
+      "package_prefix": "com.my.target"
+    },
+    {
+      "name": "nend",
+      "category": "advertising",
+      "package_prefix": "net.nend.android"
+    },
+    {
+      "name": "nend",
+      "category": "advertising",
+      "package_prefix": "net.nend.unity"
+    },
+    {
+      "name": "ABTasty",
+      "category": "analytics",
+      "package_prefix": "com.abtasty"
+    },
+    {
+      "name": "ACRCloud",
+      "category": "analytics",
+      "package_prefix": "com.acrcloud"
+    },
+    {
+      "name": "ADLIB",
+      "category": "analytics",
+      "package_prefix": "com.mocoplex.adlib"
+    },
+    {
+      "name": "AMoAd",
+      "category": "analytics",
+      "package_prefix": "com.amoad"
+    },
+    {
+      "name": "ATInternet",
+      "category": "analytics",
+      "package_prefix": "com.atinternet"
+    },
+    {
+      "name": "AccountKit",
+      "category": "analytics",
+      "package_prefix": "com.facebook.accountkit"
+    },
+    {
+      "name": "Acuant",
+      "category": "analytics",
+      "package_prefix": "com.acuant.acuantcamera"
+    },
+    {
+      "name": "AdFit (Daum)",
+      "category": "analytics",
+      "package_prefix": "com.kakao.adfit"
+    },
+    {
+      "name": "Adbrix",
+      "category": "analytics",
+      "package_prefix": "com.igaworks.adbrix"
+    },
+    {
+      "name": "Add Apt Tr",
+      "category": "analytics",
+      "package_prefix": "com.intentsoftware.addapptr"
+    },
+    {
+      "name": "Adform",
+      "category": "analytics",
+      "package_prefix": "com.adform.sdk"
+    },
+    {
+      "name": "Adincube",
+      "category": "analytics",
+      "package_prefix": "com.adincube.sdk"
+    },
+    {
+      "name": "Adjust",
+      "category": "analytics",
+      "package_prefix": "com.adjust.android.sdk"
+    },
+    {
+      "name": "Adjust",
+      "category": "analytics",
+      "package_prefix": "com.adjust.sdk"
+    },
+    {
+      "name": "Adjust Unbotify",
+      "category": "analytics",
+      "package_prefix": "com.unbotify.mobile.sdk"
+    },
+    {
+      "name": "Adobe Experience Cloud",
+      "category": "analytics",
+      "package_prefix": "com.adobe.marketing.mobile"
+    },
+    {
+      "name": "Adot",
+      "category": "analytics",
+      "package_prefix": "com.adotmob"
+    },
+    {
+      "name": "Akamai MAP",
+      "category": "analytics",
+      "package_prefix": "com.akamai.android.sdk.AkaMap"
+    },
+    {
+      "name": "Alohalytics",
+      "category": "analytics",
+      "package_prefix": "org.alohalytics"
+    },
+    {
+      "name": "Alooma",
+      "category": "analytics",
+      "package_prefix": "com.github.aloomaio.androidsdk"
+    },
+    {
+      "name": "Alphonso",
+      "category": "analytics",
+      "package_prefix": "tv.alphonso.service"
+    },
+    {
+      "name": "AltBeacon",
+      "category": "analytics",
+      "package_prefix": "com.altbeacon.beacon"
+    },
+    {
+      "name": "AltBeacon",
+      "category": "analytics",
+      "package_prefix": "org.altbeacon.beacon"
+    },
+    {
+      "name": "AltBeacon",
+      "category": "analytics",
+      "package_prefix": "org.altbeacon.bluetooth"
+    },
+    {
+      "name": "Amazon Advertisement",
+      "category": "analytics",
+      "package_prefix": "com.amazon.device.ads"
+    },
+    {
+      "name": "Amazon Analytics (Amazon insights)",
+      "category": "analytics",
+      "package_prefix": "com.amazon.insights"
+    },
+    {
+      "name": "Amazon Analytics (Amazon insights)",
+      "category": "analytics",
+      "package_prefix": "com.amazonaws.mobileconnectors.amazonmobileanalytics"
+    },
+    {
+      "name": "Amazon Analytics (Amazon insights)",
+      "category": "analytics",
+      "package_prefix": "com.amazonaws.mobileconnectors.pinpoint.analytics"
+    },
+    {
+      "name": "Amazon Mobile Analytics (Amplify)",
+      "category": "analytics",
+      "package_prefix": "com.amplifyframework.analytics"
+    },
+    {
+      "name": "Amazon Mobile Associates",
+      "category": "analytics",
+      "package_prefix": "com.amazon.device.associates"
+    },
+    {
+      "name": "Amobee",
+      "category": "analytics",
+      "package_prefix": "com.amobee"
+    },
+    {
+      "name": "Amplitude",
+      "category": "analytics",
+      "package_prefix": "com.amplitude"
+    },
+    {
+      "name": "Anagog",
+      "category": "analytics",
+      "package_prefix": "com.anagog.jedai"
+    },
+    {
+      "name": "Analytics by NPAW (Youbora Suite)",
+      "category": "analytics",
+      "package_prefix": "com.npaw.youbora"
+    },
+    {
+      "name": "AppAnalytics",
+      "category": "analytics",
+      "package_prefix": "io.appanalytics.sdk"
+    },
+    {
+      "name": "AppBrain",
+      "category": "analytics",
+      "package_prefix": "com.appbrain"
+    },
+    {
+      "name": "AppMetrica",
+      "category": "analytics",
+      "package_prefix": "com.yandex.metrica"
+    },
+    {
+      "name": "AppMonet",
+      "category": "analytics",
+      "package_prefix": "com.monet"
+    },
+    {
+      "name": "AppNexus",
+      "category": "analytics",
+      "package_prefix": "com.appnexus.opensdk"
+    },
+    {
+      "name": "AppSee",
+      "category": "analytics",
+      "package_prefix": "com.appsee"
+    },
+    {
+      "name": "Appcelerator Analytics",
+      "category": "analytics",
+      "package_prefix": "com.appcelerator.aps"
+    },
+    {
+      "name": "Appcelerator Analytics",
+      "category": "analytics",
+      "package_prefix": "org.appcelerator.titanium.analytics"
+    },
+    {
+      "name": "Appdynamics",
+      "category": "analytics",
+      "package_prefix": "com.appdynamics"
+    },
+    {
+      "name": "Appnext",
+      "category": "analytics",
+      "package_prefix": "com.appnext.sdk"
+    },
+    {
+      "name": "Appodeal",
+      "category": "analytics",
+      "package_prefix": "com.appodeal.ads"
+    },
+    {
+      "name": "Appodeal",
+      "category": "analytics",
+      "package_prefix": "com.appodealx"
+    },
+    {
+      "name": "AppsFlyer",
+      "category": "analytics",
+      "package_prefix": "com.appsflyer"
+    },
+    {
+      "name": "Apptentive",
+      "category": "analytics",
+      "package_prefix": "com.apptentive"
+    },
+    {
+      "name": "Apptimize",
+      "category": "analytics",
+      "package_prefix": "com.apptimize"
+    },
+    {
+      "name": "Apteligent by VMWare (formerly Crittercism)",
+      "category": "analytics",
+      "package_prefix": "com.crittercism.app.Crittercism"
+    },
+    {
+      "name": "Areametrics",
+      "category": "analytics",
+      "package_prefix": "com.areametrics.areametricssdk"
+    },
+    {
+      "name": "Areametrics",
+      "category": "analytics",
+      "package_prefix": "com.areametrics.nosdkandroid"
+    },
+    {
+      "name": "Audience Studio (Krux)",
+      "category": "analytics",
+      "package_prefix": "com.krux.androidsdk"
+    },
+    {
+      "name": "Auditude",
+      "category": "analytics",
+      "package_prefix": "com.auditude.ads"
+    },
+    {
+      "name": "AutoNavi / Amap",
+      "category": "analytics",
+      "package_prefix": "com.amap.api"
+    },
+    {
+      "name": "Axonix",
+      "category": "analytics",
+      "package_prefix": "com.axonix.android.sdk"
+    },
+    {
+      "name": "Axonix",
+      "category": "analytics",
+      "package_prefix": "com.mobclix.android.sdk"
+    },
+    {
+      "name": "Backelite",
+      "category": "analytics",
+      "package_prefix": "com.backelite.android"
+    },
+    {
+      "name": "Backelite",
+      "category": "analytics",
+      "package_prefix": "com.backelite.bkdroid"
+    },
+    {
+      "name": "Baidu APPX",
+      "category": "analytics",
+      "package_prefix": "com.baidu.appx"
+    },
+    {
+      "name": "Baidu Location",
+      "category": "analytics",
+      "package_prefix": "com.baidu.location"
+    },
+    {
+      "name": "Baidu Map",
+      "category": "analytics",
+      "package_prefix": "com.baidu.mapapi"
+    },
+    {
+      "name": "Baidu Maps",
+      "category": "analytics",
+      "package_prefix": "com.baidu.BaiduMap"
+    },
+    {
+      "name": "Baidu Mobile Ads",
+      "category": "analytics",
+      "package_prefix": "com.baidu.mobads"
+    },
+    {
+      "name": "Baidu Mobile Stat",
+      "category": "analytics",
+      "package_prefix": "com.baidu.mobstat"
+    },
+    {
+      "name": "Baidu Navigation",
+      "category": "analytics",
+      "package_prefix": "com.baidu.navi"
+    },
+    {
+      "name": "Batch",
+      "category": "analytics",
+      "package_prefix": "com.batch.android"
+    },
+    {
+      "name": "Bazaarvoice",
+      "category": "analytics",
+      "package_prefix": "com.bazaarvoice.bvandroidsdk"
+    },
+    {
+      "name": "BeaconsInSpace (Fysical)",
+      "category": "analytics",
+      "package_prefix": "com.beaconsinspace.android.beacon.detector"
+    },
+    {
+      "name": "Bitly",
+      "category": "analytics",
+      "package_prefix": "com.bitly.Bitly"
+    },
+    {
+      "name": "Blesh",
+      "category": "analytics",
+      "package_prefix": "com.blesh.sdk"
+    },
+    {
+      "name": "BlueConic",
+      "category": "analytics",
+      "package_prefix": "com.blueconic"
+    },
+    {
+      "name": "BlueKai (acquired by Oracle)",
+      "category": "analytics",
+      "package_prefix": "com.bluekai.sdk"
+    },
+    {
+      "name": "Bluecats",
+      "category": "analytics",
+      "package_prefix": "com.bluecats.sdk"
+    },
+    {
+      "name": "Bolts",
+      "category": "analytics",
+      "package_prefix": "com.parse.bolts"
+    },
+    {
+      "name": "Branch",
+      "category": "analytics",
+      "package_prefix": "io.branch"
+    },
+    {
+      "name": "Brightcove",
+      "category": "analytics",
+      "package_prefix": "com.brightcove"
+    },
+    {
+      "name": "Bugly",
+      "category": "analytics",
+      "package_prefix": "com.tencent.bugly"
+    },
+    {
+      "name": "Button",
+      "category": "analytics",
+      "package_prefix": "com.usebutton.sdk"
+    },
+    {
+      "name": "Carnival",
+      "category": "analytics",
+      "package_prefix": "com.carnival.sdk"
+    },
+    {
+      "name": "Carnival",
+      "category": "analytics",
+      "package_prefix": "com.carnivalmobile"
+    },
+    {
+      "name": "Cedexis Radar",
+      "category": "analytics",
+      "package_prefix": "com.cedexis"
+    },
+    {
+      "name": "ChartBoost",
+      "category": "analytics",
+      "package_prefix": "com.chartboost.sdk"
+    },
+    {
+      "name": "Chartbeat",
+      "category": "analytics",
+      "package_prefix": "com.chartbeat.androidsdk"
+    },
+    {
+      "name": "Cheetah Ads",
+      "category": "analytics",
+      "package_prefix": "com.cmcm"
+    },
+    {
+      "name": "CleverTap",
+      "category": "analytics",
+      "package_prefix": "com.clevertap"
+    },
+    {
+      "name": "Cloudmobi",
+      "category": "analytics",
+      "package_prefix": "com.cloudtech"
+    },
+    {
+      "name": "Colocator",
+      "category": "analytics",
+      "package_prefix": "net.crowdconnected.androidcolocator"
+    },
+    {
+      "name": "Conversant",
+      "category": "analytics",
+      "package_prefix": "com.conversantmedia"
+    },
+    {
+      "name": "Conversant",
+      "category": "analytics",
+      "package_prefix": "com.greystripe.android"
+    },
+    {
+      "name": "Conviva",
+      "category": "analytics",
+      "package_prefix": "com.conviva"
+    },
+    {
+      "name": "CoolaData",
+      "category": "analytics",
+      "package_prefix": "com.cooladata.android"
+    },
+    {
+      "name": "Countly",
+      "category": "analytics",
+      "package_prefix": "ly.count.android"
+    },
+    {
+      "name": "Criteo",
+      "category": "analytics",
+      "package_prefix": "com.criteo"
+    },
+    {
+      "name": "Cuebiq",
+      "category": "analytics",
+      "package_prefix": "com.cuebiq.cuebiqsdk.model.Collector"
+    },
+    {
+      "name": "Cuebiq",
+      "category": "analytics",
+      "package_prefix": "com.cuebiq.cuebiqsdk.receiver.CoverageReceiver"
+    },
+    {
+      "name": "Demdex",
+      "category": "analytics",
+      "package_prefix": "com.adobe.mobile.Analytics"
+    },
+    {
+      "name": "Demdex",
+      "category": "analytics",
+      "package_prefix": "com.adobe.mobile.Config"
+    },
+    {
+      "name": "Didomi",
+      "category": "analytics",
+      "package_prefix": "io.didomi.sdk"
+    },
+    {
+      "name": "Display",
+      "category": "analytics",
+      "package_prefix": "io.display"
+    },
+    {
+      "name": "Duapps",
+      "category": "analytics",
+      "package_prefix": "com.duapps"
+    },
+    {
+      "name": "Dynamic Yield",
+      "category": "analytics",
+      "package_prefix": "com.dynamicyield"
+    },
+    {
+      "name": "Dynatrace",
+      "category": "analytics",
+      "package_prefix": "com.dynatrace.agent"
+    },
+    {
+      "name": "Dynatrace",
+      "category": "analytics",
+      "package_prefix": "com.dynatrace.android.app"
+    },
+    {
+      "name": "Dynatrace",
+      "category": "analytics",
+      "package_prefix": "com.dynatrace.tools"
+    },
+    {
+      "name": "Emarsys Predict",
+      "category": "analytics",
+      "package_prefix": "com.emarsys.predict"
+    },
+    {
+      "name": "Enhance",
+      "category": "analytics",
+      "package_prefix": "co.enhance.Enhance"
+    },
+    {
+      "name": "Ensighten",
+      "category": "analytics",
+      "package_prefix": "com.ensighten"
+    },
+    {
+      "name": "Esri ArcGIS",
+      "category": "analytics",
+      "package_prefix": "com.esri.arcgisruntime"
+    },
+    {
+      "name": "Estimote",
+      "category": "analytics",
+      "package_prefix": "com.estimote"
+    },
+    {
+      "name": "Eulerian",
+      "category": "analytics",
+      "package_prefix": "com.eulerian.android.sdk"
+    },
+    {
+      "name": "ExactTarget",
+      "category": "analytics",
+      "package_prefix": "com.exacttarget"
+    },
+    {
+      "name": "Exponea",
+      "category": "analytics",
+      "package_prefix": "com.exponea.sdk"
+    },
+    {
+      "name": "Exponea",
+      "category": "analytics",
+      "package_prefix": "com.infinario.android.infinariosdk"
+    },
+    {
+      "name": "Exponea",
+      "category": "analytics",
+      "package_prefix": "com.sygic.aura"
+    },
+    {
+      "name": "FLUZO",
+      "category": "analytics",
+      "package_prefix": "com.fluzo.sdk"
+    },
+    {
+      "name": "Facebook Analytics",
+      "category": "analytics",
+      "package_prefix": "com.facebook.CampaignTrackingReceiver"
+    },
+    {
+      "name": "Facebook Analytics",
+      "category": "analytics",
+      "package_prefix": "com.facebook.appevents"
+    },
+    {
+      "name": "Facebook Analytics",
+      "category": "analytics",
+      "package_prefix": "com.facebook.marketing"
+    },
+    {
+      "name": "Facebook Audience",
+      "category": "analytics",
+      "package_prefix": "com.facebook.audiencenetwork"
+    },
+    {
+      "name": "Facebook Flipper",
+      "category": "analytics",
+      "package_prefix": "com.facebook.flipper"
+    },
+    {
+      "name": "Facebook Login",
+      "category": "analytics",
+      "package_prefix": "com.facebook.login"
+    },
+    {
+      "name": "Facebook Notifications",
+      "category": "analytics",
+      "package_prefix": "com.facebook.notifications"
+    },
+    {
+      "name": "Facebook Places",
+      "category": "analytics",
+      "package_prefix": "com.facebook.places"
+    },
+    {
+      "name": "Facebook Share",
+      "category": "analytics",
+      "package_prefix": "com.facebook.share"
+    },
+    {
+      "name": "Factual",
+      "category": "analytics",
+      "package_prefix": "com.factual.Factual"
+    },
+    {
+      "name": "Factual",
+      "category": "analytics",
+      "package_prefix": "com.factual.engine"
+    },
+    {
+      "name": "FidZup",
+      "category": "analytics",
+      "package_prefix": "com.fidzup"
+    },
+    {
+      "name": "Fiksu",
+      "category": "analytics",
+      "package_prefix": "com.fiksu.asotracking"
+    },
+    {
+      "name": "Flowsense",
+      "category": "analytics",
+      "package_prefix": "com.flowsense.flowsensesdk"
+    },
+    {
+      "name": "FollowAnalytics",
+      "category": "analytics",
+      "package_prefix": "com.followanalytics"
+    },
+    {
+      "name": "Footmarks",
+      "category": "analytics",
+      "package_prefix": "com.footmarks.footmarkssdkm2"
+    },
+    {
+      "name": "Foresee",
+      "category": "analytics",
+      "package_prefix": "com.foresee.sdk.ForeSee"
+    },
+    {
+      "name": "Fyber SponsorPay",
+      "category": "analytics",
+      "package_prefix": "com.sponsorpay"
+    },
+    {
+      "name": "GIPHY Analytics",
+      "category": "analytics",
+      "package_prefix": "com.giphy.sdk.analytics"
+    },
+    {
+      "name": "GIPHY Analytics",
+      "category": "analytics",
+      "package_prefix": "com.giphy.sdk.tracking"
+    },
+    {
+      "name": "GPShopper",
+      "category": "analytics",
+      "package_prefix": "com.gpshopper"
+    },
+    {
+      "name": "GameAnalytics",
+      "category": "analytics",
+      "package_prefix": "com.gameanalytics.sdk"
+    },
+    {
+      "name": "Gemius HeatMap",
+      "category": "analytics",
+      "package_prefix": "com.gemius.sdk"
+    },
+    {
+      "name": "Gimbal",
+      "category": "analytics",
+      "package_prefix": "com.gimbal.android"
+    },
+    {
+      "name": "Glispa Connect (Formerly Avocarrot)",
+      "category": "analytics",
+      "package_prefix": "com.avocarrot.sdk"
+    },
+    {
+      "name": "Glympse",
+      "category": "analytics",
+      "package_prefix": "com.glympse.android"
+    },
+    {
+      "name": "Google Analytics",
+      "category": "analytics",
+      "package_prefix": "com.google.analytics"
+    },
+    {
+      "name": "Google Analytics",
+      "category": "analytics",
+      "package_prefix": "com.google.android.apps.analytics"
+    },
+    {
+      "name": "Google Analytics",
+      "category": "analytics",
+      "package_prefix": "com.google.android.gms.analytics"
+    },
+    {
+      "name": "Google Analytics Plugin (Cordova)",
+      "category": "analytics",
+      "package_prefix": "com.danielcwilson.plugins.analytics"
+    },
+    {
+      "name": "Google Firebase Analytics",
+      "category": "analytics",
+      "package_prefix": "com.google.android.gms.measurement"
+    },
+    {
+      "name": "Google Firebase Analytics",
+      "category": "analytics",
+      "package_prefix": "com.google.firebase.analytics.FirebaseAnalytics"
+    },
+    {
+      "name": "Google Firebase Analytics",
+      "category": "analytics",
+      "package_prefix": "com.google.firebase.firebase_analytics"
+    },
+    {
+      "name": "Google Tag Manager",
+      "category": "analytics",
+      "package_prefix": "com.google.android.gms.tagmanager"
+    },
+    {
+      "name": "Google Tag Manager",
+      "category": "analytics",
+      "package_prefix": "com.google.tagmanager"
+    },
+    {
+      "name": "Heap",
+      "category": "analytics",
+      "package_prefix": "com.heapanalytics"
+    },
+    {
+      "name": "HelpShift",
+      "category": "analytics",
+      "package_prefix": "com.helpshift"
+    },
+    {
+      "name": "Herow",
+      "category": "analytics",
+      "package_prefix": "com.connecthings.herow"
+    },
+    {
+      "name": "Heyzap (bought by Fyber)",
+      "category": "analytics",
+      "package_prefix": "com.heyzap.mediation"
+    },
+    {
+      "name": "Heyzap (bought by Fyber)",
+      "category": "analytics",
+      "package_prefix": "com.heyzap.sdk.ads"
+    },
+    {
+      "name": "Houndify",
+      "category": "analytics",
+      "package_prefix": "com.hound"
+    },
+    {
+      "name": "Huq Sourcekit",
+      "category": "analytics",
+      "package_prefix": "io.huq.sourcekit"
+    },
+    {
+      "name": "HyperTrack",
+      "category": "analytics",
+      "package_prefix": "com.hypertrack"
+    },
+    {
+      "name": "HyperTrack",
+      "category": "analytics",
+      "package_prefix": "com.hypertracklive"
+    },
+    {
+      "name": "HyperTrack",
+      "category": "analytics",
+      "package_prefix": "io.hypertrack"
+    },
+    {
+      "name": "IBM Digital Analytics",
+      "category": "analytics",
+      "package_prefix": "com.digitalanalytics"
+    },
+    {
+      "name": "INFOnline",
+      "category": "analytics",
+      "package_prefix": "de.infonline"
+    },
+    {
+      "name": "IPQualityScore",
+      "category": "analytics",
+      "package_prefix": "com.ipqualityscore"
+    },
+    {
+      "name": "In Loco",
+      "category": "analytics",
+      "package_prefix": "com.inlocomedia.android"
+    },
+    {
+      "name": "InMarket",
+      "category": "analytics",
+      "package_prefix": "com.inmarket"
+    },
+    {
+      "name": "IndoorAtlas",
+      "category": "analytics",
+      "package_prefix": "com.indooratlas.android.sdk"
+    },
+    {
+      "name": "Inmobi",
+      "category": "analytics",
+      "package_prefix": "com.inmobi"
+    },
+    {
+      "name": "Inmobi",
+      "category": "analytics",
+      "package_prefix": "in.inmobi"
+    },
+    {
+      "name": "Inrix",
+      "category": "analytics",
+      "package_prefix": "com.inrix.sdk"
+    },
+    {
+      "name": "Insider",
+      "category": "analytics",
+      "package_prefix": "com.useinsider.insider"
+    },
+    {
+      "name": "Integral Ad Science",
+      "category": "analytics",
+      "package_prefix": "com.integralads.avid.library"
+    },
+    {
+      "name": "JW Player",
+      "category": "analytics",
+      "package_prefix": "com.longtailvideo.jwplayer"
+    },
+    {
+      "name": "Janrain",
+      "category": "analytics",
+      "package_prefix": "com.janrain.android"
+    },
+    {
+      "name": "Janrain",
+      "category": "analytics",
+      "package_prefix": "com.janrain.android.capture"
+    },
+    {
+      "name": "Janrain",
+      "category": "analytics",
+      "package_prefix": "com.janrain.android.engage"
+    },
+    {
+      "name": "JiGuang Aurora Mobile JPush",
+      "category": "analytics",
+      "package_prefix": "cn.jpush.android"
+    },
+    {
+      "name": "Jumio",
+      "category": "analytics",
+      "package_prefix": "com.jumio.MobileSDK"
+    },
+    {
+      "name": "Keen",
+      "category": "analytics",
+      "package_prefix": "io.keen.client"
+    },
+    {
+      "name": "Kissmetrics",
+      "category": "analytics",
+      "package_prefix": "com.kissmetrics"
+    },
+    {
+      "name": "Kontakt",
+      "category": "analytics",
+      "package_prefix": "com.kontakt.sdk.android"
+    },
+    {
+      "name": "LeanPlum",
+      "category": "analytics",
+      "package_prefix": "com.leanplum"
+    },
+    {
+      "name": "Lenddo",
+      "category": "analytics",
+      "package_prefix": "com.lenddo.mobile"
+    },
+    {
+      "name": "Ligatus",
+      "category": "analytics",
+      "package_prefix": "com.ligatus.android.adframework"
+    },
+    {
+      "name": "Lisnr",
+      "category": "analytics",
+      "package_prefix": "com.lisnr"
+    },
+    {
+      "name": "Localytics",
+      "category": "analytics",
+      "package_prefix": "com.localytics.android"
+    },
+    {
+      "name": "Localytics",
+      "category": "analytics",
+      "package_prefix": "com.localytics.androidx"
+    },
+    {
+      "name": "Localytics",
+      "category": "analytics",
+      "package_prefix": "com.localytics.react"
+    },
+    {
+      "name": "Locuslabs",
+      "category": "analytics",
+      "package_prefix": "com.locuslabs.sdk"
+    },
+    {
+      "name": "Loggly",
+      "category": "analytics",
+      "package_prefix": "com.github.tony19.loggly"
+    },
+    {
+      "name": "Loggly",
+      "category": "analytics",
+      "package_prefix": "com.github.tony19.timber.loggly"
+    },
+    {
+      "name": "Loggly",
+      "category": "analytics",
+      "package_prefix": "com.visiware.sync2ad.logger.loggly"
+    },
+    {
+      "name": "LotaData",
+      "category": "analytics",
+      "package_prefix": "com.lotadata.moments"
+    },
+    {
+      "name": "Lotame",
+      "category": "analytics",
+      "package_prefix": "com.lotame.android"
+    },
+    {
+      "name": "MAdvertise",
+      "category": "analytics",
+      "package_prefix": "com.mngads"
+    },
+    {
+      "name": "MAdvertise",
+      "category": "analytics",
+      "package_prefix": "com.mngads.sdk"
+    },
+    {
+      "name": "MAdvertise",
+      "category": "analytics",
+      "package_prefix": "com.mngads.views"
+    },
+    {
+      "name": "MOCA",
+      "category": "analytics",
+      "package_prefix": "com.innoquant.moca"
+    },
+    {
+      "name": "Mail.ru",
+      "category": "analytics",
+      "package_prefix": "ru.mail.mrgservice.advertising"
+    },
+    {
+      "name": "Mail.ru",
+      "category": "analytics",
+      "package_prefix": "ru.mail.mrgservice.analytics"
+    },
+    {
+      "name": "Mapbox",
+      "category": "analytics",
+      "package_prefix": "com.mapbox.android.telemetry"
+    },
+    {
+      "name": "Mapbox",
+      "category": "analytics",
+      "package_prefix": "com.mapbox.mapboxsdk.maps.TelemetryDefinition"
+    },
+    {
+      "name": "Mapbox",
+      "category": "analytics",
+      "package_prefix": "com.mapbox.mapboxsdk.module.telemetry"
+    },
+    {
+      "name": "Marketo (an Adobe Company)",
+      "category": "analytics",
+      "package_prefix": "com.marketo"
+    },
+    {
+      "name": "Matomo (Piwik)",
+      "category": "analytics",
+      "package_prefix": "org.matomo"
+    },
+    {
+      "name": "Matomo (Piwik)",
+      "category": "analytics",
+      "package_prefix": "org.piwik"
+    },
+    {
+      "name": "Matomo (Piwik)",
+      "category": "analytics",
+      "package_prefix": "org.piwik.mobile"
+    },
+    {
+      "name": "Metrics",
+      "category": "analytics",
+      "package_prefix": "com.codahale.metrics"
+    },
+    {
+      "name": "Microsoft Visual Studio App Center Analytics",
+      "category": "analytics",
+      "package_prefix": "com.microsoft.appcenter.analytics"
+    },
+    {
+      "name": "Microsoft Visual Studio App Center Analytics",
+      "category": "analytics",
+      "package_prefix": "com.microsoft.azure.mobile.analytics"
+    },
+    {
+      "name": "Millennial Media",
+      "category": "analytics",
+      "package_prefix": "com.millennialmedia"
+    },
+    {
+      "name": "MixPanel",
+      "category": "analytics",
+      "package_prefix": "com.mixpanel"
+    },
+    {
+      "name": "MoEngage",
+      "category": "analytics",
+      "package_prefix": "com.moengage"
+    },
+    {
+      "name": "Mobile Engagement",
+      "category": "analytics",
+      "package_prefix": "com.microsoft.azure.engagement"
+    },
+    {
+      "name": "Mobile Engagement",
+      "category": "analytics",
+      "package_prefix": "com.ubikod.capptain"
+    },
+    {
+      "name": "Mobvista",
+      "category": "analytics",
+      "package_prefix": "com.mobvista"
+    },
+    {
+      "name": "Mopinion",
+      "category": "analytics",
+      "package_prefix": "com.mopinion.mopinionsdk"
+    },
+    {
+      "name": "Mozilla Telemetry",
+      "category": "analytics",
+      "package_prefix": "mozilla.telemetry.glean"
+    },
+    {
+      "name": "Mozilla Telemetry",
+      "category": "analytics",
+      "package_prefix": "org.mozilla.fenix.GleanMetrics"
+    },
+    {
+      "name": "Mozilla Telemetry",
+      "category": "analytics",
+      "package_prefix": "org.mozilla.fenix.components.metrics"
+    },
+    {
+      "name": "Mozilla Telemetry",
+      "category": "analytics",
+      "package_prefix": "org.mozilla.gecko.telemetry"
+    },
+    {
+      "name": "Mozilla Telemetry",
+      "category": "analytics",
+      "package_prefix": "org.mozilla.telemetry"
+    },
+    {
+      "name": "NativeX",
+      "category": "analytics",
+      "package_prefix": "com.nativex"
+    },
+    {
+      "name": "New Relic",
+      "category": "analytics",
+      "package_prefix": "com.newrelic.agent"
+    },
+    {
+      "name": "New Relic",
+      "category": "analytics",
+      "package_prefix": "com.newrelic.mobile"
+    },
+    {
+      "name": "Nexage",
+      "category": "analytics",
+      "package_prefix": "com.nexage.android"
+    },
+    {
+      "name": "Nexage",
+      "category": "analytics",
+      "package_prefix": "org.nexage"
+    },
+    {
+      "name": "Nielsen",
+      "category": "analytics",
+      "package_prefix": "com.nielsen.app"
+    },
+    {
+      "name": "Ogury Presage",
+      "category": "analytics",
+      "package_prefix": "io.presage"
+    },
+    {
+      "name": "Omniture",
+      "category": "analytics",
+      "package_prefix": "com.adobe.adms.measurement"
+    },
+    {
+      "name": "Omniture",
+      "category": "analytics",
+      "package_prefix": "com.omniture"
+    },
+    {
+      "name": "OneAudience",
+      "category": "analytics",
+      "package_prefix": "com.oneaudience.sdk"
+    },
+    {
+      "name": "OneSignal",
+      "category": "analytics",
+      "package_prefix": "com.onesignal"
+    },
+    {
+      "name": "OpenBack",
+      "category": "analytics",
+      "package_prefix": "com.openback"
+    },
+    {
+      "name": "OpenLocate",
+      "category": "analytics",
+      "package_prefix": "com.openlocate"
+    },
+    {
+      "name": "OpenLocate",
+      "category": "analytics",
+      "package_prefix": "com.safegraph"
+    },
+    {
+      "name": "OpenTelemetry (OpenCensus, OpenTracing)",
+      "category": "analytics",
+      "package_prefix": "io.opencensus"
+    },
+    {
+      "name": "OpenTelemetry (OpenCensus, OpenTracing)",
+      "category": "analytics",
+      "package_prefix": "io.opentelemetry"
+    },
+    {
+      "name": "Opensignal",
+      "category": "analytics",
+      "package_prefix": "com.opensignal.datacollection"
+    },
+    {
+      "name": "Optimizely",
+      "category": "analytics",
+      "package_prefix": "com.optimizely"
+    },
+    {
+      "name": "OtherLevels",
+      "category": "analytics",
+      "package_prefix": "com.otherlevels"
+    },
+    {
+      "name": "OutBrain",
+      "category": "analytics",
+      "package_prefix": "com.outbrain"
+    },
+    {
+      "name": "OzTAM",
+      "category": "analytics",
+      "package_prefix": "au.com.oztam"
+    },
+    {
+      "name": "Parse.ly",
+      "category": "analytics",
+      "package_prefix": "com.parsely.parselyandroid"
+    },
+    {
+      "name": "Pendo",
+      "category": "analytics",
+      "package_prefix": "sdk.insert.io"
+    },
+    {
+      "name": "Pendo",
+      "category": "analytics",
+      "package_prefix": "sdk.pendo.io"
+    },
+    {
+      "name": "Persona.ly",
+      "category": "analytics",
+      "package_prefix": "ly.persona.sdk"
+    },
+    {
+      "name": "Pilgrim by Foursquare",
+      "category": "analytics",
+      "package_prefix": "com.foursquare.pilgrim"
+    },
+    {
+      "name": "Pilgrim by Foursquare",
+      "category": "analytics",
+      "package_prefix": "com.foursquare.pilgrimsdk.android"
+    },
+    {
+      "name": "Placed",
+      "category": "analytics",
+      "package_prefix": "com.placed.client"
+    },
+    {
+      "name": "Placer",
+      "category": "analytics",
+      "package_prefix": "com.placer.client.Placer"
+    },
+    {
+      "name": "PlaytestCloud Event Tracking",
+      "category": "analytics",
+      "package_prefix": "com.playtestcloud.Analytics"
+    },
+    {
+      "name": "Plexure",
+      "category": "analytics",
+      "package_prefix": "co.vmob.sdk"
+    },
+    {
+      "name": "Point Inside",
+      "category": "analytics",
+      "package_prefix": "com.pointinside"
+    },
+    {
+      "name": "Pollfish",
+      "category": "analytics",
+      "package_prefix": "com.pollfish"
+    },
+    {
+      "name": "Proximi.io",
+      "category": "analytics",
+      "package_prefix": "io.proximi.proximiiolibrary"
+    },
+    {
+      "name": "PushSpring",
+      "category": "analytics",
+      "package_prefix": "com.pushspring.sdk.PushSpring"
+    },
+    {
+      "name": "Pusher",
+      "category": "analytics",
+      "package_prefix": "com.pusher.client"
+    },
+    {
+      "name": "Pushwoosh",
+      "category": "analytics",
+      "package_prefix": "com.pushwoosh"
+    },
+    {
+      "name": "Pyze",
+      "category": "analytics",
+      "package_prefix": "com.pyze"
+    },
+    {
+      "name": "Qualtrics",
+      "category": "analytics",
+      "package_prefix": "com.qualtrics.digital"
+    },
+    {
+      "name": "Quantcast",
+      "category": "analytics",
+      "package_prefix": "com.quantcast.measurement.service"
+    },
+    {
+      "name": "Radar",
+      "category": "analytics",
+      "package_prefix": "io.radar.sdk.Radar"
+    },
+    {
+      "name": "Radius Networks",
+      "category": "analytics",
+      "package_prefix": "com.radiusnetworks"
+    },
+    {
+      "name": "Repro",
+      "category": "analytics",
+      "package_prefix": "io.repro.android"
+    },
+    {
+      "name": "Retency",
+      "category": "analytics",
+      "package_prefix": "com.retency.sdk.android"
+    },
+    {
+      "name": "Reveal Mobile",
+      "category": "analytics",
+      "package_prefix": "com.stepleaderdigital.reveal"
+    },
+    {
+      "name": "Roximity",
+      "category": "analytics",
+      "package_prefix": "com.roximity.sdk"
+    },
+    {
+      "name": "Rubicon Project",
+      "category": "analytics",
+      "package_prefix": "com.rfm.sdk"
+    },
+    {
+      "name": "S4M",
+      "category": "analytics",
+      "package_prefix": "com.sam4mobile"
+    },
+    {
+      "name": "SAP CDC (Gigya)",
+      "category": "analytics",
+      "package_prefix": "com.gigya"
+    },
+    {
+      "name": "Salesforce Marketing Cloud",
+      "category": "analytics",
+      "package_prefix": "com.salesforce.marketingcloud"
+    },
+    {
+      "name": "Scandit",
+      "category": "analytics",
+      "package_prefix": "com.scandit"
+    },
+    {
+      "name": "ScoreLoop",
+      "category": "analytics",
+      "package_prefix": "com.scoreloop.client.android"
+    },
+    {
+      "name": "Segment",
+      "category": "analytics",
+      "package_prefix": "com.segment.analytics"
+    },
+    {
+      "name": "Sense360",
+      "category": "analytics",
+      "package_prefix": "com.sense360.android"
+    },
+    {
+      "name": "Sensoro",
+      "category": "analytics",
+      "package_prefix": "com.sensoro.beacon.kit"
+    },
+    {
+      "name": "Sensoro",
+      "category": "analytics",
+      "package_prefix": "com.sensoro.cloud"
+    },
+    {
+      "name": "Sensors Analytics",
+      "category": "analytics",
+      "package_prefix": "com.sensorsdata.analytics.android.sdk"
+    },
+    {
+      "name": "Sentiance",
+      "category": "analytics",
+      "package_prefix": "com.sentiance.sdk"
+    },
+    {
+      "name": "ShallWeAD",
+      "category": "analytics",
+      "package_prefix": "com.co.shallwead.sdk"
+    },
+    {
+      "name": "ShallWeAD",
+      "category": "analytics",
+      "package_prefix": "com.jm.co.shallwead.sdk"
+    },
+    {
+      "name": "Shopkick",
+      "category": "analytics",
+      "package_prefix": "com.shopkick.fetchers"
+    },
+    {
+      "name": "Shopkick",
+      "category": "analytics",
+      "package_prefix": "com.shopkick.sdk.api"
+    },
+    {
+      "name": "Signal360",
+      "category": "analytics",
+      "package_prefix": "com.rnsignal360"
+    },
+    {
+      "name": "Signal360",
+      "category": "analytics",
+      "package_prefix": "com.signal360.sdk.core"
+    },
+    {
+      "name": "Signal360",
+      "category": "analytics",
+      "package_prefix": "com.sonicnotify.sdk.core"
+    },
+    {
+      "name": "SignalFrame",
+      "category": "analytics",
+      "package_prefix": "com.wirelessregistry.observersdk"
+    },
+    {
+      "name": "SilverPush",
+      "category": "analytics",
+      "package_prefix": "com.silverpush"
+    },
+    {
+      "name": "Singlespot",
+      "category": "analytics",
+      "package_prefix": "com.sptproximitykit"
+    },
+    {
+      "name": "Singular",
+      "category": "analytics",
+      "package_prefix": "com.singular.sdk"
+    },
+    {
+      "name": "Smaato",
+      "category": "analytics",
+      "package_prefix": "com.smaato"
+    },
+    {
+      "name": "Smart",
+      "category": "analytics",
+      "package_prefix": "com.smartadserver"
+    },
+    {
+      "name": "SmartLook",
+      "category": "analytics",
+      "package_prefix": "com.smartlook.sdk.smartlook"
+    },
+    {
+      "name": "Snapchat Login Kit",
+      "category": "analytics",
+      "package_prefix": "com.snapchat.kit.sdk.SnapLogin"
+    },
+    {
+      "name": "Snowplow",
+      "category": "analytics",
+      "package_prefix": "com.snowplowanalytics"
+    },
+    {
+      "name": "Soomla",
+      "category": "analytics",
+      "package_prefix": "com.soomla"
+    },
+    {
+      "name": "Split",
+      "category": "analytics",
+      "package_prefix": "io.split.android"
+    },
+    {
+      "name": "Splunk MINT",
+      "category": "analytics",
+      "package_prefix": "com.splunk.mint"
+    },
+    {
+      "name": "Square Metrics",
+      "category": "analytics",
+      "package_prefix": "com.beaconinside.proximitysdk.ProximityService"
+    },
+    {
+      "name": "Supersonic Ads",
+      "category": "analytics",
+      "package_prefix": "com.supersonic.adapters.supersonicads"
+    },
+    {
+      "name": "Supersonic Ads",
+      "category": "analytics",
+      "package_prefix": "com.supersonicads.sdk"
+    },
+    {
+      "name": "Swirl",
+      "category": "analytics",
+      "package_prefix": "com.swirl"
+    },
+    {
+      "name": "Swrve",
+      "category": "analytics",
+      "package_prefix": "com.swrve.sdk"
+    },
+    {
+      "name": "Sync2Ad",
+      "category": "analytics",
+      "package_prefix": "com.visiware.sync2ad.dmp"
+    },
+    {
+      "name": "Taboola",
+      "category": "analytics",
+      "package_prefix": "com.taboola"
+    },
+    {
+      "name": "TagCommander (Commanders Act.)",
+      "category": "analytics",
+      "package_prefix": "com.tagcommander"
+    },
+    {
+      "name": "Tamoco",
+      "category": "analytics",
+      "package_prefix": "com.tamoco.sdk"
+    },
+    {
+      "name": "TapResearch",
+      "category": "analytics",
+      "package_prefix": "com.tapr.helpers"
+    },
+    {
+      "name": "TapResearch",
+      "category": "analytics",
+      "package_prefix": "com.tapr.internal"
+    },
+    {
+      "name": "TapResearch",
+      "category": "analytics",
+      "package_prefix": "com.tapr.sdk"
+    },
+    {
+      "name": "Tapjoy",
+      "category": "analytics",
+      "package_prefix": "com.tapjoy"
+    },
+    {
+      "name": "Tapstream",
+      "category": "analytics",
+      "package_prefix": "com.tapstream.sdk"
+    },
+    {
+      "name": "Tealeaf",
+      "category": "analytics",
+      "package_prefix": "com.tl.uic.Tealeaf"
+    },
+    {
+      "name": "Teemo",
+      "category": "analytics",
+      "package_prefix": "com.databerries"
+    },
+    {
+      "name": "Teemo",
+      "category": "analytics",
+      "package_prefix": "com.geolocstation"
+    },
+    {
+      "name": "TeleQuid",
+      "category": "analytics",
+      "package_prefix": "com.telequid"
+    },
+    {
+      "name": "Tencent MTA",
+      "category": "analytics",
+      "package_prefix": "com.tencent.mta"
+    },
+    {
+      "name": "Tencent Map LBS",
+      "category": "analytics",
+      "package_prefix": "com.tencent.lbs"
+    },
+    {
+      "name": "Tencent MobWin",
+      "category": "analytics",
+      "package_prefix": "com.tencent.mobwin"
+    },
+    {
+      "name": "Tencent Stats",
+      "category": "analytics",
+      "package_prefix": "com.tencent.stat"
+    },
+    {
+      "name": "Tencent Stats",
+      "category": "analytics",
+      "package_prefix": "com.tencent.wxop.stat"
+    },
+    {
+      "name": "Tencent Weiyun",
+      "category": "analytics",
+      "package_prefix": "com.tencent.weiyun"
+    },
+    {
+      "name": "Tenjin",
+      "category": "analytics",
+      "package_prefix": "com.tenjin.android"
+    },
+    {
+      "name": "ThinkingData Analytics",
+      "category": "analytics",
+      "package_prefix": "cn.thinkingdata"
+    },
+    {
+      "name": "Tinder Analytics",
+      "category": "analytics",
+      "package_prefix": "com.tinder.ads"
+    },
+    {
+      "name": "Tinder Analytics",
+      "category": "analytics",
+      "package_prefix": "com.tinder.analytics"
+    },
+    {
+      "name": "Treasure Data",
+      "category": "analytics",
+      "package_prefix": "com.treasuredata"
+    },
+    {
+      "name": "Tune",
+      "category": "analytics",
+      "package_prefix": "com.mobileapptracker"
+    },
+    {
+      "name": "Tune",
+      "category": "analytics",
+      "package_prefix": "com.tune"
+    },
+    {
+      "name": "Tutela",
+      "category": "analytics",
+      "package_prefix": "com.tutelatechnologies.sdk"
+    },
+    {
+      "name": "Tutucloud",
+      "category": "analytics",
+      "package_prefix": "org.lasque.tusdk.core"
+    },
+    {
+      "name": "Tutucloud",
+      "category": "analytics",
+      "package_prefix": "org.lasque.tusdkpulse.core"
+    },
+    {
+      "name": "Twine Data",
+      "category": "analytics",
+      "package_prefix": "com.twine.sdk"
+    },
+    {
+      "name": "UXCam",
+      "category": "analytics",
+      "package_prefix": "com.uxcam"
+    },
+    {
+      "name": "Uber Analytics",
+      "category": "analytics",
+      "package_prefix": "com.ubercab.analytics"
+    },
+    {
+      "name": "Uber Analytics",
+      "category": "analytics",
+      "package_prefix": "com.ubercab.client.core.analytics"
+    },
+    {
+      "name": "Uber Analytics",
+      "category": "analytics",
+      "package_prefix": "com.ubercab.library.metrics.analytics"
+    },
+    {
+      "name": "Umeng Analytics",
+      "category": "analytics",
+      "package_prefix": "com.umeng.analytics"
+    },
+    {
+      "name": "Umeng Feedback",
+      "category": "analytics",
+      "package_prefix": "com.umeng.fb"
+    },
+    {
+      "name": "Unacast Pure",
+      "category": "analytics",
+      "package_prefix": "com.pure.internal"
+    },
+    {
+      "name": "Unacast Pure",
+      "category": "analytics",
+      "package_prefix": "com.pure.sdk"
+    },
+    {
+      "name": "Urbanairship",
+      "category": "analytics",
+      "package_prefix": "com.urbanairship"
+    },
+    {
+      "name": "VKontakte SDK",
+      "category": "analytics",
+      "package_prefix": "com.vk.api.sdk"
+    },
+    {
+      "name": "VKontakte SDK",
+      "category": "analytics",
+      "package_prefix": "com.vk.sdk"
+    },
+    {
+      "name": "Vectaury",
+      "category": "analytics",
+      "package_prefix": "io.vectaury"
+    },
+    {
+      "name": "WeChat Location",
+      "category": "analytics",
+      "package_prefix": "com.tencent.map.geolocation"
+    },
+    {
+      "name": "WeChat Location",
+      "category": "analytics",
+      "package_prefix": "com.tencent.mm.plugin.location"
+    },
+    {
+      "name": "WeChat Location",
+      "category": "analytics",
+      "package_prefix": "com.tencent.mm.plugin.location_google"
+    },
+    {
+      "name": "WeChat Location",
+      "category": "analytics",
+      "package_prefix": "com.tencent.mm.plugin.location_soso"
+    },
+    {
+      "name": "Weborama",
+      "category": "analytics",
+      "package_prefix": "com.weborama"
+    },
+    {
+      "name": "Webtrekk",
+      "category": "analytics",
+      "package_prefix": "com.webtrekk.webtrekksdk"
+    },
+    {
+      "name": "Webtrends",
+      "category": "analytics",
+      "package_prefix": "com.webtrends.mobile.analytics"
+    },
+    {
+      "name": "Webtrends",
+      "category": "analytics",
+      "package_prefix": "com.webtrends.mobile.android"
+    },
+    {
+      "name": "Widespace",
+      "category": "analytics",
+      "package_prefix": "com.widespace"
+    },
+    {
+      "name": "Wootric",
+      "category": "analytics",
+      "package_prefix": "com.wootric.androidsdk"
+    },
+    {
+      "name": "X-Mode",
+      "category": "analytics",
+      "package_prefix": "io.mysdk"
+    },
+    {
+      "name": "X-Mode",
+      "category": "analytics",
+      "package_prefix": "io.xmode.BcnConfig"
+    },
+    {
+      "name": "X-Mode",
+      "category": "analytics",
+      "package_prefix": "io.xmode.locationsdk"
+    },
+    {
+      "name": "YouAppi",
+      "category": "analytics",
+      "package_prefix": "com.youappi.sdk"
+    },
+    {
+      "name": "Zendrive",
+      "category": "analytics",
+      "package_prefix": "com.zendrive.sdk"
+    },
+    {
+      "name": "Zoho Analytics",
+      "category": "analytics",
+      "package_prefix": "com.zoho.zanalytics"
+    },
+    {
+      "name": "deltaDNA",
+      "category": "analytics",
+      "package_prefix": "com.deltadna"
+    },
+    {
+      "name": "flymob",
+      "category": "analytics",
+      "package_prefix": "com.flymob.sdk"
+    },
+    {
+      "name": "fullstory",
+      "category": "analytics",
+      "package_prefix": "com.fullstory.FS"
+    },
+    {
+      "name": "fullstory",
+      "category": "analytics",
+      "package_prefix": "com.fullstory.FSSessionData"
+    },
+    {
+      "name": "fullstory",
+      "category": "analytics",
+      "package_prefix": "com.fullstory.instrumentation"
+    },
+    {
+      "name": "fullstory",
+      "category": "analytics",
+      "package_prefix": "com.fullstory.jni"
+    },
+    {
+      "name": "fullstory",
+      "category": "analytics",
+      "package_prefix": "com.fullstory.rust"
+    },
+    {
+      "name": "fullstory",
+      "category": "analytics",
+      "package_prefix": "com.fullstory.util"
+    },
+    {
+      "name": "ironSource",
+      "category": "analytics",
+      "package_prefix": "com.ironsource"
+    },
+    {
+      "name": "mParticle",
+      "category": "analytics",
+      "package_prefix": "com.mparticle"
+    },
+    {
+      "name": "maio by i-mobile",
+      "category": "analytics",
+      "package_prefix": "jp.maio.sdk"
+    },
+    {
+      "name": "myTracker",
+      "category": "analytics",
+      "package_prefix": "com.my.tracker"
+    },
+    {
+      "name": "ACRA",
+      "category": "crash_reporting",
+      "package_prefix": "ch.acra"
+    },
+    {
+      "name": "ACRA",
+      "category": "crash_reporting",
+      "package_prefix": "org.acra"
+    },
+    {
+      "name": "Applause",
+      "category": "crash_reporting",
+      "package_prefix": "com.applause.android"
+    },
+    {
+      "name": "Backtrace",
+      "category": "crash_reporting",
+      "package_prefix": "backtraceio.library"
+    },
+    {
+      "name": "Backtrace",
+      "category": "crash_reporting",
+      "package_prefix": "com.github.backtrace-labs"
+    },
+    {
+      "name": "BugSense",
+      "category": "crash_reporting",
+      "package_prefix": "com.bugsense.trace"
+    },
+    {
+      "name": "Bugfender",
+      "category": "crash_reporting",
+      "package_prefix": "com.bugfender.sdk"
+    },
+    {
+      "name": "Bugsee",
+      "category": "crash_reporting",
+      "package_prefix": "com.bugsee.library.Bugsee"
+    },
+    {
+      "name": "Bugsnag",
+      "category": "crash_reporting",
+      "package_prefix": "com.bugsnag"
+    },
+    {
+      "name": "Google CrashLytics",
+      "category": "crash_reporting",
+      "package_prefix": "com.crashlytics"
+    },
+    {
+      "name": "Google CrashLytics",
+      "category": "crash_reporting",
+      "package_prefix": "com.google.firebase.crash"
+    },
+    {
+      "name": "Google CrashLytics",
+      "category": "crash_reporting",
+      "package_prefix": "com.google.firebase.crashlytics"
+    },
+    {
+      "name": "Google CrashLytics",
+      "category": "crash_reporting",
+      "package_prefix": "io.fabric"
+    },
+    {
+      "name": "Google CrashLytics",
+      "category": "crash_reporting",
+      "package_prefix": "io.invertase.firebase.crashlytics"
+    },
+    {
+      "name": "HockeyApp",
+      "category": "crash_reporting",
+      "package_prefix": "net.hockeyapp"
+    },
+    {
+      "name": "Instabug",
+      "category": "crash_reporting",
+      "package_prefix": "com.instabug"
+    },
+    {
+      "name": "Microsoft Visual Studio App Center Crashes",
+      "category": "crash_reporting",
+      "package_prefix": "com.microsoft.appcenter.crashes"
+    },
+    {
+      "name": "Raygun",
+      "category": "crash_reporting",
+      "package_prefix": "com.mindscapehq.android.raygun4android"
+    },
+    {
+      "name": "Rollbar",
+      "category": "crash_reporting",
+      "package_prefix": "com.rollbar.android"
+    },
+    {
+      "name": "Sentry",
+      "category": "crash_reporting",
+      "package_prefix": "com.joshdholtz.sentry"
+    },
+    {
+      "name": "Sentry",
+      "category": "crash_reporting",
+      "package_prefix": "io.sentry"
+    },
+    {
+      "name": "UserExperior",
+      "category": "crash_reporting",
+      "package_prefix": "com.userexperior"
+    },
+    {
+      "name": "Yueying Crash SDK",
+      "category": "crash_reporting",
+      "package_prefix": "com.uc.crashsdk"
+    },
+    {
+      "name": "Yueying Crash SDK",
+      "category": "crash_reporting",
+      "package_prefix": "com.uc2.crashsdk"
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<!-- Our own files only. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="The open data that PrivacyBrew uses, with credits and licenses.">
+<link rel="icon" type="image/png" href="assets/img/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/img/favicon-180.png">
+<link rel="stylesheet" href="assets/css/style.css?v=20261019a">
+<title>Data licenses — PrivacyBrew</title>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="/">
+        <img src="assets/img/logo.png" alt="">
+        PrivacyBrew
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="/#features">Features</a>
+        <a href="/#tools">Tools</a>
+        <a href="/check.html">Browser check</a>
+        <a href="/extension.html">Extension</a>
+        <a href="/privacy.html">Privacy Policy</a>
+      </div>
+      <a class="nav-cta" href="https://play.google.com/store/apps/details?id=com.brewlabs.privacybrew" target="_blank" rel="noopener">Get the app</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="legal">
+    <div class="wrap">
+      <a class="legal-back" href="/">← PrivacyBrew</a>
+      <h1>Data licenses</h1>
+      <p>PrivacyBrew uses open data from other projects. This page gives credit
+      to these projects and shows the license for each one.</p>
+
+      <h2>Android app: tracker data</h2>
+      <p>The Android app contains information from the
+      <a href="https://reports.exodus-privacy.eu.org/en/trackers/" target="_blank" rel="noopener">Exodus Privacy tracker database</a>,
+      which is made available here under the
+      <a href="https://opendatacommons.org/licenses/odbl/1-0/" target="_blank" rel="noopener">Open Database License (ODbL) v1.0</a>.</p>
+      <p>We changed this data for the app:</p>
+      <ul>
+        <li>We split signatures that had more than one package into separate entries.</li>
+        <li>We removed trailing dots from package prefixes.</li>
+        <li>We removed signatures that had no package prefix.</li>
+        <li>We mapped the Exodus categories to our own, smaller set of categories.</li>
+        <li>We added a small number of entries by hand where the Exodus data was out of date.</li>
+      </ul>
+      <p>Our version of this data is also available under the ODbL:
+      <a href="/data/tracker-signatures.json">download the tracker data (JSON)</a>.
+      The ODbL applies to this data table only. It does not apply to the
+      PrivacyBrew app.</p>
+      <p>Exodus Privacy does not endorse PrivacyBrew, and we are not connected to
+      this project. We thank them for this work.</p>
+
+      <h2>Android app: Learn topics</h2>
+      <p>Some Learn topics are adapted from material by the Electronic Frontier
+      Foundation (EFF) under the
+      <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0 license</a>.
+      Each of these topics shows its sources in the app. EFF does not review or
+      endorse PrivacyBrew.</p>
+
+      <h2>Browser extension</h2>
+      <ul>
+        <li><a href="https://github.com/disconnectme/disconnect-tracking-protection" target="_blank" rel="noopener">Disconnect tracker list</a>: CC BY-NC-SA 4.0</li>
+        <li><a href="https://easylist.to/" target="_blank" rel="noopener">EasyList</a>: GPL-3.0 or CC BY-SA 3.0</li>
+        <li><a href="https://github.com/duckduckgo/autoconsent" target="_blank" rel="noopener">DuckDuckGo Autoconsent</a>: MPL-2.0</li>
+        <li><a href="https://publicsuffix.org/" target="_blank" rel="noopener">Public Suffix List</a>: MPL-2.0</li>
+      </ul>
+      <p>The
+      <a href="https://github.com/privacybrew/privacybrew-extension" target="_blank" rel="noopener">extension source code</a>
+      is GPL-3.0. It has the full license details.</p>
+
+      <h2>Contact</h2>
+      <p>Questions about these licenses: <a href="mailto:privacybrew@protonmail.com">privacybrew@protonmail.com</a></p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div>A BrewLabs project</div>
+      <div class="footer-links">
+        <a href="/check.html">Browser check</a>
+        <a href="/extension.html">Extension</a>
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/feedback.html">Feedback</a>
+        <a href="/">Back to home</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js?v=20261019a"></script>
+</body>
+</html>

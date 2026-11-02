@@ -37,7 +37,7 @@
       <a class="legal-back" href="/">← PrivacyBrew</a>
       <h1>Privacy Policy</h1>
       <div class="legal-meta">
-        <div><strong>Effective date:</strong> October 18, 2026</div>
+        <div><strong>Effective date:</strong> November 2, 2026</div>
         <div><strong>App:</strong> PrivacyBrew (package <code>com.brewlabs.privacybrew</code>)</div>
         <div><strong>Developer:</strong> BrewLabs</div>
         <div><strong>Contact:</strong> <a href="mailto:privacybrew@protonmail.com">privacybrew@protonmail.com</a></div>
@@ -55,12 +55,13 @@
       <p>PrivacyBrew reads information Android already exposes about your
       installed apps — their names, permissions, and optionally when they
       were last used — and displays it in plain language, entirely on your
-      device. It requests exactly two permissions:</p>
+      device. It requests three permissions:</p>
       <p><strong>QUERY_ALL_PACKAGES</strong> — lets PrivacyBrew list your
       installed apps and read their already-granted permissions via
       Android's PackageManager. By default this is a plain metadata read:
-      just each app's name and permissions — the same information
-      Android's own Settings app can show you.</p>
+      each app's name, permissions, listed components, install date, install
+      source, and if you let it install other apps. Android's own Settings
+      app can show you most of this.</p>
       <p>One additional feature, <strong>Deep Tracker Scan</strong>
       (Settings → Advanced), is fully opt-in and off by default, and uses
       this same permission to go further: with your explicit consent, it
@@ -78,15 +79,35 @@
       requires granting this explicitly in system Settings, and you can
       revoke it at any time; every other part of the app works the same
       without it. Read on-device only, never transmitted.</p>
-      <p><strong>Device Checkup</strong> (Home screen) doesn't use either
-      permission above — it reads a small number of device-wide security
-      settings directly from Android, the same way any app can check
-      whether your screen lock is set up: whether your lock screen shows
-      message previews, whether your device has a secure lock screen set
-      up at all, and which accessibility services (if any) are currently
-      enabled. This is read fresh every time you open the Home tab, never
-      stored, and never transmitted — it only ever appears if something is
-      actually worth a look, and disappears again once you fix it.</p>
+      <p><strong>QUERY_ADVANCED_PROTECTION_MODE</strong> — lets PrivacyBrew
+      check if Android's Advanced Protection mode is on. Android 16 and newer
+      have this mode. Android grants this permission at install, with no
+      prompt. PrivacyBrew gets only a yes or no answer, on your device.</p>
+      <p>Android's build tools also add one internal permission,
+      <code>com.brewlabs.privacybrew.<wbr>DYNAMIC_RECEIVER_<wbr>NOT_EXPORTED_<wbr>PERMISSION</code>.
+      It protects messages inside PrivacyBrew. It gives no access to your data
+      or to other apps.</p>
+      <p><strong>Device Checkup</strong> (Home screen) reads a small number of
+      device-wide settings from Android:</p>
+      <ul>
+        <li>Whether your device has a secure lock screen</li>
+        <li>The screen timeout</li>
+        <li>Whether your lock screen shows message previews</li>
+        <li>Whether Wi-Fi and Bluetooth scanning are always on</li>
+        <li>Whether Advanced Protection is on</li>
+        <li>Whether Theft Detection Lock and Offline Device Lock are on</li>
+        <li>Which accessibility services are on</li>
+      </ul>
+      <p>It also uses the app scan to show apps that can install other apps.
+      Most of these checks need no permission. The Advanced Protection check
+      uses QUERY_ADVANCED_PROTECTION_MODE, and the app scan uses
+      QUERY_ALL_PACKAGES. Device Checkup reads these settings each time you
+      open the Home tab. It does not store them and never transmits them. A
+      result shows only if something is worth a look, and it goes away when
+      you fix it.</p>
+      <p>The <strong>privacy quiz</strong> reads many of the same settings and
+      the date of your last security update. The quiz state item below shows
+      the little that it keeps.</p>
       <p>PrivacyBrew does not request INTERNET, location, camera,
       microphone, contacts, storage, or anything else — there was no
       legitimate use for any of them, so we didn't ask.</p>
@@ -123,14 +144,19 @@
 
       <h2>This website</h2>
       <p>Everything above describes the <strong>PrivacyBrew Android app</strong>.
-      This website (privacybrew.app) is a separate, static, script-free
-      page: it doesn't use cookies, analytics, or tracking pixels of any
-      kind. It's hosted on GitHub Pages, which — like any web host —
+      This website (privacybrew.app) is a separate, static website. It runs
+      a small amount of JavaScript from this website only, for the menu, page
+      motion, the Browser Privacy Check and the feedback page. It has no
+      analytics or tracking pixels, and it sets no cookies on this website.
+      Some features use another service. The Browser Privacy Check and
+      Feedback form sections below show when this happens. It's hosted on GitHub Pages, which — like any web host —
       automatically logs basic connection data (e.g. IP address, browser
       type, request timestamp) as part of serving the page; we don't
       control or access those logs beyond what GitHub's own hosting
       infrastructure retains. See <a href="https://docs.github.com/en/pages">GitHub Pages' documentation</a>
-      for details on that infrastructure-level logging.</p>
+      for details on that infrastructure-level logging.
+      The address privacybrew.com redirects to this website through Cloudflare,
+      which also sees basic connection data for that redirect.</p>
 
       <h2>Data retention</h2>
       <p>PrivacyBrew keeps no logs, databases, or files on our servers —
@@ -211,6 +237,7 @@
       <div class="footer-links">
         <a href="/check.html">Browser check</a>
         <a href="/extension.html">Extension</a>
+        <a href="/licenses.html">Licenses</a>
         <a href="/feedback.html">Feedback</a>
         <a href="/">Back to home</a>
       </div>
