@@ -578,14 +578,11 @@
 
   // The test frame lives on a different website, so to the browser it's a
   // third party, just like an ad or tracker embedded in a page.
-  function cookieTestOrigin() {
-    const local = location.hostname === "localhost" || location.hostname === "127.0.0.1";
-    return local ? "http://127.0.0.1:8766" : "https://privacybrew.github.io";
-  }
+  const COOKIE_TEST_ORIGIN = "https://privacybrew.github.io";
 
   function cookies() {
-    const origin = cookieTestOrigin();
-    const src = origin + (origin.includes("github.io") ? "/cookie-test/" : "/");
+    const origin = COOKIE_TEST_ORIGIN;
+    const src = origin + "/cookie-test/";
     const frame = el("iframe", "check-hidden-frame");
     frame.title = "Third-party cookie test";
     frame.setAttribute("aria-hidden", "true");
