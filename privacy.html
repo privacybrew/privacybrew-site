@@ -79,8 +79,10 @@
       reads the actual installed code of other apps directly from your
       device's storage, to detect tracker/ad SDKs invisible to the
       metadata-only method above. This never runs automatically or in the
-      background — only when you enable it and tap "Scan Now." The only
-      thing kept is a small list of detected SDK names per app; none of
+      background — only when you enable it and tap "Scan Now," or when you
+      tap "Run deep scan" in the pop-up before a quiz, which enables it and
+      starts it. If you leave the app during a scan, it can keep going
+      until it finishes or Android stops it. The only thing kept is a small list of detected SDK names per app; none of
       the other app's actual code, resources, or any other data is copied,
       stored, or sent anywhere.</p>
       <p><strong>PACKAGE_USAGE_STATS</strong> (optional, off by default) —
@@ -134,7 +136,7 @@
         useful context between opens:
           <ul>
             <li>UI preferences — theme, text size, and whether you've dismissed the intro or tab tour</li>
-            <li>Privacy quiz state — whether you took or skipped the first quiz, the date of the last quiz, whether the weekly quiz is on, the date each question was last asked (so it does not come back for 6 weeks), and for some phone questions the last value, so a later quiz can show "Last time / Now" (a number of apps, the screen timeout, the security update age in months, or whether a setting was on). No app names, no screen time, and no answers or scores are kept</li>
+            <li>Privacy quiz state — whether you took or skipped the first quiz, the date of the last quiz, the dates you last answered the Usage access and Deep Tracker Scan pop-ups, whether the weekly quiz is on, the date each question was last asked (so it does not come back for 6 weeks), and for some phone questions the last value, so a later quiz can show "Last time / Now" (a number of apps, the screen timeout, the security update age in months, or whether a setting was on). No app names, no screen time, and no answers or scores are kept</li>
             <li>Access notices you've dismissed, so a reviewed item doesn't keep reappearing (Settings → Dismissed Access)</li>
             <li>A snapshot of each app's last-seen permissions, used only to flag what's new since your last visit</li>
             <li>Up to 90 days of daily tracker/sensitive-permission totals, used only for the Home screen trend line</li>
