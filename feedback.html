@@ -11,8 +11,8 @@
 <meta name="description" content="Send feedback about PrivacyBrew.">
 <link rel="icon" type="image/png" href="assets/img/favicon-32.png">
 <link rel="apple-touch-icon" href="assets/img/favicon-180.png">
-<link rel="stylesheet" href="assets/css/style.css?v=20261103a">
-<title>Feedback — PrivacyBrew</title>
+<link rel="stylesheet" href="assets/css/style.css?v=20261111a">
+<title>Feedback | PrivacyBrew</title>
 </head>
 <body>
 
@@ -38,7 +38,6 @@
 
   <main class="check feedback">
     <div class="wrap">
-      <div class="eyebrow">Feedback</div>
       <h1>Tell us what works and what does not.</h1>
       <p class="check-lead">Something broke? An idea? Write a few words. You do not need an account.</p>
 
@@ -53,7 +52,13 @@
         <div class="feedback-shared-list"></div>
       </div>
 
-      <iframe id="feedback-frame" class="feedback-frame" title="PrivacyBrew feedback form" loading="lazy"></iframe>
+      <div id="feedback-status" class="feedback-status" role="status">
+        <p id="feedback-status-text">Loading the form. This takes a few seconds.</p>
+        <p id="feedback-status-fix" hidden>Your connection or a content blocker can stop the form.
+          <button type="button" id="feedback-retry" class="btn btn-ghost">Try again</button>
+          Or write to <a href="mailto:privacybrew@protonmail.com">privacybrew@protonmail.com</a>.</p>
+      </div>
+      <iframe id="feedback-frame" class="feedback-frame waiting" title="PrivacyBrew feedback form"></iframe>
 
       <p class="check-footnote">Prefer email? Write to <a href="mailto:privacybrew@protonmail.com">privacybrew@protonmail.com</a>.</p>
     </div>
@@ -73,6 +78,6 @@
   </footer>
 
   <script src="assets/js/main.js?v=20261019a"></script>
-  <script src="assets/js/feedback.js?v=20261019a"></script>
+  <script src="assets/js/feedback.js?v=20261110a"></script>
 </body>
 </html>

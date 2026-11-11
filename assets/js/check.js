@@ -671,8 +671,12 @@
     }
   }
 
+  // Opt-in tests can call this to show progress on their button.
+  let showProgress = () => {};
+
   async function trackers() {
     // Control request to this website. If it fails, the network is the problem, not a blocker.
+    showProgress("Checking your connection…");
     const control = navigator.onLine ? await probe(`/assets/img/favicon-32.png?t=${Date.now()}`) : "blocked";
     if (control !== "loaded") {
       results.trackers = { status: "neutral", short: "no answer" };
@@ -680,7 +684,14 @@
       renderSummary();
       return;
     }
-    const out = await Promise.all(TRACKER_PROBES.map(async ([name, url]) => [name, await probe(url)]));
+    let done = 0;
+    showProgress(`Testing 0 of ${TRACKER_PROBES.length}…`);
+    const out = await Promise.all(TRACKER_PROBES.map(async ([name, url]) => {
+      const r = await probe(url);
+      done += 1;
+      showProgress(`Testing ${done} of ${TRACKER_PROBES.length}…`);
+      return [name, r];
+    }));
     const blocked = out.filter(([, r]) => r === "blocked").length;
     const loaded = out.filter(([, r]) => r === "loaded").length;
     const lines = out.map(([name, r]) => `${name}: ${r === "blocked" ? "blocked" : r === "loaded" ? "not blocked" : "no answer"}`);
@@ -970,11 +981,17 @@
         const which = btn.dataset.test;
         btn.disabled = true;
         btn.textContent = "Testing…";
+        showProgress = (t) => { btn.textContent = t; };
         try {
           await ({ trackers, webrtc, location: locationTest })[which]();
         } catch (e) {
-          renderResult(which, { status: "neutral", statusText: "Couldn't run this test", lines: [String(e.message || e)] });
+          renderResult(which, {
+            status: "neutral",
+            statusText: "Couldn't run this test",
+            lines: ["Something in this browser stopped the test. Reload the page and select Start again.", `Detail: ${String(e.message || e)}`],
+          });
         }
+        showProgress = () => {};
         btn.textContent = "Start again";
         btn.disabled = false;
       });

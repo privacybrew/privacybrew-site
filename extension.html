@@ -4,10 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'">
 <meta name="description" content="Free tracker and ad blocker for Chrome and Firefox. See a simple report card for each website and reject cookie pop-ups. No account and no analytics.">
 <link rel="icon" type="image/png" href="assets/img/favicon-32.png">
 <link rel="apple-touch-icon" href="assets/img/favicon-180.png">
-<link rel="stylesheet" href="assets/css/style.css?v=20261103a">
+<link rel="stylesheet" href="assets/css/style.css?v=20261111a">
 <link rel="canonical" href="https://privacybrew.app/extension.html">
 <meta property="og:site_name" content="PrivacyBrew">
 <meta property="og:type" content="website">
@@ -22,7 +23,7 @@
 <title>PrivacyBrew for Chrome and Firefox: tracker and ad blocker</title>
 </head>
 <body>
-  <svg class="dg-defs" aria-hidden="true" focusable="false"><defs><linearGradient id="pb-node" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#33233f"/><stop offset="1" stop-color="#21142c"/></linearGradient><marker id="pb-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#9b6dd1"/></marker><marker id="pb-t" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#5fae96"/></marker><marker id="pb-w" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#e8a87c"/></marker></defs></svg>
+  <svg class="dg-defs" aria-hidden="true" focusable="false"><defs><linearGradient id="pb-node" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a1f66"/><stop offset="1" stop-color="#2a1550"/></linearGradient><marker id="pb-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#b98af2"/></marker><marker id="pb-t" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8dbfa0"/></marker><marker id="pb-w" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#e3896f"/></marker></defs></svg>
 
   <nav class="nav">
     <div class="nav-inner">
@@ -47,7 +48,6 @@
   <header class="hero ext-hero">
     <div class="wrap hero-grid">
       <div>
-        <div class="eyebrow">Browser extension · Free</div>
         <h1>The universe ain't giving you signs.<br><em>They're targeted ads, dear.</em></h1>
         <p class="hero-sub">
           PrivacyBrew for your browser shows who sees your visit to each
@@ -60,21 +60,18 @@
         </div>
         <div class="hero-trust">
           <span>
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/></svg>
             No account
           </span>
           <span>
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l22 22M8.5 8.5A5 5 0 0012 17a4.9 4.9 0 002.9-.9M16.7 16.7A9.4 9.4 0 0112 18c-6 0-10-6-10-6a17.6 17.6 0 015-5.5M9.5 4.3A9 9 0 0112 4c6 0 10 6 10 6a17.7 17.7 0 01-3.1 3.6"/></svg>
             No analytics
           </span>
           <span>
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
             Your data stays in your browser
           </span>
         </div>
       </div>
       <div class="ext-shot">
-        <img src="assets/img/extension/popup-home.png" width="380" height="580"
+        <img src="assets/img/extension/popup-home.png?v=20261111" width="380" height="580"
              alt="PrivacyBrew extension popup for a test page: trackers, ads, scripts, cookies and fingerprinting cards.">
         <p class="ext-shot-note">The extension on a test page</p>
       </div>
@@ -84,71 +81,39 @@
   <section id="what">
     <div class="wrap">
       <div class="section-head reveal">
-        <div class="eyebrow">What it does</div>
         <h2>A privacy report card for each website.</h2>
         <p>Open the extension on any website. You see who saw your visit, and what PrivacyBrew stopped.</p>
       </div>
       <div class="ext-gallery reveal">
         <figure>
-          <img src="assets/img/extension/popup-home.png" width="380" height="580" loading="lazy"
+          <img src="assets/img/extension/popup-home.png?v=20261111" width="380" height="580" loading="lazy"
                alt="Home: one card each for trackers, ads, scripts, cookies and fingerprinting.">
           <figcaption>Home: the numbers for this website</figcaption>
         </figure>
         <figure>
-          <img src="assets/img/extension/popup-detail-trackers.png" width="380" height="580" loading="lazy"
+          <img src="assets/img/extension/popup-detail-trackers.png?v=20261111" width="380" height="580" loading="lazy"
                alt="Trackers: each company, its category, and if PrivacyBrew blocked it.">
           <figcaption>Details: which companies, and what they do</figcaption>
         </figure>
         <figure>
-          <img src="assets/img/extension/popup-settings.png" width="380" height="580" loading="lazy"
+          <img src="assets/img/extension/popup-settings.png?v=20261111" width="380" height="580" loading="lazy"
                alt="Settings: switches for trackers, ads, cookie pop-ups and privacy requests.">
           <figcaption>Settings: one switch for each feature</figcaption>
         </figure>
       </div>
-      <div class="bento">
-        <div class="card span-2 reveal">
-          <div class="card-header">
-            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div>
-            <h3>Report card</h3>
-          </div>
-          <p>Trackers, ads, outside scripts, cookies and fingerprinting. Each with a short line about what it means.</p>
-        </div>
-        <div class="card span-2 reveal">
-          <div class="card-header">
-            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg></div>
-            <h3>Blocks trackers and ads</h3>
-          </div>
-          <p>Known trackers and ads do not load. Pages often load faster.</p>
-        </div>
-        <div class="card span-2 reveal">
-          <div class="card-header">
-            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 109 9 4 4 0 01-4-4 4 4 0 01-4-4z"/><path d="M8.5 11h.01M12 15h.01M15 12h.01"/></svg></div>
-            <h3>Rejects cookie pop-ups</h3>
-          </div>
-          <p>It selects "Reject all" or keeps only necessary cookies. It never selects "Accept all".</p>
-        </div>
-        <div class="card span-3 reveal">
-          <div class="card-header">
-            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H8l-4 4z"/><path d="M9 10h6"/></svg></div>
-            <h3>Asks websites not to sell your data</h3>
-          </div>
-          <p>It sends Global Privacy Control to each website. In some US states, websites must obey it.</p>
-        </div>
-        <div class="card span-3 reveal">
-          <div class="card-header">
-            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h10M4 12h16M4 17h7"/><circle cx="17" cy="7" r="2"/><circle cx="14" cy="17" r="2"/></svg></div>
-            <h3>You stay in control</h3>
-          </div>
-          <p>Is a website broken? Turn off blocking for that website only. Each feature has its own switch.</p>
-        </div>
-      </div>
+      <dl class="ext-list reveal">
+        <div><dt>Report card</dt><dd>Trackers, ads, outside scripts, cookies and fingerprinting. Each with a short line about what it means.</dd></div>
+        <div><dt>Blocks trackers and ads</dt><dd>Known trackers and ads do not load. Fewer requests leave your browser.</dd></div>
+        <div><dt>Rejects cookie pop-ups</dt><dd>It selects "Reject all" or keeps only necessary cookies. It never selects "Accept all".</dd></div>
+        <div><dt>Asks websites not to sell your data</dt><dd>It sends Global Privacy Control to each website. In some US states, websites must obey it.</dd></div>
+        <div><dt>You stay in control</dt><dd>Is a website broken? Turn off blocking for that website only. Each feature has its own switch.</dd></div>
+      </dl>
     </div>
   </section>
 
   <section id="how" class="statement">
     <div class="wrap">
       <div class="section-head reveal">
-        <div class="eyebrow">How it works</div>
         <h2>All checks happen in your browser.</h2>
       </div>
       <div class="ba glass reveal" data-ba data-state="after"
@@ -164,7 +129,7 @@
         <svg class="dg" viewBox="0 0 400 240" role="group" aria-labelledby="ext-how-desc">
           <g class="part p1"><rect class="n " x="4" y="82" width="92" height="56" rx="12" fill="url(#pb-node)"/><text class="t" x="50" y="106">Website</text><text class="ts" x="50" y="123">you open</text></g>
           <g class="ba-view ba-before"><path class="ln ln-w flow" d="M100 110 C180 110 190 62 256 62" marker-end="url(#pb-w)"/><path class="ln ln-w flow" d="M100 110 C180 110 190 158 256 158" marker-end="url(#pb-w)"/><rect class="n n-w" x="262" y="36" width="134" height="52" rx="12" fill="url(#pb-node)"/><text class="t" x="329" y="58">Trackers</text><text class="ts tw" x="329" y="75">record your visit</text><rect class="n n-w" x="262" y="132" width="134" height="52" rx="12" fill="url(#pb-node)"/><text class="t" x="329" y="154">Ads</text><text class="ts tw" x="329" y="171">follow you</text></g>
-          <g class="ba-view ba-after"><g class="part p2"><line class="ln flow" x1="100" y1="110" x2="122" y2="110" marker-end="url(#pb-a)"/></g><g class="part p3"><g class="dg-node" role="button" tabindex="0" aria-pressed="true" aria-label="PrivacyBrew, in your browser" data-node="pb" data-step="1" data-title="PrivacyBrew" data-text="A tracker list and an ad list ship inside the extension. Nothing is looked up online."><rect class="n n-t" x="128" y="66" width="108" height="88" rx="14" fill="url(#pb-node)"/><text class="t tb" x="182" y="106">PrivacyBrew</text><text class="ts" x="182" y="124">in your browser</text></g></g><g class="part p4"><path class="ln ln-t flow" d="M240 110 C262 110 258 46 280 46" marker-end="url(#pb-t)"/><path class="ln ln-t flow" d="M240 110 H280" marker-end="url(#pb-t)"/><path class="ln ln-t flow" d="M240 110 C262 110 258 178 280 178" marker-end="url(#pb-t)"/></g><g class="part p5"><g class="dg-node" role="button" tabindex="0" aria-pressed="false" aria-label="Trackers, ads: blocked" data-node="trk" data-step="2" data-title="Trackers, ads: blocked" data-text="Known trackers and ads do not load. Pages often load faster."><rect class="n " x="286" y="24" width="110" height="44" rx="10" fill="url(#pb-node)"/><text class="t t-13" x="341" y="43">Trackers, ads</text><text class="ts tt" x="341" y="58">blocked</text></g></g><g class="part p6"><g class="dg-node" role="button" tabindex="0" aria-pressed="false" aria-label="Cookie pop-up: rejected" data-node="pop" data-step="2" data-title="Cookie pop-up: rejected" data-text="It selects &quot;Reject all&quot; or keeps only necessary cookies. It never selects &quot;Accept all&quot;."><rect class="n " x="286" y="90" width="110" height="44" rx="10" fill="url(#pb-node)"/><text class="t t-13" x="341" y="109">Cookie pop-up</text><text class="ts tt" x="341" y="124">rejected</text></g></g><g class="part p7"><g class="dg-node" role="button" tabindex="0" aria-pressed="false" aria-label="Do not sell: request sent" data-node="gpc" data-step="2" data-title="Do not sell: request sent" data-text="It sends Global Privacy Control to each website. In some US states, websites must obey it."><rect class="n " x="286" y="156" width="110" height="44" rx="10" fill="url(#pb-node)"/><text class="t t-13" x="341" y="175">Do not sell</text><text class="ts tt" x="341" y="190">request sent</text></g></g><g class="part p8"><line class="ln flow" x1="182" y1="158" x2="182" y2="180" marker-end="url(#pb-a)"/><g class="dg-node" role="button" tabindex="0" aria-pressed="false" aria-label="Report card, for you only" data-node="rc" data-step="3" data-title="Report card" data-text="The report card shows what happened. Only you see it. It resets when you open a new page."><rect class="n n-a" x="122" y="186" width="120" height="48" rx="12" fill="url(#pb-node)"/><text class="t t-13 tb" x="182" y="207">Report card</text><text class="ts" x="182" y="223">for you only</text></g></g></g>
+          <g class="ba-view ba-after"><g class="part p2"><line class="ln flow" x1="100" y1="110" x2="122" y2="110" marker-end="url(#pb-a)"/></g><g class="part p3"><g class="dg-node" role="button" tabindex="0" aria-pressed="true" aria-label="PrivacyBrew, in your browser" data-node="pb" data-step="1" data-title="PrivacyBrew" data-text="A tracker list and an ad list ship inside the extension. Nothing is looked up online."><rect class="n n-t" x="128" y="66" width="108" height="88" rx="14" fill="url(#pb-node)"/><text class="t tb" x="182" y="106">PrivacyBrew</text><text class="ts" x="182" y="124">in your browser</text></g></g><g class="part p4"><path class="ln ln-t flow" d="M240 110 C262 110 258 46 280 46" marker-end="url(#pb-t)"/><path class="ln ln-t flow" d="M240 110 H280" marker-end="url(#pb-t)"/><path class="ln ln-t flow" d="M240 110 C262 110 258 178 280 178" marker-end="url(#pb-t)"/></g><g class="part p5"><g class="dg-node" role="button" tabindex="0" aria-pressed="false" aria-label="Trackers, ads: blocked" data-node="trk" data-step="2" data-title="Trackers, ads: blocked" data-text="Known trackers and ads do not load. Fewer requests leave your browser."><rect class="n " x="286" y="24" width="110" height="44" rx="10" fill="url(#pb-node)"/><text class="t t-13" x="341" y="43">Trackers, ads</text><text class="ts tt" x="341" y="58">blocked</text></g></g><g class="part p6"><g class="dg-node" role="button" tabindex="0" aria-pressed="false" aria-label="Cookie pop-up: rejected" data-node="pop" data-step="2" data-title="Cookie pop-up: rejected" data-text="It selects &quot;Reject all&quot; or keeps only necessary cookies. It never selects &quot;Accept all&quot;."><rect class="n " x="286" y="90" width="110" height="44" rx="10" fill="url(#pb-node)"/><text class="t t-13" x="341" y="109">Cookie pop-up</text><text class="ts tt" x="341" y="124">rejected</text></g></g><g class="part p7"><g class="dg-node" role="button" tabindex="0" aria-pressed="false" aria-label="Do not sell: request sent" data-node="gpc" data-step="2" data-title="Do not sell: request sent" data-text="It sends Global Privacy Control to each website. In some US states, websites must obey it."><rect class="n " x="286" y="156" width="110" height="44" rx="10" fill="url(#pb-node)"/><text class="t t-13" x="341" y="175">Do not sell</text><text class="ts tt" x="341" y="190">request sent</text></g></g><g class="part p8"><line class="ln flow" x1="182" y1="158" x2="182" y2="180" marker-end="url(#pb-a)"/><g class="dg-node" role="button" tabindex="0" aria-pressed="false" aria-label="Report card, for you only" data-node="rc" data-step="3" data-title="Report card" data-text="The report card shows what happened. Only you see it. It resets when you open a new page."><rect class="n n-a" x="122" y="186" width="120" height="48" rx="12" fill="url(#pb-node)"/><text class="t t-13 tb" x="182" y="207">Report card</text><text class="ts" x="182" y="223">for you only</text></g></g></g>
         </svg>
         <div class="dg-detail" aria-live="polite">
           <h3 data-detail-title>PrivacyBrew</h3>
@@ -201,7 +166,6 @@
   <section id="why">
     <div class="wrap">
       <div class="section-head reveal">
-        <div class="eyebrow">Why we built it</div>
         <h2>Ads follow you because trackers follow you.</h2>
         <p>Trackers on many websites record your visits. Ad companies use that record to choose the ads that you see.
         Most blockers show only a number. PrivacyBrew also tells you what each tracker is and why it is important.</p>
@@ -209,7 +173,6 @@
       <div class="compare-grid reveal">
         <div>
           <div class="compare-col-label expected">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
             What it does not do
           </div>
           <div class="compare-card"><p>It does not send your data anywhere. It has no account and no analytics.</p></div>
@@ -217,7 +180,6 @@
         </div>
         <div>
           <div class="compare-col-label flag">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86l-8.16 14A2 2 0 004 21h16a2 2 0 001.87-3.14l-8.16-14a2 2 0 00-3.44 0z"/><path d="M12 9v4M12 17h.01"/></svg>
             Its limits
           </div>
           <div class="compare-card flag"><p>It finds known trackers and ads only. It cannot block all video ads.</p></div>
@@ -231,7 +193,6 @@
 
   <section id="cta" class="cta">
     <div class="wrap reveal">
-      <div class="eyebrow">Chrome, Edge, Brave, Firefox · Free</div>
       <h2>Get PrivacyBrew for your browser.</h2>
       <p>Free on the Chrome Web Store and Firefox Add-ons. Works in Chrome, Edge, Brave and Firefox. Firefox on Android works too.</p>
       <div class="hero-actions cta-actions">

@@ -4,14 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'">
 <meta name="description" content="PrivacyBrew's Privacy Policy: no accounts, no analytics, no ads, no INTERNET permission. Everything is read and shown entirely on your device.">
 <link rel="icon" type="image/png" href="assets/img/favicon-32.png">
 <link rel="apple-touch-icon" href="assets/img/favicon-180.png">
-<link rel="stylesheet" href="assets/css/style.css?v=20261103a">
+<link rel="stylesheet" href="assets/css/style.css?v=20261111a">
 <link rel="canonical" href="https://privacybrew.app/privacy.html">
 <meta property="og:site_name" content="PrivacyBrew">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Privacy Policy — PrivacyBrew">
+<meta property="og:title" content="Privacy Policy | PrivacyBrew">
 <meta property="og:description" content="PrivacyBrew's Privacy Policy: no accounts, no analytics, no ads, no INTERNET permission. Everything is read and shown entirely on your device.">
 <meta property="og:url" content="https://privacybrew.app/privacy.html">
 <meta property="og:image" content="https://privacybrew.app/assets/img/og-image.png">
@@ -19,7 +20,7 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="PrivacyBrew logo and name">
 <meta name="twitter:card" content="summary_large_image">
-<title>Privacy Policy — PrivacyBrew</title>
+<title>Privacy Policy | PrivacyBrew</title>
 </head>
 <body>
 
@@ -48,7 +49,7 @@
       <a class="legal-back" href="/">← PrivacyBrew</a>
       <h1>Privacy Policy</h1>
       <div class="legal-meta">
-        <div><strong>Effective date:</strong> November 3, 2026</div>
+        <div><strong>Effective date:</strong> November 9, 2026</div>
         <div><strong>App:</strong> PrivacyBrew (package <code>com.brewlabs.privacybrew</code>)</div>
         <div><strong>Developer:</strong> BrewLabs</div>
         <div><strong>Contact:</strong> <a href="mailto:privacybrew@protonmail.com">privacybrew@protonmail.com</a></div>
@@ -56,7 +57,7 @@
 
       <div class="tldr">
         <strong>Short version:</strong> PrivacyBrew doesn't collect your
-        data. No accounts, no ads, no analytics — and no INTERNET
+        data. No accounts, no ads, no analytics, and no INTERNET
         permission, so it's technically incapable of sending anything off
         your device. The rest of this page explains that permission by
         permission, so you don't have to take our word for it.
@@ -64,10 +65,10 @@
 
       <h2>What PrivacyBrew reads, and why</h2>
       <p>PrivacyBrew reads information Android already exposes about your
-      installed apps — their names, permissions, and optionally when they
-      were last used — and displays it in plain language, entirely on your
+      installed apps (their names, permissions, and optionally when they
+      were last used) and displays it in plain language, entirely on your
       device. It requests three permissions:</p>
-      <p><strong>QUERY_ALL_PACKAGES</strong> — lets PrivacyBrew list your
+      <p><strong>QUERY_ALL_PACKAGES</strong>: lets PrivacyBrew list your
       installed apps and read their already-granted permissions via
       Android's PackageManager. By default this is a plain metadata read:
       each app's name, permissions, listed components, install date, install
@@ -79,20 +80,20 @@
       reads the actual installed code of other apps directly from your
       device's storage, to detect tracker/ad SDKs invisible to the
       metadata-only method above. This never runs automatically or in the
-      background — only when you enable it and tap "Scan Now," or when you
+      background. It runs only when you enable it and tap "Scan Now," or when you
       tap "Run deep scan" in the pop-up before a quiz, which enables it and
       starts it. If you leave the app during a scan, it can keep going
       until it finishes or Android stops it. The only thing kept is a small list of detected SDK names per app; none of
       the other app's actual code, resources, or any other data is copied,
       stored, or sent anywhere.</p>
-      <p><strong>PACKAGE_USAGE_STATS</strong> (optional, off by default) —
+      <p><strong>PACKAGE_USAGE_STATS</strong> (optional, off by default):
       powers two opt-in features: showing when you last opened each app,
       and, for the privacy quiz, how much time you spend in apps (your
       total time in social media apps over the last 7 days). Android
       requires granting this explicitly in system Settings, and you can
       revoke it at any time; every other part of the app works the same
       without it. Read on-device only, never transmitted.</p>
-      <p><strong>QUERY_ADVANCED_PROTECTION_MODE</strong> — lets PrivacyBrew
+      <p><strong>QUERY_ADVANCED_PROTECTION_MODE</strong>: lets PrivacyBrew
       check if Android's Advanced Protection mode is on. Android 16 and newer
       have this mode. Android grants this permission at install, with no
       prompt. PrivacyBrew gets only a yes or no answer, on your device.</p>
@@ -122,34 +123,34 @@
       the date of your last security update. The quiz state item below shows
       the little that it keeps.</p>
       <p>PrivacyBrew does not request INTERNET, location, camera,
-      microphone, contacts, storage, or anything else — there was no
+      microphone, contacts, storage, or anything else. There was no
       legitimate use for any of them, so we didn't ask.</p>
 
       <h2>What PrivacyBrew doesn't do</h2>
       <ul>
-        <li><strong>No account or sign-in</strong> — nothing to register for, nothing tied to your identity.</li>
+        <li><strong>No account or sign-in.</strong> Nothing to register for, nothing tied to your identity.</li>
         <li><strong>No analytics, telemetry, or crash reporting.</strong> No third-party SDK reports back to us or anyone else.</li>
-        <li><strong>No advertising</strong> — no ad SDKs, no ad IDs used, no targeting.</li>
+        <li><strong>No advertising.</strong> No ad SDKs, no ad IDs used, no targeting.</li>
         <li><strong>No off-device data storage.</strong> Most screens are
         recomputed live from Android's current state every time you open them. A
         few small things are kept locally on your device so the app doesn't lose
         useful context between opens:
           <ul>
-            <li>UI preferences — theme, text size, and whether you've dismissed the intro or tab tour</li>
-            <li>Privacy quiz state — whether you took or skipped the first quiz, the date of the last quiz, the dates you last answered the Usage access and Deep Tracker Scan pop-ups, whether the weekly quiz is on, the date each question was last asked (so it does not come back for 6 weeks), and for some phone questions the last value, so a later quiz can show "Last time / Now" (a number of apps, the screen timeout, the security update age in months, or whether a setting was on). No app names, no screen time, and no answers or scores are kept</li>
+            <li>UI preferences: theme, text size, and whether you've dismissed the intro or tab tour</li>
+            <li>Privacy quiz state: whether you took or skipped the first quiz, the date of the last quiz, the dates you last answered the Usage access and Deep Tracker Scan pop-ups, whether the weekly quiz is on, the date each question was last asked (so it does not come back for 6 weeks), and for some phone questions the last value, so a later quiz can show "Last time / Now" (a number of apps, the screen timeout, the security update age in months, or whether a setting was on). No app names, no screen time, and no answers or scores are kept</li>
             <li>Access notices you've dismissed, so a reviewed item doesn't keep reappearing (Settings → Dismissed Access)</li>
             <li>A snapshot of each app's last-seen permissions, used only to flag what's new since your last visit</li>
             <li>Up to 90 days of daily tracker/sensitive-permission totals, used only for the Home screen trend line</li>
-            <li>If you tell PrivacyBrew you've reset your Android Advertising ID (Settings): the self-reported date, just so PrivacyBrew can remind you it's been a while — the reset itself always happens in Android's own system Settings, never inside PrivacyBrew</li>
-            <li>If you tell PrivacyBrew you've submitted a California DROP request or a request to one of the individual data-broker sites in the Opt-Out tab: the self-reported submission date (and, optionally for DROP, your own tracking ID) — the request itself always happens on that broker's or California's own site, never inside PrivacyBrew, and is never verified automatically, only self-reported by you</li>
-            <li>If you've enabled the opt-in Deep Tracker Scan feature (off by default): a cache of which tracker SDKs were found in each scanned app's actual code, per app version, so an unchanged app isn't re-scanned every time — turning the feature off stops it being used immediately, and "Clear cached results" deletes it entirely</li>
+            <li>If you tell PrivacyBrew you've deleted or reset your Android Advertising ID (Opt-Out): which one you chose and the self-reported date, just so PrivacyBrew can show your status and, after a reset, suggest deleting it. Deleting or resetting always happens in Android's own system Settings, never inside PrivacyBrew. PrivacyBrew never reads your advertising ID; it only shows when another app declares the permission that lets it read the ID</li>
+            <li>If you tell PrivacyBrew you've submitted a California DROP request or a request to one of the individual data-broker sites in the Opt-Out tab: the self-reported submission date (and, optionally for DROP, your own tracking ID). The request itself always happens on that broker's or California's own site, never inside PrivacyBrew, and is never verified automatically, only self-reported by you</li>
+            <li>If you've enabled the opt-in Deep Tracker Scan feature (off by default): a cache of which tracker SDKs were found in each scanned app's actual code, per app version, so an unchanged app isn't re-scanned every time. Turning the feature off stops it being used immediately, and "Clear cached results" deletes it entirely</li>
           </ul>
-          None of it is transmitted anywhere, shared with anyone, or readable by anyone but you — uninstalling the app removes all of it.
+          None of it is transmitted anywhere, shared with anyone, or readable by anyone but you. Uninstalling the app removes all of it.
         </li>
       </ul>
 
       <h2>External links</h2>
-      <p>A few places in the app open an external link when you tap it —
+      <p>A few places in the app open an external link when you tap it,
       for example, a data broker's opt-out page, or an app's Play Store
       "Data safety" listing. Nothing is fetched automatically; it opens in
       your browser or the Play Store app, under that site's own privacy
@@ -162,7 +163,7 @@
       motion, the Browser Privacy Check and the feedback page. It has no
       analytics or tracking pixels, and it sets no cookies on this website.
       Some features use another service. The Browser Privacy Check and
-      Feedback form sections below show when this happens. It's hosted on GitHub Pages, which — like any web host —
+      Feedback form sections below show when this happens. It's hosted on GitHub Pages, which, like any web host,
       automatically logs basic connection data (e.g. IP address, browser
       type, request timestamp) as part of serving the page; we don't
       control or access those logs beyond what GitHub's own hosting
@@ -172,14 +173,14 @@
       which also sees basic connection data for that redirect.</p>
 
       <h2>Data retention</h2>
-      <p>PrivacyBrew keeps no logs, databases, or files on our servers —
+      <p>PrivacyBrew keeps no logs, databases, or files on our servers:
       we don't have any. The on-device items listed above stay only on
       your device, only until you clear the app's data or uninstall it,
       at which point 100% of it is gone.</p>
 
       <h2>Children's privacy</h2>
       <p>PrivacyBrew isn't directed at children and doesn't knowingly
-      collect information from anyone, children included — it doesn't
+      collect information from anyone, children included. It doesn't
       collect information from anyone at all.</p>
 
       <h2>Changes to this policy</h2>
@@ -226,7 +227,9 @@
       website, the extension keeps the website name and the script address in
       your browser until you select "Undo". If you block or allow all outside
       scripts on a website, it keeps the website name and that choice in the
-      same way. When you turn it on, the extension sends
+      same way. If you ask the extension to clear cookies, it reads the list of
+      cookies for those websites only to remove them. It does not keep or send
+      cookie names or values. When you turn it on, the extension sends
       "do not sell or share my data" (Global Privacy Control) or "do not track"
       to the websites that you visit, and it answers cookie pop-ups for you. It
       never selects "Accept all".</p>

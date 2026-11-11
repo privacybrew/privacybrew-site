@@ -1,6 +1,6 @@
-// PrivacyBrew site — small, dependency-free interaction layer.
+// PrivacyBrew site: small, dependency-free interaction layer.
 // Two jobs only: fade/slide sections into view on scroll, and toggle the
-// mobile nav. No frameworks, no analytics, nothing phoning home — same
+// mobile nav. No frameworks, no analytics, nothing phoning home. Same
 // spirit as the app itself.
 
 // Lets the CSS hide diagram parts until they rise into view. Without JS
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const reveal = (el) => el.classList.add("in");
 
   // Anything already in (or near) the viewport on load should just be
-  // visible immediately — no fade delay, and no dependency on the
+  // visible immediately: no fade delay, and no dependency on the
   // IntersectionObserver callback ever firing for it.
   revealEls.forEach((el) => {
     const rect = el.getBoundingClientRect();
@@ -35,12 +35,12 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!el.classList.contains("in")) io.observe(el);
     });
   } else {
-    // No IntersectionObserver support — just show everything.
+    // No IntersectionObserver support: just show everything.
     revealEls.forEach(reveal);
   }
 
   // Safety net: never let content stay invisible because of a browser
-  // quirk or an observer that doesn't fire — force everything visible
+  // quirk or an observer that doesn't fire. Force everything visible
   // shortly after load no matter what.
   window.setTimeout(() => revealEls.forEach(reveal), 2000);
 

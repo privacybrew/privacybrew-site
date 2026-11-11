@@ -8,7 +8,7 @@
 <meta name="description" content="PrivacyBrew shows what your Android apps can access, in simple words. All checks stay on your phone. No accounts, no analytics, no ads, no internet permission.">
 <link rel="icon" type="image/png" href="assets/img/favicon-32.png">
 <link rel="apple-touch-icon" href="assets/img/favicon-180.png">
-<link rel="stylesheet" href="assets/css/style.css?v=20261103a">
+<link rel="stylesheet" href="assets/css/style.css?v=20261111a">
 <link rel="canonical" href="https://privacybrew.app/">
 <meta property="og:site_name" content="PrivacyBrew">
 <meta property="og:type" content="website">
@@ -45,7 +45,7 @@
   </nav>
 
   <main>
-  <header class="wrap home-hero">
+  <header class="wrap home-hero hero-orbit">
     <div>
       <h1>See what's brewing in your <span class="home-mark">data</span>.</h1>
       <p class="home-lede">PrivacyBrew scans the apps on your Android phone and tells you, in plain words, what each one can reach.</p>
@@ -60,23 +60,45 @@
       </ul>
     </div>
 
-    <div class="home-scope" role="img" aria-label="Radar animation. It finds Location, Camera, Contacts, Microphone and Local network.">
-      <svg viewBox="0 0 100 100" aria-hidden="true" focusable="false">
-        <circle class="scope-disc" cx="50" cy="50" r="47"/>
-        <g class="scope-rings"><circle cx="50" cy="50" r="15.5"/><circle cx="50" cy="50" r="26"/><circle cx="50" cy="50" r="36.5"/></g>
-        <g class="scope-cross"><line x1="50" y1="3" x2="50" y2="40"/><line x1="50" y1="60" x2="50" y2="97"/><line x1="3" y1="50" x2="40" y2="50"/><line x1="60" y1="50" x2="97" y2="50"/></g>
-        <circle class="scope-rim" cx="50" cy="50" r="46.6"/>
-      </svg>
-      <div class="scope-sweep"></div>
-      <img class="scope-core" src="assets/img/logo-mark.png" alt="">
-      <div class="blip b1"><i></i>Location</div>
-      <div class="blip b2 warn"><i></i>Local network</div>
-      <div class="blip b3"><i></i>Camera</div>
-      <div class="blip b4 left"><i></i>Microphone</div>
-      <div class="blip b5 left"><i></i>Contacts</div>
-      <div class="scope-readout">scan: <span>71 apps</span> · sent: <span>0 bytes</span></div>
+    <div class="orbit-stage" role="img" aria-label="Three rings show where your data goes: your phone, your browser and each website. The centre shows 143 trackers found in 71 apps on a test phone.">
+      <div class="ring r1">
+        <div class="spin">
+          <div class="chip c1"><span><i></i>Location</span></div>
+          <div class="chip c2 warn"><span><i></i>Local network</span></div>
+          <div class="chip c3"><span><i></i>Camera</span></div>
+          <div class="chip c4"><span><i></i>Trackers</span></div>
+        </div>
+      </div>
+      <div class="ring r2">
+        <div class="spin">
+          <div class="chip c5"><span><i></i>IP address</span></div>
+          <div class="chip c6"><span><i></i>Time zone</span></div>
+          <div class="chip c7"><span><i></i>Screen size</span></div>
+        </div>
+      </div>
+      <div class="ring r3">
+        <div class="spin">
+          <div class="chip c8 warn"><span><i></i>Cookies</span></div>
+          <div class="chip c9"><span><i></i>Ad scripts</span></div>
+          <div class="chip c10 warn"><span><i></i>Fingerprinting</span></div>
+        </div>
+      </div>
+      <div class="orbit-core">
+        <div class="core-sweep"></div>
+        <b class="core-count" data-count="143">143</b>
+        <span class="core-label">trackers found</span>
+      </div>
+      <div class="ring-tags" aria-hidden="true"><span class="t1">your phone</span><span class="t2">your browser</span><span class="t3">each website</span></div>
+      <div class="scope-readout">test phone: <span>71 apps</span> · sent: <span>0 bytes</span></div>
     </div>
   </header>
+
+  <section class="home-ticker" aria-label="Examples of code names and what they mean">
+    <div class="ticker-track">
+      <ul><li><code>ACCESS_FINE_LOCATION</code><span aria-hidden="true">→</span>where you are, to a few metres</li><li><code>NEARBY_WIFI_DEVICES</code><span aria-hidden="true">→</span>other devices on your Wi-Fi</li><li><code>READ_CONTACTS</code><span aria-hidden="true">→</span>the people you know</li><li><code>RECORD_AUDIO</code><span aria-hidden="true">→</span>your microphone</li><li><code>CAMERA</code><span aria-hidden="true">→</span>your camera</li><li><code>com.google.firebase.analytics</code><span aria-hidden="true">→</span>counts what you do in the app</li><li><code>QUERY_ALL_PACKAGES</code><span aria-hidden="true">→</span>every app on your phone</li><li><code>BODY_SENSORS</code><span aria-hidden="true">→</span>your heart rate</li></ul>
+      <ul aria-hidden="true"><li><code>ACCESS_FINE_LOCATION</code><span aria-hidden="true">→</span>where you are, to a few metres</li><li><code>NEARBY_WIFI_DEVICES</code><span aria-hidden="true">→</span>other devices on your Wi-Fi</li><li><code>READ_CONTACTS</code><span aria-hidden="true">→</span>the people you know</li><li><code>RECORD_AUDIO</code><span aria-hidden="true">→</span>your microphone</li><li><code>CAMERA</code><span aria-hidden="true">→</span>your camera</li><li><code>com.google.firebase.analytics</code><span aria-hidden="true">→</span>counts what you do in the app</li><li><code>QUERY_ALL_PACKAGES</code><span aria-hidden="true">→</span>every app on your phone</li><li><code>BODY_SENSORS</code><span aria-hidden="true">→</span>your heart rate</li></ul>
+    </div>
+  </section>
 
   <section id="report" class="home-section">
     <div class="wrap">
@@ -178,5 +200,6 @@
   </footer>
 
   <script src="assets/js/main.js?v=20261019a"></script>
+  <script src="assets/js/hero-orbit.js?v=20261110b"></script>
 </body>
 </html>

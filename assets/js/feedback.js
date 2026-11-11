@@ -18,7 +18,40 @@
   }
 
   const frame = document.getElementById("feedback-frame");
-  frame.src = `https://tally.so/embed/${FORM_ID}?${params.toString()}`;
+  const status = document.getElementById("feedback-status");
+  const statusText = document.getElementById("feedback-status-text");
+  const statusFix = document.getElementById("feedback-status-fix");
+  let formReady = false;
+  let failTimer;
+
+  // The form is hidden until Tally answers, so nobody looks at an empty box.
+  // If it does not answer in time, say why and give a way forward.
+  function showProblem(message) {
+    if (formReady) return;
+    statusText.textContent = message;
+    statusFix.hidden = false;
+  }
+  function loadForm() {
+    clearTimeout(failTimer);
+    statusText.textContent = "Loading the form. This takes a few seconds.";
+    statusFix.hidden = true;
+    if (!navigator.onLine) {
+      showProblem("You are offline, so the form cannot load. Connect to the internet and try again.");
+      return;
+    }
+    frame.src = `https://tally.so/embed/${FORM_ID}?${params.toString()}&t=${Date.now()}`;
+    failTimer = setTimeout(() => showProblem("The form did not load."), 12000);
+  }
+  function formLoaded() {
+    if (formReady) return;
+    formReady = true;
+    clearTimeout(failTimer);
+    status.hidden = true;
+    frame.classList.remove("waiting");
+  }
+  document.getElementById("feedback-retry").addEventListener("click", loadForm);
+  window.addEventListener("online", () => { if (!formReady) loadForm(); });
+  loadForm();
 
   const labels = { v: "Extension version", browser: "Browser" };
   const box = document.getElementById("feedback-shared");
@@ -38,6 +71,7 @@
   // Tally reports its height so the form does not need its own scroll bar.
   window.addEventListener("message", (e) => {
     if (e.origin !== "https://tally.so" || typeof e.data !== "string") return;
+    formLoaded();
     try {
       const msg = JSON.parse(e.data);
       if (msg.event === "Tally.FormHeightChanged" && msg.payload && msg.payload.height) {
