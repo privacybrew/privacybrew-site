@@ -62,13 +62,20 @@
     const ms = 1600;
     el.textContent = "0";
     setTimeout(() => {
-      const t0 = performance.now();
+      // Start the clock on the first frame. A frame time can be a little
+      // earlier than a time read before it, which would make p negative.
+      let t0 = null;
+      let done = false;
       const step = (now) => {
-        const p = Math.min(1, (now - t0) / ms);
+        if (done) return;
+        if (t0 === null) t0 = now;
+        const p = Math.max(0, Math.min(1, (now - t0) / ms));
         el.textContent = String(Math.round(target * (1 - Math.pow(1 - p, 3))));
         if (p < 1) requestAnimationFrame(step);
       };
       requestAnimationFrame(step);
+      // If frames stall (background tab, some tools), show the real number anyway.
+      setTimeout(() => { done = true; el.textContent = String(target); }, ms + 300);
     }, 500);
   }
 })();
