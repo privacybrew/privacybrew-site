@@ -8,7 +8,7 @@
 <meta name="description" content="Free tracker and ad blocker for Chrome and Firefox. See a simple report card for each website and reject cookie pop-ups. No account and no analytics.">
 <link rel="icon" type="image/png" href="assets/img/favicon-32.png">
 <link rel="apple-touch-icon" href="assets/img/favicon-180.png">
-<link rel="stylesheet" href="assets/css/style.css?v=20261111a">
+<link rel="stylesheet" href="assets/css/style.css?v=20261114p">
 <link rel="canonical" href="https://privacybrew.app/extension.html">
 <meta property="og:site_name" content="PrivacyBrew">
 <meta property="og:type" content="website">
@@ -56,7 +56,7 @@
         <div class="hero-actions">
           <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/privacybrew-tracker-ad-bl/hdhjekomkdacaliekmmdilaanalclhib" target="_blank" rel="noopener">Add to Chrome</a>
           <a class="btn btn-primary" href="https://addons.mozilla.org/en-US/firefox/addon/privacybrew/" target="_blank" rel="noopener">Add to Firefox</a>
-          <a class="btn btn-ghost" href="#how">See how it works</a>
+          <a class="home-textlink" href="#how">See how it works</a>
         </div>
         <div class="hero-trust">
           <span>
@@ -73,35 +73,31 @@
       <div class="ext-shot">
         <img src="assets/img/extension/popup-home.png?v=20261111" width="380" height="580"
              alt="PrivacyBrew extension popup for a test page: trackers, ads, scripts, cookies and fingerprinting cards.">
-        <p class="ext-shot-note">The extension on a test page</p>
       </div>
     </div>
   </header>
 
   <section id="what">
     <div class="wrap">
-      <div class="section-head reveal">
+      <div class="section-head">
         <h2>A privacy report card for each website.</h2>
         <p>Open the extension on any website. You see who saw your visit, and what PrivacyBrew stopped.</p>
       </div>
-      <div class="ext-gallery reveal">
+      <div class="ext-gallery">
         <figure>
           <img src="assets/img/extension/popup-home.png?v=20261111" width="380" height="580" loading="lazy"
                alt="Home: one card each for trackers, ads, scripts, cookies and fingerprinting.">
-          <figcaption>Home: the numbers for this website</figcaption>
         </figure>
         <figure>
           <img src="assets/img/extension/popup-detail-trackers.png?v=20261111" width="380" height="580" loading="lazy"
                alt="Trackers: each company, its category, and if PrivacyBrew blocked it.">
-          <figcaption>Details: which companies, and what they do</figcaption>
         </figure>
         <figure>
           <img src="assets/img/extension/popup-settings.png?v=20261111" width="380" height="580" loading="lazy"
                alt="Settings: switches for trackers, ads, cookie pop-ups and privacy requests.">
-          <figcaption>Settings: one switch for each feature</figcaption>
         </figure>
       </div>
-      <dl class="ext-list reveal">
+      <dl class="ext-list">
         <div><dt>Report card</dt><dd>Trackers, ads, outside scripts, cookies and fingerprinting. Each with a short line about what it means.</dd></div>
         <div><dt>Blocks trackers and ads</dt><dd>Known trackers and ads do not load. Fewer requests leave your browser.</dd></div>
         <div><dt>Rejects cookie pop-ups</dt><dd>It selects "Reject all" or keeps only necessary cookies. It never selects "Accept all".</dd></div>
@@ -113,10 +109,10 @@
 
   <section id="how" class="statement">
     <div class="wrap">
-      <div class="section-head reveal">
+      <div class="section-head">
         <h2>All checks happen in your browser.</h2>
       </div>
-      <div class="ba glass reveal" data-ba data-state="after"
+      <div class="ba glass" data-ba data-state="after"
            data-before-title="Without PrivacyBrew"
            data-before-text="Trackers on many websites record your visits. Ads follow you because trackers follow you.">
         <div class="ba-head">
@@ -138,21 +134,21 @@
         <p class="dg-hint">Select a box to see what it does.</p>
       </div>
       <div class="steps">
-        <div class="step reveal is-active" data-step-card="1">
+        <div class="step is-active" data-step-card="1">
           <div class="step-header">
             <span class="num">01 · CHECK</span>
             <h3>Compare each request with known lists</h3>
           </div>
           <p>A tracker list and an ad list ship inside the extension. Nothing is looked up online.</p>
         </div>
-        <div class="step reveal" data-step-card="2">
+        <div class="step" data-step-card="2">
           <div class="step-header">
             <span class="num">02 · STOP</span>
             <h3>Block, reject and ask</h3>
           </div>
           <p>Chrome stops matched requests. Cookie pop-ups get "Reject". Each website gets a "do not sell" request.</p>
         </div>
-        <div class="step reveal" data-step-card="3">
+        <div class="step" data-step-card="3">
           <div class="step-header">
             <span class="num">03 · SHOW</span>
             <h3>Tell you in simple words</h3>
@@ -165,12 +161,12 @@
 
   <section id="why">
     <div class="wrap">
-      <div class="section-head reveal">
+      <div class="section-head">
         <h2>Ads follow you because trackers follow you.</h2>
         <p>Trackers on many websites record your visits. Ad companies use that record to choose the ads that you see.
         Most blockers show only a number. PrivacyBrew also tells you what each tracker is and why it is important.</p>
       </div>
-      <div class="compare-grid reveal">
+      <div class="compare-grid">
         <div>
           <div class="compare-col-label expected">
             What it does not do
@@ -186,19 +182,19 @@
           <div class="compare-card flag"><p>Some websites can break. Turn off blocking for that website.</p></div>
         </div>
       </div>
-      <p class="credits reveal">Lists: Disconnect tracker list (CC BY-NC-SA 4.0), EasyList.
+      <p class="credits">Lists: Disconnect tracker list (CC BY-NC-SA 4.0), EasyList.
         Cookie pop-up rules: DuckDuckGo autoconsent (MPL-2.0).</p>
     </div>
   </section>
 
   <section id="cta" class="cta">
-    <div class="wrap reveal">
+    <div class="wrap">
       <h2>Get PrivacyBrew for your browser.</h2>
       <p>Free on the Chrome Web Store and Firefox Add-ons. Works in Chrome, Edge, Brave and Firefox. Firefox on Android works too.</p>
       <div class="hero-actions cta-actions">
         <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/privacybrew-tracker-ad-bl/hdhjekomkdacaliekmmdilaanalclhib" target="_blank" rel="noopener">Add to Chrome</a>
         <a class="btn btn-primary" href="https://addons.mozilla.org/en-US/firefox/addon/privacybrew/" target="_blank" rel="noopener">Add to Firefox</a>
-        <a class="btn btn-ghost" href="/check.html">Check your browser</a>
+        <a class="home-textlink" href="/check.html">Check your browser</a>
       </div>
     </div>
   </section>

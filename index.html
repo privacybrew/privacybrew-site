@@ -8,7 +8,7 @@
 <meta name="description" content="PrivacyBrew shows what your Android apps can access, in simple words. All checks stay on your phone. No accounts, no analytics, no ads, no internet permission.">
 <link rel="icon" type="image/png" href="assets/img/favicon-32.png">
 <link rel="apple-touch-icon" href="assets/img/favicon-180.png">
-<link rel="stylesheet" href="assets/css/style.css?v=20261111a">
+<link rel="stylesheet" href="assets/css/style.css?v=20261114p">
 <link rel="canonical" href="https://privacybrew.app/">
 <meta property="og:site_name" content="PrivacyBrew">
 <meta property="og:type" content="website">
@@ -50,7 +50,7 @@
       <h1>See what's brewing in your <span class="home-mark">data</span>.</h1>
       <p class="home-lede">PrivacyBrew scans the apps on your Android phone and tells you, in plain words, what each one can reach.</p>
       <div class="home-ctas">
-        <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.brewlabs.privacybrew" target="_blank" rel="noopener">Get it on Google Play</a>
+        <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.brewlabs.privacybrew" target="_blank" rel="noopener">Get the app</a>
         <a class="home-textlink" href="#report">Read a sample report</a>
       </div>
       <ul class="home-facts">
@@ -60,7 +60,7 @@
       </ul>
     </div>
 
-    <div class="orbit-stage" role="img" aria-label="Three rings show where your data goes: your phone, your browser and each website. The centre shows 143 trackers found in 71 apps on a test phone.">
+    <div class="orbit-stage" role="img" aria-label="Three rings show where your data goes: your phone, your browser and each website. The centre shows 465 trackers found in 98 apps on a test phone.">
       <div class="ring r1">
         <div class="spin">
           <div class="chip c1"><span><i></i>Location</span></div>
@@ -85,18 +85,18 @@
       </div>
       <div class="orbit-core">
         <div class="core-sweep"></div>
-        <b class="core-count" data-count="143">143</b>
+        <b class="core-count" data-count="465">465</b>
         <span class="core-label">trackers found</span>
       </div>
       <div class="ring-tags" aria-hidden="true"><span class="t1">your phone</span><span class="t2">your browser</span><span class="t3">each website</span></div>
-      <div class="scope-readout">test phone: <span>71 apps</span> · sent: <span>0 bytes</span></div>
+      <div class="scope-readout">test phone: <span>98 apps</span> · sent: <span>0 bytes</span></div>
     </div>
   </header>
 
-  <section class="home-ticker" aria-label="Examples of code names and what they mean">
+  <section class="home-ticker" aria-label="Questions PrivacyBrew answers about your phone">
     <div class="ticker-track">
-      <ul><li><code>ACCESS_FINE_LOCATION</code><span aria-hidden="true">→</span>where you are, to a few metres</li><li><code>NEARBY_WIFI_DEVICES</code><span aria-hidden="true">→</span>other devices on your Wi-Fi</li><li><code>READ_CONTACTS</code><span aria-hidden="true">→</span>the people you know</li><li><code>RECORD_AUDIO</code><span aria-hidden="true">→</span>your microphone</li><li><code>CAMERA</code><span aria-hidden="true">→</span>your camera</li><li><code>com.google.firebase.analytics</code><span aria-hidden="true">→</span>counts what you do in the app</li><li><code>QUERY_ALL_PACKAGES</code><span aria-hidden="true">→</span>every app on your phone</li><li><code>BODY_SENSORS</code><span aria-hidden="true">→</span>your heart rate</li></ul>
-      <ul aria-hidden="true"><li><code>ACCESS_FINE_LOCATION</code><span aria-hidden="true">→</span>where you are, to a few metres</li><li><code>NEARBY_WIFI_DEVICES</code><span aria-hidden="true">→</span>other devices on your Wi-Fi</li><li><code>READ_CONTACTS</code><span aria-hidden="true">→</span>the people you know</li><li><code>RECORD_AUDIO</code><span aria-hidden="true">→</span>your microphone</li><li><code>CAMERA</code><span aria-hidden="true">→</span>your camera</li><li><code>com.google.firebase.analytics</code><span aria-hidden="true">→</span>counts what you do in the app</li><li><code>QUERY_ALL_PACKAGES</code><span aria-hidden="true">→</span>every app on your phone</li><li><code>BODY_SENSORS</code><span aria-hidden="true">→</span>your heart rate</li></ul>
+      <ul><li>Which of your apps has the most trackers?</li><li>How many apps can use your location right now?</li><li>Which apps have you not opened in months?</li><li>Can a person next to you read your lock screen messages?</li><li>Which apps can read your advertising ID?</li><li>How many apps did not come from an app store?</li><li>What does a website learn when you only open it?</li><li>Did an app get new permissions since last month?</li></ul>
+      <ul aria-hidden="true"><li>Which of your apps has the most trackers?</li><li>How many apps can use your location right now?</li><li>Which apps have you not opened in months?</li><li>Can a person next to you read your lock screen messages?</li><li>Which apps can read your advertising ID?</li><li>How many apps did not come from an app store?</li><li>What does a website learn when you only open it?</li><li>Did an app get new permissions since last month?</li></ul>
     </div>
   </section>
 
@@ -109,10 +109,10 @@
           <b>Privacy snapshot</b>
           From a test phone
           <dl>
-            <dt>apps checked</dt><dd>71</dd>
-            <dt>unusual access</dt><dd>4</dd>
-            <dt>trackers found</dt><dd>143</dd>
-            <dt>apps with trackers</dt><dd>47</dd>
+            <dt>apps checked</dt><dd>98</dd>
+            <dt>apps with trackers</dt><dd>75</dd>
+            <dt>trackers found</dt><dd>465</dd>
+            <dt>forgotten apps</dt><dd>67</dd>
             <dt>data sent</dt><dd>none</dd>
           </dl>
         </aside>
@@ -122,6 +122,7 @@
           <li><span class="dot"></span><div><h3>Maps uses your location.</h3><p>A map needs your location to give directions.</p></div><span class="tag">expected</span></li>
           <li><span class="dot"></span><div><h3>An app you have not opened in months still has access.</h3><p>You can remove it or turn off its access.</p></div><span class="tag">forgotten</span></li>
         </ul>
+        <figure class="home-shot"><img src="assets/img/app/home.webp" width="720" height="1516" loading="lazy" alt="The app's Home screen on the test phone: 98 apps scanned, 75 with trackers, 67 forgotten, 1 from outside an app store."></figure>
       </div>
       <p class="home-note">App names are hidden in this example. The rows are examples of what the app shows.</p>
     </div>
@@ -131,10 +132,13 @@
     <div class="wrap">
       <h2>Android gives you code names. We give you sentences.</h2>
       <p class="home-sub">Each permission becomes one short sentence about you.</p>
+      <div class="home-translate-row">
       <div class="home-translate">
         <div class="pair"><div class="raw">android.permission.ACCESS_FINE_LOCATION</div><div class="arrow" aria-hidden="true">→</div><div class="plain">It can see where you are, to a few metres.</div></div>
         <div class="pair"><div class="raw">android.permission.NEARBY_WIFI_DEVICES</div><div class="arrow" aria-hidden="true">→</div><div class="plain">It can find other devices on your Wi-Fi.</div></div>
         <div class="pair"><div class="raw">com.google.firebase.analytics</div><div class="arrow" aria-hidden="true">→</div><div class="plain">A tracker from Google. It counts what you do in the app.</div></div>
+      </div>
+      <figure class="home-shot home-shot--frame"><img src="assets/img/app/detail.webp" width="720" height="1516" loading="lazy" alt="An app's details in PrivacyBrew: what it can access, each item in one plain sentence."></figure>
       </div>
     </div>
   </section>
@@ -168,20 +172,21 @@
       <h2>Your data moves through three places.</h2>
       <p class="home-sub">One tool checks each place. None of them send your data to us.</p>
       <div class="home-path">
-        <div class="stop"><small>your phone</small><h3>Android app</h3><p>See what each app can reach and which trackers are inside it.</p><a href="https://play.google.com/store/apps/details?id=com.brewlabs.privacybrew" target="_blank" rel="noopener">Get it on Google Play</a></div>
-        <div class="stop"><small>your browser</small><h3>Browser Privacy Check</h3><p>See what a website learns when you open it. Free, on this site.</p><a href="/check.html">Start the check</a></div>
-        <div class="stop"><small>each website</small><h3>Browser extension</h3><p>Blocks trackers and ads. Rejects cookie pop-ups. Shows a report card.</p><a href="/extension.html">Get it for Chrome or Firefox</a></div>
+        <div class="stop"><figure class="home-shot"><img src="assets/img/app/my-apps.webp" width="720" height="1516" loading="lazy" alt="My Apps in the Android app: each app with its sensitive access and tracker counts."></figure><small>your phone</small><h3>Android app</h3><p>See what each app can reach and which trackers are inside it.</p><a href="https://play.google.com/store/apps/details?id=com.brewlabs.privacybrew" target="_blank" rel="noopener">Get the app</a></div>
+        <div class="stop"><figure class="home-shot"><img src="assets/img/app/check-card.webp" width="684" height="855" loading="lazy" alt="The Browser Privacy Check: the device, system, browser and time zone a website got when the page opened."></figure><small>your browser</small><h3>Browser Privacy Check</h3><p>See what a website learns when you open it. Free, on this site.</p><a href="/check.html">Start the check</a></div>
+        <div class="stop"><figure class="home-shot"><img src="assets/img/extension/popup-home.png?v=20261111" width="760" height="1160" loading="lazy" alt="The extension popup: trackers, ads, scripts, cookies and fingerprinting for one website."></figure><small>each website</small><h3>Browser extension</h3><p>Blocks trackers and ads. Rejects cookie pop-ups. Shows a report card.</p><a href="/extension.html">Get it for Chrome or Firefox</a></div>
       </div>
     </div>
   </section>
 
   <section id="cta" class="home-section">
     <div class="wrap home-final">
-      <h2>Free on Google Play. No account.</h2>
+      <h2>Free on Google Play, with no account.</h2>
       <div class="home-ctas">
-        <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.brewlabs.privacybrew" target="_blank" rel="noopener">Get it on Google Play</a>
+        <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.brewlabs.privacybrew" target="_blank" rel="noopener">Get the app</a>
         <a class="home-textlink" href="/privacy.html">Read the Privacy Policy</a>
       </div>
+      <figure class="home-shot"><img src="assets/img/app/learn.webp" width="720" height="1516" loading="lazy" alt="The Learn tab: short answers about Android privacy, with no technical words."></figure>
     </div>
   </section>
   </main>
